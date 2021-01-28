@@ -22,21 +22,17 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css'
+          'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'
       },
       {
         rel: 'stylesheet',
         href: '/css/line-awesome.min.css'
       }
     ],
-    script: [
-      {
-        src: 'https://code.jquery.com/jquery-3.5.1.slim.min.js',
-        body: true
-      },
+    script:[
       {
         src:
-          'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js',
+          'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js',
         body: true
       }
     ]
