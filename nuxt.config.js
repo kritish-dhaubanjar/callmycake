@@ -1,46 +1,35 @@
 export default {
-	ssr: false,
+  ssr: false,
   /*
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || "",
     meta: [
-      { charset: 'utf-8' },
+      { charset: "utf-8" },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, shrink-to-fit=no"
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
+        hid: "description",
+        name: "description",
+        content: process.env.npm_package_description || ""
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
-        rel: 'stylesheet',
-        href:
-          'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'
-      },
-      {
-        rel: 'stylesheet',
-        href: '/css/line-awesome.min.css'
+        rel: "stylesheet",
+        href: "/css/line-awesome.min.css"
       }
     ],
-    script:[
-      {
-        src:
-          'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js',
-        body: true
-      }
-    ]
+    script: []
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: "#fff" },
   /*
    ** Global CSS
    */
@@ -58,7 +47,7 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    "@nuxtjs/axios"
   ],
   /*
    ** Axios module configuration
@@ -74,4 +63,4 @@ export default {
      */
     extend(config, ctx) {}
   }
-}
+};
