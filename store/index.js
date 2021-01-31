@@ -14,6 +14,14 @@ export const getters = {
 };
 
 export const mutations = {
+  init(state) {
+    let cart = localStorage.getItem("cart");
+
+    if (cart) {
+      state.cart = JSON.parse(cart);
+    }
+  },
+
   reset(state) {
     state.cake = null;
   },
@@ -31,6 +39,9 @@ export const mutations = {
         qty: 1
       });
     }
+
+    //
+    localStorage.setItem("cart", JSON.stringify(state.cart));
   },
 
   del(state, payload) {
@@ -38,6 +49,7 @@ export const mutations = {
     if (index > -1) {
       state.cart.splice(index, 1);
     }
+    localStorage.setItem("cart", JSON.stringify(state.cart));
   },
 
   inc(state, payload) {
@@ -45,6 +57,7 @@ export const mutations = {
     if (index > -1) {
       state.cart[index].qty += 1;
     }
+    localStorage.setItem("cart", JSON.stringify(state.cart));
   },
 
   dec(state, payload) {
@@ -54,10 +67,12 @@ export const mutations = {
         state.cart[index].qty -= 1;
       }
     }
+    localStorage.setItem("cart", JSON.stringify(state.cart));
   },
 
   checkout(state) {
     state.cart = [];
     state.cake = null;
+    localStorage.setItem("cart", JSON.stringify(state.cart));
   }
 };
