@@ -14,7 +14,8 @@
     "@nuxtjs/axios": "^5.3.6",
     "@popperjs/core": "^2.6.0",
     "bootstrap": "^5.0.0-beta1",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "sweetalert2": "^10.14.0"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.10.0",
