@@ -4,7 +4,7 @@
       <div class="row pt-5">
         <!--  -->
         <div class="col-lg-3 mb-5">
-          <img src="/images/logo.png" class="img-fluid mb-2" />
+          <img src="/images/logo.png" class="img-fluid mb-2" width="80" />
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae
             ex deserunt quisquam error iure ab perspiciatis.

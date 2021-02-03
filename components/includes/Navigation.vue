@@ -8,7 +8,8 @@
               to="/"
               tag="img"
               src="/images/logo.png"
-              class="img-fluid"
+              class="img-fluid py-1"
+              width="72"
             />
             <nuxt-link to="/cart" class="float-end">
               <i class="las la-shopping-cart la-3x mt-4"></i>
