@@ -6,14 +6,24 @@
       <p class="card-text price fw-bold">
         NPR 2,000.00
       </p>
-      <button class="btn btn-success" @click="addToCart">
-        <!-- 
+      <div class="options">
+        <button class="btn btn-success" @click="addToCart">
+          <!-- 
         data-bs-toggle="modal"
         data-bs-target="#addtocart"
        -->
-        <i class="las la-plus" />
-        Add to Cart
-      </button>
+          <i class="las la-plus" />
+        </button>
+        <button
+          @click="setDetailCake"
+          tag="button"
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#detail"
+        >
+          <i class="las la-search" />
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -40,6 +50,10 @@ export default {
   methods: {
     addToCart() {
       this.$store.commit("add", this.cake);
+    },
+
+    setDetailCake() {
+      this.$store.commit("setDetailCake", this.cake);
     }
   }
 };
@@ -60,29 +74,34 @@ export default {
   position: relative;
 
   &:hover {
-    button {
+    .options {
       opacity: 1;
       transition: 256ms;
     }
   }
+  .options {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   button {
-    opacity: 0;
     transition: 256ms;
     background-color: $primary;
     border: 2px solid $primary;
     border-radius: 0;
     color: #fff;
     font-weight: bold;
-    position: absolute;
     box-shadow: none !important;
     outline: none !important;
     height: 40px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+    margin: 4px;
   }
 }
 </style>

@@ -1,6 +1,12 @@
 export const state = () => ({
   cart: [],
-  cake: null
+  cake: null,
+  //DetailModal
+  detailcake: {
+    title: "",
+    image: "",
+    price: 0
+  }
 });
 
 export const getters = {
@@ -10,7 +16,13 @@ export const getters = {
 
   cake(state) {
     return state.cake;
+  },
+
+  /* DetailModal */
+  detailcake(state) {
+    return state.detailcake;
   }
+  /* DetailModal */
 };
 
 export const mutations = {
@@ -21,6 +33,13 @@ export const mutations = {
       state.cart = JSON.parse(cart);
     }
   },
+
+  /* DetailModal */
+  setDetailCake(state, payload) {
+    state.detailcake = payload;
+  },
+
+  /* DetailModal */
 
   reset(state) {
     state.cake = null;

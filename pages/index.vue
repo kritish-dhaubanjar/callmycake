@@ -3,7 +3,7 @@
     <Carousel />
     <Menu />
     <!-- <AddModal /> -->
-
+    <DetailModal />
     <div class="toast-container">
       <div
         v-for="(toast, index) in toasts"
@@ -36,6 +36,7 @@
 import Carousel from "@/components/index/Carousel";
 import Menu from "@/components/index/Menu";
 import AddModal from "@/components/UI/AddModal";
+import DetailModal from "@/components/UI/DetailModal";
 import { Toast } from "bootstrap";
 
 export default {
@@ -78,7 +79,8 @@ export default {
   components: {
     Carousel,
     Menu,
-    AddModal
+    AddModal,
+    DetailModal
   }
 };
 </script>
