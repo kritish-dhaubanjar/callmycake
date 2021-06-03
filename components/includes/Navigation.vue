@@ -7,9 +7,9 @@
             <nuxt-link
               to="/"
               tag="img"
-              src="/images/logo.png"
+              src="/images/logo.webp"
               class="img-fluid py-1"
-              width="72"
+              width="178"
             />
             <nuxt-link to="/cart" class="float-end">
               <i class="las la-shopping-cart la-3x mt-4"></i>

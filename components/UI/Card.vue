@@ -38,7 +38,7 @@ export default {
         id: "6016607b5bd73b00122003b6",
         title: "Choc-Honeycomb Ice-Cream Cake",
         price: 2000,
-        image: "http://127.0.0.1:3000/images/cake_sample.jpg"
+        image: "/images/cake_sample.jpg"
       }
     };
   },
@@ -95,7 +95,7 @@ export default {
     transition: 256ms;
     background-color: $primary;
     border: 2px solid $primary;
-    border-radius: 0;
+    border-radius: 100%;
     color: #fff;
     font-weight: bold;
     box-shadow: none !important;
