@@ -18,10 +18,10 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col"></th>
                     <th scope="col">Product</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
+                    <th scope="col">Action</th>
                     <th scope="col">Total</th>
                   </tr>
                 </thead>
@@ -29,14 +29,20 @@
                   <!--  -->
                   <tr v-if="cakes.length == 0">
                     <td colspan="5" class="text-center py-5">
-                      <h4 class="py-5 my-5">No items in you cart!</h4>
+                      <h4 class="py-5 my-5">
+                        No items in you cart!<br />
+                        <nuxt-link
+                          to="/"
+                          tag="button"
+                          class="btn btn-detail mt-4"
+                        >
+                          Continue Shopping
+                        </nuxt-link>
+                      </h4>
                     </td>
                   </tr>
                   <!--  -->
                   <tr v-for="cake in cakes" :key="cake.id">
-                    <th scope="row" class="py-5">
-                      <i class="las la-times la-1x" @click="del(cake)" />
-                    </th>
                     <td class="py-4">
                       <img
                         src="https://via.placeholder.com/64x64"
@@ -44,7 +50,9 @@
                       />
                       {{ cake.title }}
                     </td>
-                    <td class="py-5">{{ npr(cake.price) }}</td>
+                    <td class="py-5">
+                      <h6>{{ npr(cake.price) }}</h6>
+                    </td>
                     <td class="py-5">
                       <div class="input-group">
                         <button
@@ -69,7 +77,12 @@
                         </button>
                       </div>
                     </td>
-                    <td class="py-5">{{ npr(cake.price * cake.qty) }}</td>
+                    <td scope="row" class="py-5">
+                      <i class="las la-times la-1x" @click="del(cake)" />
+                    </td>
+                    <td class="py-5">
+                      <h6>{{ npr(cake.price * cake.qty) }}</h6>
+                    </td>
                   </tr>
 
                   <tr>
@@ -179,5 +192,14 @@ th {
 
 i {
   cursor: pointer;
+}
+
+.btn-detail {
+  background-color: #ee6f7c;
+  border: 2px solid #ee6f7c;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: none !important;
+  outline: none !important;
 }
 </style>

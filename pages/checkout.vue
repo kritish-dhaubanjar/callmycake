@@ -49,7 +49,20 @@
                       type="text"
                       class="form-control py-2"
                       v-model="order.name"
+                      placeholder="eg: Jane Doe"
                       required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label class="form-label">Receiver's Email</label>
+                    <input
+                      type="email"
+                      class="form-control py-2"
+                      v-model="order.email"
+                      placeholder="eg: janedoe@example.org"
                     />
                   </div>
                 </div>
@@ -62,6 +75,7 @@
                       class="form-control py-2"
                       v-model="order.phone"
                       required
+                      placeholder="eg: +977 987654321"
                     />
                   </div>
                 </div>
@@ -73,6 +87,7 @@
                       class="form-control py-2"
                       v-model="order.address"
                       required
+                      placeholder="eg: Koteshwor-32, Kathmandu"
                     />
                   </div>
                 </div>
@@ -97,11 +112,22 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-12">
+                <div class="col-6">
                   <div class="mb-3">
-                    <label class="form-label">Date &amp; Time *</label>
+                    <label class="form-label">Date *</label>
                     <input
-                      type="datetime-local"
+                      type="date"
+                      class="form-control py-2"
+                      v-model="order.datetime"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label class="form-label">Time *</label>
+                    <input
+                      type="time"
                       class="form-control py-2"
                       v-model="order.datetime"
                       required
@@ -110,7 +136,7 @@
                 </div>
                 <div class="col-12">
                   <div class="mb-3">
-                    <label class="form-label">Order Notes *</label>
+                    <label class="form-label">Order Notes</label>
                     <textarea
                       v-model="order.notes"
                       class="form-control py-2"
@@ -160,6 +186,7 @@ export default {
       order: {
         delivery: true,
         name: "",
+        email: "",
         phone: "",
         address: "",
         location: "",
@@ -229,5 +256,10 @@ label {
     color: $primary;
     border-color: $primary;
   }
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #d1d1d1;
 }
 </style>
