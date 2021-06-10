@@ -1,12 +1,15 @@
 <template>
   <section>
-    <div class="container my-5">
-      <div class="row mb-5">
-        <div class="col-12">
-          <h5 class="display-6 fw-bold">Blogs</h5>
+    <section class="bg-light">
+      <div class="container py-5 ">
+        <div class="row my-3">
+          <div class="col-12">
+            <h1 class="mb-0">BLOGS</h1>
+          </div>
         </div>
       </div>
-
+    </section>
+    <div class="container my-5">
       <div class="row">
         <div class="col-12 col-md-6 col-lg-12" v-for="i in 5" :key="i">
           <div class="row">
