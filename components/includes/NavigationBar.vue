@@ -36,7 +36,11 @@
                 >
               </li>
               <li class="nav-item px-2">
-                <nuxt-link to="/gallery" class="nav-link fw-bold" href="#"
+                <nuxt-link
+                  to="/gallery"
+                  class="nav-link fw-bold"
+                  href="#"
+                  exact-active-class="active"
                   >GALLERY</nuxt-link
                 >
               </li>

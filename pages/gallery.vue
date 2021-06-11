@@ -41,9 +41,9 @@
           v-for="i in 10"
           :key="i"
           :class="tags[i % 4]"
-          href="https://via.placeholder.com/1024x720"
+          href="images/image_4_570x.webp"
         >
-          <img src="https://via.placeholder.com/1024x720" class="d-none" />
+          <img src="images/image_4_570x.webp" class="d-none" />
           <div class="position-relative">
             <div class="position-absolute text-center w-100 py-3">
               <h6 class="pb-2">Baby Shower Cake</h6>
@@ -118,7 +118,7 @@ export default {
 
 .grid-item > div {
   min-height: 254px;
-  background-image: url(https://via.placeholder.com/1024x720);
+  background-image: url("/images/image_4_570x.webp");
   background-position: center;
   background-size: cover;
 
