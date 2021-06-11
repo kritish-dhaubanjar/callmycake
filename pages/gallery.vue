@@ -23,13 +23,13 @@
               v-for="tag in tags"
               :key="tag"
             >
-              <h5
+              <p
                 class="nav-link"
                 @click="filter(tag)"
                 :class="{ active: activeTag === tag }"
               >
                 {{ tag }}
-              </h5>
+              </p>
             </li>
           </ul>
         </div>
