@@ -1,50 +1,37 @@
 <template>
   <section>
-    <div class="container py-5 my-5">
-      <div class="row mb-5">
-        <div class="col-12 text-center">
-          <h1>OUR GALLERY</h1>
-          <hr />
+    <section class="bg-light">
+      <div class="container py-5 ">
+        <div class="row my-3">
+          <div class="col-12">
+            <h1 class="mb-0">OUR GALLERY</h1>
+          </div>
         </div>
       </div>
-
+    </section>
+    <div class="container py-5 my-5">
       <div class="row mb-4">
-        <div class="col-12 text-center">
-          <button
-            class="btn btn-outline-primary"
-            @click="filter('grid-item')"
-            :class="{ 'btn-primary': activeTag === 'grid-item' }"
+        <div class="col-12">
+          <ul
+            class="nav nav-pills mb-3 justify-content-center"
+            id="pills-tab"
+            role="tablist"
           >
-            All
-          </button>
-          <button
-            class="btn btn-outline-primary"
-            @click="filter('metal')"
-            :class="{ 'btn-primary': activeTag === 'metal' }"
-          >
-            Metal
-          </button>
-          <button
-            class="btn btn-outline-primary"
-            @click="filter('transition')"
-            :class="{ 'btn-primary': activeTag === 'transition' }"
-          >
-            Transition
-          </button>
-          <button
-            class="btn btn-outline-primary"
-            @click="filter('alkali')"
-            :class="{ 'btn-primary': activeTag === 'alkali' }"
-          >
-            Alkali
-          </button>
-          <button
-            class="btn btn-outline-primary"
-            @click="filter('alkalaine-earth')"
-            :class="{ 'btn-primary': activeTag === 'alkalaine-earth' }"
-          >
-            Alkaline Earth
-          </button>
+            <li
+              class="nav-item my-1"
+              role="presentation"
+              v-for="tag in tags"
+              :key="tag"
+            >
+              <h5
+                class="nav-link"
+                @click="filter(tag)"
+                :class="{ active: activeTag === tag }"
+              >
+                {{ tag }}
+              </h5>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -59,8 +46,7 @@
           <img src="https://via.placeholder.com/1024x720" class="d-none" />
           <div class="position-relative">
             <div class="position-absolute text-center w-100 py-3">
-              <h6>Baby Shower Cake</h6>
-              <hr class="my-2" />
+              <h6 class="pb-2">Baby Shower Cake</h6>
               <em>ANNIVERSARY CAKE</em>
             </div>
           </div>
@@ -84,8 +70,8 @@ export default {
   data() {
     return {
       isotope: null,
-      activeTag: "all",
-      tags: ["metal", "transition", "alkali", "alkalaine-earth"]
+      activeTag: "grid-item",
+      tags: ["grid-item", "metal", "transition", "alkali", "alkalaine-earth"]
     };
   },
   mounted() {
@@ -113,36 +99,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1,
-h4 {
-  color: #000;
-}
-
-hr {
-  margin: auto;
-  width: 64px;
-  border-top: 2px solid #000;
-  opacity: 1;
-}
-
-p {
-  line-height: 170%;
-  color: #444444;
-}
-
-ul {
-  list-style-type: square;
-  li {
-    padding-top: 12px;
-    color: #444444;
-    &::marker {
-      color: #000;
-    }
+@import "@/assets/scss/colors.scss";
+.nav-link {
+  border: 2px solid #fff;
+  font-weight: 500;
+  color: #212529;
+  &:hover {
+    cursor: pointer;
   }
 }
 
-.btn-primary {
-  color: #fff !important;
+.nav-link.active {
+  background-color: #fff !important;
+  border-radius: 0;
+  border: 2px solid;
+  color: $primary;
 }
 
 .grid-item > div {
@@ -157,9 +128,9 @@ ul {
     border-color: #fff;
   }
   div {
-    background-color: rgba(0, 115, 177, 0.8);
+    background-color: #ee6f7c !important;
     color: #fff;
-    bottom: -32px;
+    bottom: -40px;
     transition: 256ms;
   }
 
