@@ -36,7 +36,7 @@
                 >
               </li>
               <li class="nav-item px-2">
-                <nuxt-link to="/" class="nav-link fw-bold" href="#"
+                <nuxt-link to="/gallery" class="nav-link fw-bold" href="#"
                   >GALLERY</nuxt-link
                 >
               </li>
