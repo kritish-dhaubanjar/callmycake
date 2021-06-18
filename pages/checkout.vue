@@ -243,7 +243,8 @@ textarea {
 }
 
 label {
-  color: #777;
+  color: #444;
+  font-weight: 500;
 }
 
 .card {
@@ -254,6 +255,18 @@ label {
   }
   &.selected {
     color: $primary;
+    border-color: $primary;
+  }
+}
+
+input,
+textarea {
+  color: #000;
+  font-weight: 500;
+  border-width: 2px;
+
+  &:active,
+  &:focus {
     border-color: $primary;
   }
 }

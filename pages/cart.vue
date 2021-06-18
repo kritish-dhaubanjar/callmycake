@@ -64,7 +64,7 @@
                         </button>
                         <input
                           type="text"
-                          class="form-control text-center"
+                          class="form-control text-center h-100"
                           :placeholder="cake.qty"
                           disabled
                         />
@@ -94,6 +94,20 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12">
+            <label class="mb-3 fw-bold">COUPON CODE</label>
+            <div class="mb-3 coupon-code d-flex">
+              <input
+                type="text"
+                class="form-control py-2"
+                placeholder="eg: AIYPWZQP"
+              />
+              <button class="btn btn-dark px-4 py-2 ms-1">APPLY</button>
             </div>
           </div>
         </div>
@@ -155,7 +169,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-input {
+@import "@/assets/scss/colors.scss";
+
+.input-group input {
   max-width: 48px !important;
   height: 28px;
 }
@@ -201,5 +217,22 @@ i {
   font-weight: bold;
   box-shadow: none !important;
   outline: none !important;
+}
+
+.coupon-code {
+  input {
+    color: #000;
+    font-weight: 500;
+    border-width: 2px;
+    box-shadow: none;
+    height: 39px;
+    max-width: 200px;
+    border-radius: 0;
+
+    &:active,
+    &:focus {
+      border-color: $primary;
+    }
+  }
 }
 </style>
