@@ -17,18 +17,18 @@
               class="nav-item my-1"
               role="presentation"
               v-for="(category, index) in categories"
-              :key="category"
+              :key="category._id"
             >
               <a
                 class="nav-link "
-                :class="{ active: index == 1 }"
-                :id="serialize(category)"
+                :class="{ active: index == 0 }"
+                :id="serialize(category.name)"
                 data-bs-toggle="pill"
-                :href="`#pills-${serialize(category)}`"
+                :href="`#pills-${serialize(category.name)}`"
                 role="tab"
-                :aria-controls="`pills-${serialize(category)}`"
+                :aria-controls="`pills-${serialize(category.name)}`"
                 aria-selected="true"
-                >{{ category }}</a
+                >{{ category.name }}</a
               >
             </li>
           </ul>
@@ -38,24 +38,23 @@
           <div class="tab-content py-5" id="pills-tabContent">
             <div
               v-for="(category, index) in categories"
-              :key="category"
-              :class="{ 'show active': index == 1 }"
+              :key="category._id"
+              :class="{ 'show active': index == 0 }"
               class="tab-pane fade"
-              :id="`pills-${serialize(category)}`"
+              :id="`pills-${serialize(category.name)}`"
               role="tabpanel"
-              :aria-labelledby="`pills-${serialize(category)}`"
+              :aria-labelledby="`pills-${serialize(category.name)}`"
             >
               <!-- {{ category }} -->
 
               <!--  -->
-
               <div class="row">
                 <div
                   class="col-6 col-sm-6 col-md-4 col-lg-3"
-                  v-for="i in 10"
-                  :key="i"
+                  v-for="cake in cakes.filter(el => {return category._id =='all-categories' ? true : el.category._id == category._id})"
+                  :key="cake._id"
                 >
-                  <Card :_cake="i" />
+                  <Card :_cake="cake" />
                 </div>
               </div>
               <!--  -->
@@ -74,15 +73,9 @@ export default {
   data() {
     return {
       categories: [
-        "All",
-        "Baby Shower Cake",
-        "Tall Design Cake",
-        "Pubg Design Cake",
-        "Birthday Cake",
-        "Cake For Kids",
-        "Anniversary Cake",
-        "Designer's Cake"
-      ]
+        {name: 'All', _id: 'all-categories'},
+      ],
+      cakes: [],
     };
   },
 
@@ -90,6 +83,25 @@ export default {
     serialize(value) {
       return value.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
     }
+  },
+
+  created() {
+    this.$axios
+      .get('api/collections/get/categories')
+      .then(({ data }) => {
+        this.categories = [
+          {name: 'All', _id: 'all-categories'},
+          ...data.entries,
+        ]
+      });
+
+
+    this.$axios
+      .get('api/collections/get/cakes')
+      .then(({ data }) => {
+        console.log(data);
+        this.cakes = data.entries;
+      });
   },
 
   components: {

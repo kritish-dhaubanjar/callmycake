@@ -2,6 +2,15 @@ export default (context, inject) => {
 
 	const utils = {};
 
+	let formatter = new Intl.NumberFormat("en-IN", {
+	  // style: "currency",
+	  // currency: "INR"
+	});
+
+	utils.npr = (price) => {
+	  return formatter.format(price);
+	}
+
 	utils.toDateString = (date) => {
 		let d = new Date(date);
 		const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);

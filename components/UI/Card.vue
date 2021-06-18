@@ -1,17 +1,17 @@
 <template>
   <div class="card mb-4 shadow-sm">
-    <img src="/images/cake_sample.jpg" class="card-img-top" />
+    <img :src="cake.image ? `${$axios.defaults.baseURL}${cake.image.path}`:'/images/modal_cake.jpg'" class="card-img-top" />
     <div class="card-body text-center">
-      <p class="sale fw-bold" v-if="cake.sale">SALE</p>
-      <h6 class="card-title">Choc-Honeycomb Ice-Cream Cake</h6>
+      <p class="sale fw-bold" v-if="cake.discounted_price">SALE</p>
+      <h6 class="card-title">{{ cake.title }}</h6>
       <p class="card-text price fw-bold">
-        <span v-if="cake.sale" class="text-decoration-line-through text-muted"
-          >NPR {{ cake.oldPrice }}</span
+        <span v-if="cake.discounted_price" class="text-decoration-line-through text-muted"
+          >NPR {{ $utils.npr(cake.price) }}</span
         >
-        NPR 2,000.00
+        NPR {{ cake.discounted_price ? $utils.npr(cake.discounted_price) : $utils.npr(cake.price) }}
       </p>
       <div class="options">
-        <button class="btn btn-success" @click="addToCart">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#detail" @click="">
           <!-- 
         data-bs-toggle="modal"
         data-bs-target="#addtocart"
@@ -41,24 +41,25 @@ export default {
 
     return {
       cake: {
-        id: "6016607b5bd73b00122003b6",
-        title: "Choc-Honeycomb Ice-Cream Cake",
-        price: 2000,
-        oldPrice: sale ? 1800 : 2000,
-        image: "/images/cake_sample.jpg",
-        sale: sale
+        ...this._cake,
+        // id: "6016607b5bd73b00122003b6",
+        // title: "Choc-Honeycomb Ice-Cream Cake",
+        // price: 2000,
+        // oldPrice: sale ? 1800 : 2000,
+        // image: "/images/cake_sample.jpg",
+        // sale: sale
       }
     };
   },
 
   created() {
-    this.cake.title += this._cake;
+    // this.cake.title += this._cake;
   },
 
   methods: {
-    addToCart() {
-      this.$store.commit("add", this.cake);
-    },
+    // addToCart() {
+    //   this.$store.commit("add", this.cake);
+    // },
 
     setDetailCake() {
       this.$store.commit("setDetailCake", this.cake);

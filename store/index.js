@@ -46,7 +46,7 @@ export const mutations = {
   },
 
   add(state, payload) {
-    let index = state.cart.findIndex(cake => cake.id == payload.id);
+    let index = state.cart.findIndex(cake => cake._id == payload._id);
 
     state.cake = payload;
 
@@ -64,7 +64,7 @@ export const mutations = {
   },
 
   del(state, payload) {
-    let index = state.cart.findIndex(cake => cake.id == payload.id);
+    let index = state.cart.findIndex(cake => cake._id == payload._id);
     if (index > -1) {
       state.cart.splice(index, 1);
     }
@@ -72,7 +72,7 @@ export const mutations = {
   },
 
   inc(state, payload) {
-    let index = state.cart.findIndex(cake => cake.id == payload.id);
+    let index = state.cart.findIndex(cake => cake._id == payload._id);
     if (index > -1) {
       state.cart[index].qty += 1;
     }
@@ -80,7 +80,7 @@ export const mutations = {
   },
 
   dec(state, payload) {
-    let index = state.cart.findIndex(cake => cake.id == payload.id);
+    let index = state.cart.findIndex(cake => cake._id == payload._id);
     if (index > -1) {
       if (state.cart[index].qty > 1) {
         state.cart[index].qty -= 1;

@@ -11,7 +11,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="detailLabel">
-              {{ $store.getters.detailcake.title }}
+              {{ detailcake.title }}
             </h5>
             <button
               type="button"
@@ -79,12 +79,12 @@
           <!--  -->
           <div class="modal-body px-0">
             <div class="text-center">
-              <img src="/images/modal_cake.jpg" class="img-fluid" />
+              <img :src="detailcake.image ? `${$axios.defaults.baseURL}${detailcake.image.path}`:'/images/modal_cake.jpg'" class="img-fluid" />
             </div>
 
             <div class="d-flex justify-content-between align-items-center px-4">
-              <h5 class="cake">Anniversary Cake</h5>
-              <h5 class="price">NRP 2,000.00</h5>
+              <h5 class="cake">{{ detailcake.category ? detailcake.category.name : '' }}</h5>
+              <h5 class="price">NRP {{ detailcake.discounted_price ? $utils.npr(detailcake.discounted_price) : $utils.npr(detailcake.price) }}</h5>
             </div>
 
             <div class="px-4 mt-3">
@@ -95,9 +95,15 @@
               </div>
               <small class="text-muted">Select one</small>
               <div class="my-3 pounds">
-                <span class="badge selected p-2">2 Pound</span>
-                <span class="badge bg-light text-dark p-2">3 Pound</span>
-                <span class="badge bg-light text-dark p-2">4 Pound</span>
+                <span
+                  v-for="(v, i) in detailcake.variants"
+                  :key="i"
+                  :class="variant_selected==i ? 'selected' : ''"
+                  class="badge bg-light text-dark p-2 mx-1 cursor-pointer"
+                  @click="variant_selected=i">
+                {{ v }}
+                </span>
+                <!-- <span class="badge selected p-2">2 Pound</span> -->
               </div>
 
               <!--  -->
@@ -150,6 +156,7 @@
                   class="form-control mt-2"
                   rows="3"
                   placeholder="You can write down here any special instructions"
+                  v-model="message"
                 ></textarea>
               </div>
             </div>
@@ -181,20 +188,38 @@
 </template>
 
 <script>
-let formatter = new Intl.NumberFormat("en-IN", {
-  style: "currency",
-  currency: "INR"
-});
 export default {
-  methods: {
-    npr(price) {
-      return formatter.format(price);
-    },
-
-    addToCart() {
-      this.$store.commit("add", this.$store.getters.detailcake);
+  data() {
+    return {
+      variant_selected: 0,
+      addons_selected: [],
+      message: '',
     }
-  }
+  },
+
+  methods: {
+    addToCart() {
+      this.$store.commit("add", {
+        ...this.detailcake,
+        variant_selected: this.detailcake.variants[this.variant_selected],
+        addons_selected: this.addons_selected,
+        message: this.message,
+      });
+
+      this.variant_selected = 0;
+      this.addons_selected = [];
+      this.message = '';
+      // cart
+      console.log('cart', this.$store.getters.cart);
+    }
+  },
+  computed: {
+    detailcake() {
+      return this.$store.getters.detailcake
+        ? this.$store.getters.detailcake
+        : {}
+    },
+  },
 };
 </script>
 
@@ -212,8 +237,8 @@ export default {
 }
 
 .selected {
-  background-color: #99ff99;
-  color: #198754;
+  background-color: #99ff99 !important;
+  color: #198754 !important;
 }
 
 .pounds {
@@ -251,5 +276,8 @@ textarea {
   font-weight: bold;
   box-shadow: none !important;
   outline: none !important;
+}
+.cursor-pointer {
+  cursor: pointer;
 }
 </style>
