@@ -75,7 +75,6 @@ export default {
       });
     }
   },
-
   components: {
     Carousel,
     Menu,
