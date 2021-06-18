@@ -54,7 +54,10 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseUrl: 'https://jhyappy.gimmickbox.com.np/',
+    baseURL:
+      process.env.NODE_ENV === 'development'
+        ? 'https://jhyappy.gimmickbox.com.np/'
+        : 'https://jhyappy.gimmickbox.com.np/'
   },
   /*
    ** Build configuration
