@@ -55,7 +55,7 @@
                 >
               </li>
               <li class="nav-item ps-2">
-                <nuxt-link to="/" class="nav-link fw-bold" href="#"
+                <nuxt-link to="/contact-us" class="nav-link fw-bold" href="#"
                   >CONTACT US</nuxt-link
                 >
               </li>

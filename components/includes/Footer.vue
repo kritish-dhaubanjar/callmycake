@@ -35,16 +35,14 @@
         <!--  -->
 
         <div class="col-lg-3 mb-5">
-          <h5 class="fw-bold">INSTAGRAM FEED</h5>
-          <div class="row mt-3 no-gutters pe-lg-3">
-            <div class="col-4 col-md-2 col-lg-4 mb-3" v-for="i in 6" :key="i">
-              <a href="#"
-                ><img
-                  src="https://via.placeholder.com/128x128"
-                  class="img-fluid"
-              /></a>
-            </div>
-          </div>
+          <iframe
+            src="http://instagram.com/p/a1wDZKopa2/embed"
+            frameborder="0"
+            scrolling="yes"
+            height="300"
+            class="w-100"
+          >
+          </iframe>
         </div>
         <!--  -->
 

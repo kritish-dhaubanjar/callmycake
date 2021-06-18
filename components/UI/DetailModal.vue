@@ -20,61 +20,6 @@
               aria-label="Close"
             ></button>
           </div>
-          <!-- <div class="modal-body px-0">
-            <div class="row">
-              <div class="col-lg-5">
-                <div class="text-center">
-                  <img
-                    :src="$store.getters.detailcake.image"
-                    class="img-fluid"
-                  />
-                </div>
-              </div>
-              <div class="col-lg-7">
-                <div
-                  class="d-flex justify-content-between align-items-center px-4"
-                >
-                  <h5 class="cake">Anniversary Cake</h5>
-                  <h5 class="price">
-                    {{ npr($store.getters.detailcake.price) }}
-                  </h5>
-                </div>
-
-                <div class="px-4 mt-3">
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <h6 class="cake mb-0">
-                      Variants (in pounds)
-                    </h6>
-                  </div>
-                  <div class="my-3 pounds">
-                    <span class="badge bg-light text-dark p-2">2 Pound</span>
-                    <span class="badge bg-light text-dark p-2">3 Pound</span>
-                    <span class="badge bg-light text-dark p-2">4 Pound</span>
-                  </div>
-
-                  <div>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Nam obcaecati veritatis aliquam quo cumque consequuntur?
-                      Tempora mollitia perferendis alias quis illo adipisci
-                      vero, in dolorum, quod maiores odio! Voluptatum, eos?
-                    </p>
-                  </div>
-
-                  <button
-                    @click="addToCart"
-                    type="button"
-                    class="btn btn-detail"
-                    data-bs-dismiss="modal"
-                  >
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div> -->
 
           <!--  -->
           <div class="modal-body px-0">
@@ -88,16 +33,36 @@
             </div>
 
             <div class="px-4 mt-3">
-              <div class="d-flex justify-content-between align-items-center">
-                <h6 class="cake mb-0">
-                  Variants (in pounds)
-                </h6>
-              </div>
-              <small class="text-muted">Select one</small>
-              <div class="my-3 pounds">
-                <span class="badge selected p-2">2 Pound</span>
-                <span class="badge bg-light text-dark p-2">3 Pound</span>
-                <span class="badge bg-light text-dark p-2">4 Pound</span>
+              <div class="row">
+                <div class="col-12 col-sm-6 my-1">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h6 class="cake mb-0">
+                      Variants (in pounds)
+                    </h6>
+                  </div>
+                  <small class="text-muted">Select one</small>
+                  <div class="my-3 pounds">
+                    <span class="badge selected p-2">2 Pound</span>
+                    <span class="badge bg-light text-dark p-2">3 Pound</span>
+                    <span class="badge bg-light text-dark p-2">4 Pound</span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 my-1">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h6 class="cake mb-0">
+                      Variants (in pounds)
+                    </h6>
+                  </div>
+                  <small class="text-muted">Select one</small>
+                  <div class="my-3 pounds">
+                    <span class="badge selected p-2">Egg</span>
+                    <span class="badge bg-light text-dark p-2">Eggless</span>
+                  </div>
+                </div>
               </div>
 
               <!--  -->
@@ -199,6 +164,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/scss/colors.scss";
+
 .modal-content {
   border-radius: 0;
 }
@@ -228,6 +195,14 @@ textarea {
   resize: none;
   box-shadow: none !important;
   outline: none !important;
+  color: #000;
+  font-weight: 500;
+  border-width: 2px;
+
+  &:active,
+  &:focus {
+    border-color: #ced4da;
+  }
 }
 
 .form-check-input:checked {
@@ -238,6 +213,7 @@ textarea {
 .form-check-input:focus {
   outline: 0;
   box-shadow: none;
+  border-color: #ee6f7c;
 }
 
 .addon {
@@ -251,5 +227,9 @@ textarea {
   font-weight: bold;
   box-shadow: none !important;
   outline: none !important;
+}
+
+.pounds .badge {
+  cursor: pointer;
 }
 </style>
