@@ -11,30 +11,26 @@
     </section>
     <div class="container my-5">
       <div class="row">
-        <div class="col-12 col-md-6 col-lg-12" v-for="i in 5" :key="i">
+        <div class="col-12 col-md-6 col-lg-12" v-for="(blog, i) in blogs" :key="i">
           <div class="row">
             <div class="col-12 col-md-12 col-lg-6 mb-5">
-              <img src="/images/image_4_570x.webp" class="img-fluid" />
+              <div class="blog-img" :style="`background-image: url('${$axios.defaults.baseURL}${blog.image.path}');`"></div>
             </div>
 
             <div class="col-12 col-md-12 col-lg-6 mb-5">
-              <h6>January 28, 2020</h6>
+              <h6>{{ $utils.toDateString(blog._created * 1000) }}</h6>
               <div class="my-2">
                 <nuxt-link
-                  to="/blogs/sometimes-on-purpose"
+                  :to="`/blogs/${blog._id}`"
                   class="fw-bold fs-4"
                   tag="a"
                 >
-                  Sometimes on purpose ected humour. dummy text.
+                  {{ blog.title }}
                 </nuxt-link>
               </div>
 
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
-                distinctio magnam rem doloribus praesentium maiores aperiam
-                expedita explicabo, culpa quis a, quibusdam animi delectus unde.
-                Culpa temporibus dolorem ut atque! Lorem ipsum dolor sit amet
-                consectetur...
+                {{ blog.overview }}
               </p>
             </div>
           </div>
@@ -43,7 +39,26 @@
     </div>
   </section>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+        blogs: [],
+      }
+    },
 
+    created() {
+      this.$axios
+        .post('api/collections/get/blogs', {
+          sort: { _created: -1 },
+        })
+        .then(({ data }) => {
+          this.blogs = data.entries;
+          console.log(data);
+        });
+    }
+  };
+</script>
 <style scoped>
 p {
   line-height: 150%;
@@ -53,5 +68,11 @@ p {
 h6 {
   color: #ee6f7c;
   text-transform: uppercase;
+}
+.blog-img {
+  width: 100%;
+  min-height: 280px;
+  background-image: url(https://via.placeholder.com/485x325);
+  background-size: cover;
 }
 </style>

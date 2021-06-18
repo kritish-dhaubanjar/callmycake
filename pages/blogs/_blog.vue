@@ -9,75 +9,45 @@
 
       <div class="row">
         <div class="col-12 mb-5">
-          <img src="/images/image_4_570x.webp" class="img-fluid" />
+          <img :src="(blog.image) ? `${$axios.defaults.baseURL}${blog.image.path}`: 'https://via.placeholder.com/485x325'" height="500" />
         </div>
 
         <div class="col-12 mb-5">
-          <h6>January 28, 2020</h6>
+          <h6>{{ (blog._created) ? $utils.toDateString(blog._created * 1000): '' }}</h6>
           <div class="mt-4">
             <h5 class="fw-bold fs-4">
-              Sometimes on purpose ected humour. dummy text.
+             {{ blog.title }}
             </h5>
           </div>
 
           <hr class="mb-4" />
 
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et commodi
-            distinctio, sint quibusdam totam hic dolorum corrupti error.
-            Necessitatibus unde velit nulla totam aspernatur fugit hic,
-            consectetur architecto ab eos. Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Et commodi distinctio, sint quibusdam
-            totam hic dolorum corrupti error. Necessitatibus unde velit nulla
-            totam aspernatur fugit hic, consectetur architecto ab eos. Lorem
-            ipsum dolor sit amet, consectetur adipisicing elit. Et commodi
-            distinctio, sint quibusdam totam hic dolorum corrupti error.
-            Necessitatibus unde velit nulla totam aspernatur fugit hic,
-            consectetur architecto ab eos. Lorem ipsum dolor sit amet,
-          </p>
-
-          <p>
-            consectetur adipisicing elit. Et commodi distinctio, sint quibusdam
-            totam hic dolorum corrupti error. Necessitatibus unde velit nulla
-            totam aspernatur fugit hic, consectetur architecto ab eos. Lorem
-            ipsum dolor sit amet, consectetur adipisicing elit. Et commodi
-            distinctio, sint quibusdam totam hic dolorum corrupti error.
-            Necessitatibus unde velit nulla totam aspernatur fugit hic,
-            consectetur architecto ab eos. Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Et commodi distinctio, sint quibusdam
-            totam hic dolorum corrupti error. Necessitatibus unde velit nulla
-            totam aspernatur fugit hic, consectetur architecto ab eos.
-          </p>
-
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et commodi
-            distinctio, sint quibusdam totam hic dolorum corrupti error.
-            Necessitatibus unde velit nulla totam aspernatur fugit hic,
-            consectetur architecto ab eos. Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Et commodi distinctio, sint quibusdam
-            totam hic dolorum corrupti error. Necessitatibus unde velit nulla
-            totam aspernatur fugit hic, consectetur architecto ab eos. Lorem
-            ipsum dolor sit amet, consectetur adipisicing elit. Et commodi
-            distinctio, sint quibusdam totam hic dolorum corrupti error.
-            Necessitatibus unde velit nulla totam aspernatur fugit hic,
-            consectetur architecto ab eos. Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Et commodi distinctio, sint quibusdam
-            totam hic dolorum corrupti error. Necessitatibus unde velit nulla
-            totam aspernatur fugit hic, consectetur architecto ab eos. Lorem
-            ipsum dolor sit amet, consectetur adipisicing elit. Et commodi
-            distinctio, sint quibusdam totam hic dolorum corrupti error.
-            Necessitatibus unde velit nulla totam aspernatur fugit hic,
-            consectetur architecto ab eos. Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Et commodi distinctio, sint quibusdam
-            totam hic dolorum corrupti error. Necessitatibus unde velit nulla
-            totam aspernatur fugit hic, consectetur architecto ab eos.
-          </p>
+          <div class="content" v-html="blog.content"></div>
         </div>
       </div>
     </div>
   </section>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+        blog: {},
+      };
+    },
 
+    created() {
+      this.$axios
+        .post('api/collections/get/blogs', {
+          filter: {_id: this.$route.params.blog }
+        })
+        .then(({ data }) => {
+          console.log(data);
+          this.blog = data.entries[0] ? data.entries[0] : {};
+        });
+    }
+  };
+</script>
 <style scoped>
 p {
   line-height: 150%;

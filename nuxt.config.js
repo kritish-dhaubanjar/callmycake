@@ -37,7 +37,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/init.js"],
+  plugins: ["~/plugins/init.js", "~/plugins/utils.js"],
   /*
    ** Nuxt.js dev-modules
    */
@@ -54,7 +54,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseUrl: 'https://jhyappy.gimmickbox.com.np',
+    baseUrl: 'https://jhyappy.gimmickbox.com.np/',
   },
   /*
    ** Build configuration
