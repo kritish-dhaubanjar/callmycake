@@ -21,21 +21,9 @@
               <li data-bs-target="#carousels" data-bs-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-              <div class="carousel-item active">
+              <div v-for="(carousel, i) in carousels" :key="i" class="carousel-item" :class="i==0 ? 'active': ''">
                 <img
-                  src="/images/backrey_collection_banner_1340x.png"
-                  class="d-block w-100"
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="/images/backrey_collection_banner_1340x.png"
-                  class="d-block w-100"
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="/images/backrey_collection_banner_1340x.png"
+                  :src="`${$axios.defaults.baseURL}${carousel.image.path}`"
                   class="d-block w-100"
                 />
               </div>
@@ -71,4 +59,21 @@
   </section>
 </template>
 
+<script>
+  export default {
+    data() {
+      return {
+        carousels: [],
+      };
+    },
+
+    created() {
+      this.$axios
+        .get('api/collections/get/carousels')
+        .then(({ data }) => {
+          this.carousels = data.entries
+        });
+    }
+  }
+</script>
 <style scoped lang="scss"></style>

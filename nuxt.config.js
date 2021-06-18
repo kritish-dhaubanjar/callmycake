@@ -53,7 +53,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseUrl: 'https://jhyappy.gimmickbox.com.np',
+  },
   /*
    ** Build configuration
    */
