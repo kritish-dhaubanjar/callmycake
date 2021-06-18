@@ -6,8 +6,7 @@
         <div class="col-lg-3 mb-5">
           <img src="/images/logo.webp" class="img-fluid mb-2" width="128" />
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae
-            ex deserunt quisquam error iure ab perspiciatis.
+            {{ footer.info }}
           </p>
         </div>
         <!--  -->
@@ -16,19 +15,25 @@
           <h5 class="fw-bold">OPENING HOURS</h5>
           <ul class="list-group">
             <li>
-              Sunday: 2:00am to 12:00pm
+              Sunday: {{ footer.opening_hour_sunday }}
             </li>
             <li>
-              Monday: 2:00am to 12:00pm
+              Monday: {{ footer.opening_hour_monday }}
             </li>
             <li>
-              Tuesday: 2:00am to 12:00pm
+              Tuesday: {{ footer.opening_hour_tuesday }}
             </li>
             <li>
-              Wednesday: 2:00am to 12:00pm
+              Wednesday: {{ footer.opening_hour_wednesday }}
             </li>
             <li>
-              Thursday: 2:00am to 12:00pm
+              Thursday: {{ footer.opening_hour_thursday }}
+            </li>
+            <li>
+              Friday: {{ footer.opening_hour_friday }}
+            </li>
+            <li>
+              Saturday: {{ footer.opening_hour_saturday }}
             </li>
           </ul>
         </div>
@@ -64,13 +69,13 @@
 
           <ul class="list-group social">
             <li>
-              <a href="#"><i class="lab la-facebook la-2x"/></a>
+              <a target="_blank" :href="footer.facebook"><i class="lab la-facebook la-2x"/></a>
             </li>
             <li>
-              <a href="#"><i class="lab la-instagram la-2x"/></a>
+              <a target="_blank" :href="footer.instagram"><i class="lab la-instagram la-2x"/></a>
             </li>
             <li>
-              <a href="#"><i class="lab la-twitter la-2x"/></a>
+              <a target="_blank" :href="footer.twitter"><i class="lab la-twitter la-2x"/></a>
             </li>
           </ul>
         </div>
@@ -84,7 +89,21 @@
     </div>
   </footer>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+        footer: {}
+      }
+    },
 
+    created() {
+      this.$axios
+        .get('api/singletons/get/footer')
+        .then(({ data }) => this.footer = data);
+    }
+  };
+</script>
 <style scoped lang="scss">
 li {
   padding-bottom: 8px;

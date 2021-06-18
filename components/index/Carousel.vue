@@ -74,6 +74,6 @@
           this.carousels = data.entries
         });
     }
-  }
+  };
 </script>
 <style scoped lang="scss"></style>
