@@ -31,8 +31,8 @@
                 >
               </li>
               <li class="nav-item px-2">
-                <nuxt-link to="/" class="nav-link fw-bold" href="#"
-                  >SHOP</nuxt-link
+                <nuxt-link to="/customize" class="nav-link fw-bold" href="#"
+                  >CUSTOM SHOP</nuxt-link
                 >
               </li>
               <li class="nav-item px-2">
