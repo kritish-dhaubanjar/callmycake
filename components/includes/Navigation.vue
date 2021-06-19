@@ -1,5 +1,5 @@
 <template>
-  <section class="my-4 sticky-top bg-white">
+  <section class="py-4 sticky-top bg-white">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -49,9 +49,9 @@ window.addEventListener(
   debounce(() => {
     let section = document.querySelector(".sticky-top");
     if (section.offsetTop > 96) {
-      section.className = "my-4 sticky-top bg-white shadow-sm";
+      section.className = "py-4 sticky-top bg-white shadow-sm";
     } else {
-      section.className = "my-4 sticky-top bg-white";
+      section.className = "py-4 sticky-top bg-white";
     }
   }, 10)
 );

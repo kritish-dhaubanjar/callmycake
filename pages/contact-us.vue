@@ -10,7 +10,7 @@
       </div>
     </section>
 
-    <section class="bg-white">
+    <section class="bg-transparent">
       <div class="container py-5">
         <div class="row my-5">
           <div class="col-12 col-sm-4 mb-4">

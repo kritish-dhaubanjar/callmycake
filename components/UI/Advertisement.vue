@@ -48,7 +48,11 @@
                 </div>
 
                 <div class="col-12 pb-3">
-                  <button class="btn btn-advertisement">
+                  <button
+                    data-bs-dismiss="modal"
+                    class="btn btn-advertisement"
+                    @click="go"
+                  >
                     Customize Cake
                   </button>
                 </div>
@@ -148,6 +152,16 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  methods: {
+    go() {
+      this.$router.push("/customize#top");
+    }
+  }
+};
+</script>
 
 <style scoped lang="scss">
 .modal-content {
