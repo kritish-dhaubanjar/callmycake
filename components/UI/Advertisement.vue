@@ -2,27 +2,61 @@
   <section>
     <div
       class="modal fade p-0"
-      id="addtocart"
+      id="advertisement"
       tabindex="-1"
-      aria-labelledby="addtocartLabel"
+      aria-labelledby="advertisementLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          <!-- <div class="modal-header">
-            <h5 class="modal-title" id="addtocartLabel">Modal title</h5>
+          <div class="modal-header border-0">
             <button
               type="button"
               class="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-          </div> -->
+          </div>
           <div class="modal-body px-0">
-            <div class="text-center">
-              <img src="/images/modal_cake.jpg" class="img-fluid" />
-            </div>
+            <div class="row px-3 text-center">
+              <div class="col-12 col-lg-8">
+                <div class="text-center">
+                  <img
+                    src="/images/cakes_advertising_banner_colorful_decor_webpage_design_6837239.jpg"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-lg-4">
+                <div class="py-4">
+                  <la-4x class="las la-birthday-cake la-4x text-primary" />
+                  <h5>Design your cake</h5>
+                  Choose from our many flavors & decorative options.
+                </div>
 
+                <div class="py-4">
+                  <la-4x class="las la-holly-berry la-4x text-primary" />
+                  <h5>We hand-decorate it</h5>
+                  Our bakery will create the perfect custom cake for your
+                  special occasion.
+                </div>
+
+                <div class="py-4">
+                  <i class="las la-truck-loading la-4x text-primary" />
+                  <h5>We'll Deliver & enjoy!</h5>
+                  Your order will be delivered for you at your location.
+                </div>
+
+                <div class="col-12 pb-3">
+                  <button class="btn btn-advertisement">
+                    Customize Cake
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 
             <div class="d-flex justify-content-between align-items-center px-4">
               <h5 class="cake">Anniversary Cake</h5>
               <h5 class="price">NRP 2,000.00</h5>
@@ -41,7 +75,6 @@
                 <span class="badge bg-light text-dark p-2">4 Pound</span>
               </div>
 
-              <!--  -->
               <br />
 
               <div class="d-flex justify-content-between align-items-center">
@@ -59,7 +92,6 @@
                         type="checkbox"
                         id="Small-Red-Rose-Buckey"
                       />
-                      <!-- checked -->
                       <label
                         class="form-check-label"
                         for="Small-Red-Rose-Buckey"
@@ -105,12 +137,12 @@
             </button>
             <button
               type="button"
-              class="btn btn-addtocart"
+              class="btn btn-advertisement"
               data-bs-dismiss="modal"
             >
               Add to Cart
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -163,12 +195,19 @@ textarea {
   font-weight: 500;
 }
 
-.btn-addtocart {
+.btn-advertisement {
   background-color: #ee6f7c;
   border: 2px solid #ee6f7c;
   color: #fff;
   font-weight: bold;
   box-shadow: none !important;
   outline: none !important;
+}
+
+// .modal-content
+#advertisement {
+  background-image: url("/images/home_best_selling_img_24fba90c-1178-4549-8a03-35e116b04ffc.webp");
+  background-position: center;
+  background-size: cover;
 }
 </style>
