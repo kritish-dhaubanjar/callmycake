@@ -10,22 +10,47 @@ export const state = () => ({
       value: "No Selection"
     },
     icing: {
-      id: 3,
+      id: 1,
       image: "/images/customization/icings/001.png",
-      icon: "/images/customization/flavor_options/001.png",
+      icon: "#fff",
       value: "White"
     },
     flavor: {
-      id: 3,
-      image: "/images/customization/flavors/003.png",
-      icon: "/images/customization/flavor_options/003.png",
-      value: "Top: White/Bottom: Chocolate"
+      id: 1,
+      image: "/images/customization/flavors/001.png",
+      icon: "/images/customization/flavor_options/001.png",
+      value: "Top: White/Bottom: White"
     },
     topBorder: {
-      id: 3,
-      image: "/images/customization/topBorders/001.png",
-      icon: "/images/customization/flavor_options/003.png",
-      value: "Top: White/Bottom: Chocolate"
+      id: 0,
+      type: "shells",
+      image: null,
+      icon: "#fff",
+      value: "None"
+    },
+    bottomBorder: {
+      id: 0,
+      type: "shells",
+      image: null,
+      icon: "#fff",
+      value: "None"
+    },
+    topping: {
+      id: 0,
+      image: null,
+      value: "None"
+    },
+    flower: {
+      id: 0,
+      image: null,
+      icon: "#fff",
+      value: "None"
+    },
+
+    //
+    instruction: {
+      message: "",
+      notes: ""
     }
   }
 });

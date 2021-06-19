@@ -18,7 +18,7 @@
 
     <hr />
     <div class="row">
-      <div class="col-6">
+      <div class="col-5">
         <nuxt-link
           tag="button"
           class="btn btn-light navigation py-2"
@@ -28,12 +28,15 @@
         </nuxt-link>
         <span>Flavor</span>
       </div>
-      <div class="col-6 text-end">
-        <span>Filling</span>
+      <div class="col-2 d-flex align-items-center">
+        <span>2/8</span>
+      </div>
+      <div class="col-5 text-end">
+        <span>Icing</span>
         <nuxt-link
           tag="button"
           class="btn btn-dark navigation py-2"
-          to="/customize/filling"
+          to="/customize/icing"
         >
           <i class="las la-arrow-right"></i>
         </nuxt-link>
@@ -55,13 +58,13 @@ export default {
         },
         {
           id: 2,
-          image: "/images/customization/fillings/001.png",
+          image: "/images/customization/fillings/002.png",
           icon: "/images/customization/filling_options/002.png",
           value: "Strawberry"
         },
         {
           id: 3,
-          image: "/images/customization/fillings/002.png",
+          image: "/images/customization/fillings/003.png",
           icon: "/images/customization/filling_options/003.png",
           value: "Bavarian creme"
         }

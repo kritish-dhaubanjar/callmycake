@@ -31,7 +31,11 @@
                 >
               </li>
               <li class="nav-item px-2">
-                <nuxt-link to="/customize" class="nav-link fw-bold" href="#"
+                <nuxt-link
+                  to="/customize"
+                  class="nav-link fw-bold"
+                  href="#"
+                  active-class="active"
                   >CUSTOM SHOP</nuxt-link
                 >
               </li>
@@ -45,17 +49,29 @@
                 >
               </li>
               <li class="nav-item px-2">
-                <nuxt-link to="/blogs" class="nav-link fw-bold" href="#"
+                <nuxt-link
+                  to="/blogs"
+                  class="nav-link fw-bold"
+                  href="#"
+                  active-class="active"
                   >BLOGS</nuxt-link
                 >
               </li>
               <li class="nav-item px-2">
-                <nuxt-link to="/about-us" class="nav-link fw-bold" href="#"
+                <nuxt-link
+                  to="/about-us"
+                  class="nav-link fw-bold"
+                  href="#"
+                  active-class="active"
                   >ABOUT US</nuxt-link
                 >
               </li>
               <li class="nav-item ps-2">
-                <nuxt-link to="/contact-us" class="nav-link fw-bold" href="#"
+                <nuxt-link
+                  to="/contact-us"
+                  class="nav-link fw-bold"
+                  href="#"
+                  active-class="active"
                   >CONTACT US</nuxt-link
                 >
               </li>

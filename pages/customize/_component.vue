@@ -8,12 +8,21 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-7">
           <canvas id="custom-cake" class="w-100" width="674" height="379" />
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-5">
           <Flavor v-if="component === 'flavor'" />
           <Filling v-if="component === 'filling'" />
+          <Icing v-if="component === 'icing'" />
+          <TopBorder v-if="component === 'topBorder'" />
+          <BottomBorder v-if="component === 'bottomBorder'" />
+          <Flower v-if="component === 'flower'" />
+          <Topping v-if="component === 'topping'" />
+          <Instruction
+            v-if="component === 'instruction'"
+            @addToCart="addToCart"
+          />
         </div>
       </div>
     </div>
@@ -23,8 +32,25 @@
 <script>
 import Flavor from "@/components/customization/Flavor";
 import Filling from "@/components/customization/Filling";
+import Icing from "@/components/customization/Icing";
+import TopBorder from "@/components/customization/TopBorder";
+import BottomBorder from "@/components/customization/BottomBorder";
+import Flower from "@/components/customization/Flower";
+import Topping from "@/components/customization/Topping";
+import Instruction from "@/components/customization/Instruction";
 
-const components = ["base", "flavor", "icing", "filling", "topBorder"];
+const components = [
+  "base",
+  "flavor",
+  "icing",
+  "filling",
+  "topBorder",
+  "bottomBorder",
+  "topping",
+  "flower",
+  //
+  "instruction"
+];
 
 export default {
   data() {
@@ -64,6 +90,7 @@ export default {
 
     async drawCake() {
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
       for (const component of components) {
         const src = this.cake[component].image;
         if (src) {
@@ -77,6 +104,21 @@ export default {
           );
         }
       }
+    },
+
+    addToCart() {
+      this.canvas.toBlob(blob => {
+        let file = new File([blob], "custom_cake.png", {
+          type: "image/png"
+        });
+
+        const a = window.document.createElement("a");
+        a.href = window.URL.createObjectURL(file);
+        a.download = "custom_cake.png";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }, "image/png");
     }
   },
 
@@ -97,7 +139,13 @@ export default {
 
   components: {
     Flavor,
-    Filling
+    Filling,
+    Icing,
+    TopBorder,
+    BottomBorder,
+    Flower,
+    Topping,
+    Instruction
   }
 };
 </script>

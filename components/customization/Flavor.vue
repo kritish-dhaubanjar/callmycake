@@ -18,13 +18,16 @@
 
     <hr />
     <div class="row">
-      <div class="col-6">
+      <div class="col-5">
         <button class="btn btn-light navigation py-2">
           <i class="las la-arrow-left"></i>
         </button>
         <span>Size</span>
       </div>
-      <div class="col-6 text-end">
+      <div class="col-2 d-flex align-items-center">
+        <span>1/8</span>
+      </div>
+      <div class="col-5 text-end">
         <span>Filling</span>
         <nuxt-link
           to="/customize/filling"

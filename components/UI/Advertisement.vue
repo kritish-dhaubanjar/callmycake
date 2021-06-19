@@ -29,13 +29,13 @@
               </div>
               <div class="col-12 col-lg-4">
                 <div class="py-4">
-                  <la-4x class="las la-birthday-cake la-4x text-primary" />
+                  <i class="las la-birthday-cake la-4x text-primary" />
                   <h5>Design your cake</h5>
                   Choose from our many flavors & decorative options.
                 </div>
 
                 <div class="py-4">
-                  <la-4x class="las la-holly-berry la-4x text-primary" />
+                  <i class="las la-holly-berry la-4x text-primary" />
                   <h5>We hand-decorate it</h5>
                   Our bakery will create the perfect custom cake for your
                   special occasion.
