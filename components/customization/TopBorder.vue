@@ -112,7 +112,7 @@ export default {
           id: 4,
           image: "/images/customization/topBorders/shells/004.png",
           type: "shells",
-          icon: "#ff6225",
+          icon: "#c22b38",
           value: "Red"
         },
         {
@@ -128,6 +128,69 @@ export default {
           type: "shells",
           icon: "#ffd802",
           value: "Yellow"
+        },
+        {
+          id: 7,
+          image: "/images/customization/topBorders/shells/007.png",
+          type: "shells",
+          icon: "#90dae5",
+          value: "Light Blue"
+        },
+        {
+          id: 8,
+          image: "/images/customization/topBorders/shells/008.png",
+          type: "shells",
+          icon: "#0254bb",
+          value: "Royal Blue"
+        },
+        {
+          id: 9,
+          image: "/images/customization/topBorders/shells/009.png",
+          type: "shells",
+          icon: "#6d419c",
+          value: "Purple"
+        },
+        {
+          id: 10,
+          image: "/images/customization/topBorders/shells/010.png",
+          type: "shells",
+          icon: "#098a1d",
+          value: "Green"
+        },
+        {
+          id: 11,
+          image: "/images/customization/topBorders/shells/011.png",
+          type: "shells",
+          icon: "#a6cd4e",
+          value: "Bright Green"
+        },
+        {
+          id: 12,
+          image: "/images/customization/topBorders/shells/012.png",
+          type: "shells",
+          icon: "#07a99c",
+          value: "Teal"
+        },
+        {
+          id: 13,
+          image: "/images/customization/topBorders/shells/013.png",
+          type: "shells",
+          icon: "#1c1b16",
+          value: "Black"
+        },
+        {
+          id: 14,
+          image: "/images/customization/topBorders/shells/014.png",
+          type: "shells",
+          icon: "#c0b8ab",
+          value: "Grey"
+        },
+        {
+          id: 15,
+          image: "/images/customization/topBorders/shells/015.png",
+          type: "shells",
+          icon: "#663a2f",
+          value: "Chocolate"
         }
       ],
 
@@ -135,8 +198,8 @@ export default {
         {
           id: 0,
           image: null,
-          icon: "#fff",
           type: "beads",
+          icon: "#fff",
           value: "None"
         },
         {
@@ -149,8 +212,8 @@ export default {
         {
           id: 2,
           image: "/images/customization/topBorders/beads/002.png",
-          icon: "#f8e2db",
           type: "beads",
+          icon: "#f8e2db",
           value: "Light Pink"
         },
         {
@@ -164,7 +227,7 @@ export default {
           id: 4,
           image: "/images/customization/topBorders/beads/004.png",
           type: "beads",
-          icon: "#ff6225",
+          icon: "#c22b38",
           value: "Red"
         },
         {
@@ -180,6 +243,69 @@ export default {
           type: "beads",
           icon: "#ffd802",
           value: "Yellow"
+        },
+        {
+          id: 7,
+          image: "/images/customization/topBorders/beads/007.png",
+          type: "beads",
+          icon: "#90dae5",
+          value: "Light Blue"
+        },
+        {
+          id: 8,
+          image: "/images/customization/topBorders/beads/008.png",
+          type: "beads",
+          icon: "#0254bb",
+          value: "Royal Blue"
+        },
+        {
+          id: 9,
+          image: "/images/customization/topBorders/beads/009.png",
+          type: "beads",
+          icon: "#6d419c",
+          value: "Purple"
+        },
+        {
+          id: 10,
+          image: "/images/customization/topBorders/beads/010.png",
+          type: "beads",
+          icon: "#098a1d",
+          value: "Green"
+        },
+        {
+          id: 11,
+          image: "/images/customization/topBorders/beads/011.png",
+          type: "beads",
+          icon: "#a6cd4e",
+          value: "Bright Green"
+        },
+        {
+          id: 12,
+          image: "/images/customization/topBorders/beads/012.png",
+          type: "beads",
+          icon: "#07a99c",
+          value: "Teal"
+        },
+        {
+          id: 13,
+          image: "/images/customization/topBorders/beads/013.png",
+          type: "beads",
+          icon: "#1c1b16",
+          value: "Black"
+        },
+        {
+          id: 14,
+          image: "/images/customization/topBorders/beads/014.png",
+          type: "beads",
+          icon: "#c0b8ab",
+          value: "Grey"
+        },
+        {
+          id: 15,
+          image: "/images/customization/topBorders/beads/015.png",
+          type: "beads",
+          icon: "#663a2f",
+          value: "Chocolate"
         }
       ]
     };

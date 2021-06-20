@@ -72,7 +72,7 @@ export default {
         {
           id: 4,
           image: "/images/customization/icings/004.png",
-          icon: "#ff6225",
+          icon: "#c22b38",
           value: "Red"
         },
         {
@@ -86,6 +86,60 @@ export default {
           image: "/images/customization/icings/006.png",
           icon: "#ffd802",
           value: "Yellow"
+        },
+        {
+          id: 7,
+          image: "/images/customization/icings/007.png",
+          icon: "#90dae5",
+          value: "Light Blue"
+        },
+        {
+          id: 8,
+          image: "/images/customization/icings/008.png",
+          icon: "#0254bb",
+          value: "Royal Blue"
+        },
+        {
+          id: 9,
+          image: "/images/customization/icings/009.png",
+          icon: "#6d419c",
+          value: "Purple"
+        },
+        {
+          id: 10,
+          image: "/images/customization/icings/010.png",
+          icon: "#098a1d",
+          value: "Green"
+        },
+        {
+          id: 11,
+          image: "/images/customization/icings/011.png",
+          icon: "#a6cd4e",
+          value: "Bright Green"
+        },
+        {
+          id: 12,
+          image: "/images/customization/icings/012.png",
+          icon: "#07a99c",
+          value: "Teal"
+        },
+        {
+          id: 13,
+          image: "/images/customization/icings/013.png",
+          icon: "#1c1b16",
+          value: "Black"
+        },
+        {
+          id: 14,
+          image: "/images/customization/icings/014.png",
+          icon: "#c0b8ab",
+          value: "Grey"
+        },
+        {
+          id: 15,
+          image: "/images/customization/icings/015.png",
+          icon: "#663a2f",
+          value: "Chocolate"
         }
       ]
     };

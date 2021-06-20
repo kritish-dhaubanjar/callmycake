@@ -14,7 +14,7 @@
           class="img-fluid p-0"
         />
       </button>
-      <button
+      <!-- <button
         class="btn btn-light"
         @click="setFlowerType('closedMums')"
         :class="{ active: cake.flower.type === 'closedMums' }"
@@ -24,7 +24,7 @@
           width="40"
           class="img-fluid p-0"
         />
-      </button>
+      </button> -->
     </div>
 
     <ul class="p-0 mt-3">
@@ -43,7 +43,7 @@
     </ul>
 
     <span class="fw-bold">Seleted Color: </span
-    ><span>{{ cake.topBorder.value }}</span>
+    ><span>{{ cake.flower.value }}</span>
     <hr />
 
     <div class="row">
@@ -107,6 +107,91 @@ export default {
           icon: "#fe64a1",
           value: "Pink",
           type: "openMums"
+        },
+
+        {
+          id: 4,
+          image: "/images/customization/flowers/openMums/004.png",
+          type: "openMums",
+          icon: "#c22b38",
+          value: "Red"
+        },
+        {
+          id: 5,
+          image: "/images/customization/flowers/openMums/005.png",
+          type: "openMums",
+          icon: "#ff6225",
+          value: "Orange"
+        },
+        {
+          id: 6,
+          image: "/images/customization/flowers/openMums/006.png",
+          type: "openMums",
+          icon: "#ffd802",
+          value: "Yellow"
+        },
+        {
+          id: 7,
+          image: "/images/customization/flowers/openMums/007.png",
+          type: "openMums",
+          icon: "#90dae5",
+          value: "Light Blue"
+        },
+        {
+          id: 8,
+          image: "/images/customization/flowers/openMums/008.png",
+          type: "openMums",
+          icon: "#0254bb",
+          value: "Royal Blue"
+        },
+        {
+          id: 9,
+          image: "/images/customization/flowers/openMums/009.png",
+          type: "openMums",
+          icon: "#6d419c",
+          value: "Purple"
+        },
+        {
+          id: 10,
+          image: "/images/customization/flowers/openMums/010.png",
+          type: "openMums",
+          icon: "#098a1d",
+          value: "Green"
+        },
+        {
+          id: 11,
+          image: "/images/customization/flowers/openMums/011.png",
+          type: "openMums",
+          icon: "#a6cd4e",
+          value: "Bright Green"
+        },
+        {
+          id: 12,
+          image: "/images/customization/flowers/openMums/012.png",
+          type: "openMums",
+          icon: "#07a99c",
+          value: "Teal"
+        },
+        {
+          id: 13,
+          image: "/images/customization/flowers/openMums/013.png",
+          type: "openMums",
+          icon: "#1c1b16",
+          value: "Black"
+        },
+        {
+          id: 14,
+          image: "/images/customization/flowers/openMums/014.png",
+          type: "openMums",
+          icon: "#c0b8ab",
+          value: "Grey"
+        },
+        {
+          id: 15,
+          image: "/images/customization/flowers/openMums/015.png",
+          type: "beads",
+          icon: "#663a2f",
+          value: "Chocolate"
         }
       ],
 
