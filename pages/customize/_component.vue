@@ -8,21 +8,73 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-7">
-          <canvas id="custom-cake" class="w-100" width="674" height="379" />
+        <div class="col-12 my-4">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active fw-bold"
+                id="home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#home"
+                type="button"
+                role="tab"
+                aria-controls="home"
+                aria-selected="true"
+              >
+                <i class="las la-birthday-cake"></i> Customize Cake
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link fw-bold"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#profile"
+                type="button"
+                role="tab"
+                aria-controls="profile"
+                aria-selected="false"
+              >
+                <i class="las la-cloud-upload-alt"></i> Upload Image
+              </button>
+            </li>
+          </ul>
         </div>
-        <div class="col-lg-5">
-          <Flavor v-if="component === 'flavor'" />
-          <Filling v-if="component === 'filling'" />
-          <Icing v-if="component === 'icing'" />
-          <TopBorder v-if="component === 'topBorder'" />
-          <BottomBorder v-if="component === 'bottomBorder'" />
-          <Flower v-if="component === 'flower'" />
-          <Topping v-if="component === 'topping'" />
-          <Instruction
-            v-if="component === 'instruction'"
-            @addToCart="addToCart"
-          />
+      </div>
+
+      <div class="tab-content" id="myTabContent">
+        <div
+          class="tab-pane fade show active"
+          id="home"
+          role="tabpanel"
+          aria-labelledby="home-tab"
+        >
+          <div class="row">
+            <div class="col-lg-7">
+              <canvas id="custom-cake" class="w-100" width="674" height="379" />
+            </div>
+            <div class="col-lg-5">
+              <Flavor v-if="component === 'flavor'" />
+              <Filling v-if="component === 'filling'" />
+              <Icing v-if="component === 'icing'" />
+              <TopBorder v-if="component === 'topBorder'" />
+              <BottomBorder v-if="component === 'bottomBorder'" />
+              <Flower v-if="component === 'flower'" />
+              <Topping v-if="component === 'topping'" />
+              <Instruction
+                v-if="component === 'instruction'"
+                @addToCart="addToCart"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="profile"
+          role="tabpanel"
+          aria-labelledby="profile-tab"
+        >
+          <Upload />
         </div>
       </div>
     </div>
@@ -38,6 +90,7 @@ import BottomBorder from "@/components/customization/BottomBorder";
 import Flower from "@/components/customization/Flower";
 import Topping from "@/components/customization/Topping";
 import Instruction from "@/components/customization/Instruction";
+import Upload from "@/components/customization/Upload";
 
 const components = [
   "base",
@@ -145,7 +198,8 @@ export default {
     BottomBorder,
     Flower,
     Topping,
-    Instruction
+    Instruction,
+    Upload
   }
 };
 </script>
