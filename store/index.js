@@ -55,7 +55,13 @@ export const mutations = {
   },
 
   add(state, payload) {
-    let index = state.cart.findIndex(cake => cake._id == payload._id);
+    let index = state.cart.findIndex(cake => {
+      return (
+        cake._id == payload._id
+        && cake.variant_selected == payload.variant_selected
+        && cake.hasEgg == payload.hasEgg
+      );
+    });
 
     state.cake = payload;
 
@@ -73,7 +79,13 @@ export const mutations = {
   },
 
   del(state, payload) {
-    let index = state.cart.findIndex(cake => cake._id == payload._id);
+    let index = state.cart.findIndex(cake => {
+      return (
+        cake._id == payload._id
+        && cake.variant_selected == payload.variant_selected
+        && cake.hasEgg == payload.hasEgg
+      );
+    });
     if (index > -1) {
       state.cart.splice(index, 1);
     }
@@ -81,7 +93,13 @@ export const mutations = {
   },
 
   inc(state, payload) {
-    let index = state.cart.findIndex(cake => cake._id == payload._id);
+    let index = state.cart.findIndex(cake => {
+      return (
+        cake._id == payload._id
+        && cake.variant_selected == payload.variant_selected
+        && cake.hasEgg == payload.hasEgg
+      );
+    });
     if (index > -1) {
       state.cart[index].qty += 1;
     }
@@ -89,7 +107,13 @@ export const mutations = {
   },
 
   dec(state, payload) {
-    let index = state.cart.findIndex(cake => cake._id == payload._id);
+    let index = state.cart.findIndex(cake => {
+      return (
+        cake._id == payload._id
+        && cake.variant_selected == payload.variant_selected
+        && cake.hasEgg == payload.hasEgg
+      );
+    });
     if (index > -1) {
       if (state.cart[index].qty > 1) {
         state.cart[index].qty -= 1;

@@ -51,9 +51,13 @@
                         class="img-fluid me-2"
                       />
                       {{ cake.title }}
+                      <p>
+                      <span class="badge badge-success text-dark">{{cake.variant_selected}}</span>
+                      <span class="badge badge-success text-dark">{{ !cake.hasEgg ? 'Eggless': '' }}</span>
+                      </p>
                     </td>
                     <td class="py-5">
-                      <h6>{{ npr(cake.price) }}</h6>
+                      <h6>{{ $utils.npr(cake.price) }}</h6>
                     </td>
                     <td class="py-5">
                       <div class="input-group">
@@ -83,7 +87,7 @@
                       <i class="las la-times la-1x" @click="del(cake)" />
                     </td>
                     <td class="py-5">
-                      <h6>{{ npr(cake.price * cake.qty) }}</h6>
+                      <h6>{{ $utils.npr(cake.price * cake.qty) }}</h6>
                     </td>
                   </tr>
 
@@ -92,7 +96,7 @@
                     <th scope="col" class="py-4"></th>
                     <th scope="col" class="py-4"></th>
                     <th scope="col" class="py-4">Total</th>
-                    <th scope="col" class="py-4">{{ npr(total) }}</th>
+                    <th scope="col" class="py-4">NPR {{ $utils.npr(total) }}</th>
                   </tr>
                 </tbody>
               </table>
@@ -132,10 +136,6 @@
 </template>
 
 <script>
-let formatter = new Intl.NumberFormat("en-IN", {
-  style: "currency",
-  currency: "INR"
-});
 
 export default {
   computed: {
@@ -151,9 +151,6 @@ export default {
   },
 
   methods: {
-    npr(price) {
-      return formatter.format(price);
-    },
 
     del(cake) {
       this.$store.commit("del", cake);

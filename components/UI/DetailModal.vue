@@ -178,8 +178,6 @@ export default {
       this.hasEgg = true;
       this.addons_selected = [];
       this.message = '';
-      // cart
-      console.log('cart', this.$store.getters.cart);
     },
 
     price() {
