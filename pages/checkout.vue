@@ -118,7 +118,7 @@
                     <input
                       type="date"
                       class="form-control py-2"
-                      v-model="order.datetime"
+                      v-model="order.date"
                       required
                     />
                   </div>
@@ -129,7 +129,7 @@
                     <input
                       type="time"
                       class="form-control py-2"
-                      v-model="order.datetime"
+                      v-model="order.time"
                       required
                     />
                   </div>
@@ -190,7 +190,8 @@ export default {
         phone: "",
         address: "",
         location: "",
-        datetime: new Date().toISOString().slice(0, 16),
+        date: new Date().toISOString().slice(0, 10),
+        time: new Date().toISOString().slice(11, ),
         notes: ""
       }
     };
@@ -198,16 +199,103 @@ export default {
 
   methods: {
     placeOrder() {
-      Swal.fire({
-        icon: "success",
-        title: "Success",
-        text:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eum vero ipsum nostrum mollitia! Aut eum ab unde asperiores rerum minima aliquid ipsum repudiandae recusandae ut quae, nostrum sequi quis?"
-        // footer: "<a href>Why do I have this issue?</a>"
-      }).then(() => {
-        this.$store.commit("checkout");
-        this.$router.replace("/");
+      //
+      const items = this.$store.getters.cart.map(el => {
+        return {
+          "field": {
+            "type": "set",
+            "label": "item",
+            "display": "$value",
+            "options": {
+              "display": "{qty} x {item_title} [ {variant}, {egg_eggless} ]",
+              "fields": [
+                {
+                  "type": "text",
+                  "name": "item_title",
+                  "label": "Item",
+                  "display": "$value"
+                },
+                {
+                  "type": "text",
+                  "name": "qty",
+                  "label": "Qty",
+                  "display": "$value",
+                  "options": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "type": "text",
+                  "name": "variant",
+                  "label": "Variant",
+                  "display": "$value"
+                },
+                {
+                  "type": "text",
+                  "name": "egg_eggless",
+                  "label": "Egg or Eggless",
+                  "display": "$value"
+                },
+                {
+                  "type": "textarea",
+                  "name": "message",
+                  "label": "Message",
+                  "display": "$value"
+                },
+                {
+                  "type": "collectionlink",
+                  "name": "cake",
+                  "label": "Cake",
+                  "display": "$value",
+                  "options": {
+                    "link": "cakes",
+                    "display": "title",
+                    "multiple": false,
+                    "limit": false
+                  }
+                }
+              ]
+            }
+          },
+          value: {
+            item_title: el.title,
+            qty: el.qty,
+            variant: el.variant_selected,
+            egg_eggless: el.hasEgg ? 'Egg' : 'Eggless',
+            message: el.message,
+            cake: {
+              _id: el._id,
+              link: 'cakes',
+              display: el.title,
+            }
+          }
+        }
       });
+
+      const orderData = {
+        ... this.order,
+        delivery: this.order.delivery ? 'Delivery' : 'PickUp',
+        items: items,
+      }
+
+      this.$axios
+        .post('api/collections/save/orders', { data: orderData })
+        .then(res => {
+
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text:
+              "Your order has been placed successfully ! We will reach out to you shortly."
+            // footer: "<a href>Why do I have this issue?</a>"
+          }).then(() => {
+            this.$store.commit("checkout");
+            this.$router.replace("/");
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };

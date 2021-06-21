@@ -11,7 +11,7 @@
         NPR {{ cake.discounted_price ? $utils.npr(cake.discounted_price) : $utils.npr(cake.price) }}
       </p>
       <div class="options">
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#detail" @click="">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#detail" @click="setDetailCake">
           <!-- 
         data-bs-toggle="modal"
         data-bs-target="#addtocart"

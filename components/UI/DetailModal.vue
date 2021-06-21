@@ -29,7 +29,7 @@
 
             <div class="d-flex justify-content-between align-items-center px-4">
               <h5 class="cake">{{ detailcake.category ? detailcake.category.name : '' }}</h5>
-              <h5 class="price">NRP {{ detailcake.discounted_price ? $utils.npr(detailcake.discounted_price) : $utils.npr(detailcake.price) }}</h5>
+              <h5 class="price">NRP {{ $utils.npr(price()) }}</h5>
             </div>
 
             <div class="px-4 mt-3">
@@ -164,19 +164,34 @@ export default {
 
   methods: {
     addToCart() {
+      let updated_price = this.price();
       this.$store.commit("add", {
         ...this.detailcake,
         variant_selected: this.detailcake.variants[this.variant_selected],
         addons_selected: this.addons_selected,
         message: this.message,
         hasEgg: this.hasEgg,
+        price: updated_price, // price value gets updated according to hasEgg, discounted_price, etc
       });
 
       this.variant_selected = 0;
+      this.hasEgg = true;
       this.addons_selected = [];
       this.message = '';
       // cart
       console.log('cart', this.$store.getters.cart);
+    },
+
+    price() {
+      if(this.hasEgg) {
+        return this.detailcake.discounted_price
+          ? this.detailcake.discounted_price
+          : this.detailcake.price
+      }
+
+      let price = parseFloat(this.detailcake.discounted_price ? this.detailcake.discounted_price : this.detailcake.price);
+
+      return String(price + 200);
     }
   },
   computed: {

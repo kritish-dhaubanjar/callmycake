@@ -45,7 +45,9 @@
                   <tr v-for="cake in cakes" :key="cake.id">
                     <td class="py-4">
                       <img
-                        src="https://via.placeholder.com/64x64"
+                        :src="cake.image ? `${$axios.defaults.baseURL}${cake.image.path}`:'/images/modal_cake.jpg'"
+                        height="64"
+                        width="64"
                         class="img-fluid me-2"
                       />
                       {{ cake.title }}
