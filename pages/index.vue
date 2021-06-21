@@ -2,7 +2,7 @@
   <div>
     <Carousel />
     <Menu />
-    <!-- <AddModal /> -->
+    <Advertisement />
     <DetailModal />
     <div class="toast-container">
       <div
@@ -35,15 +35,25 @@
 <script>
 import Carousel from "@/components/index/Carousel";
 import Menu from "@/components/index/Menu";
-import AddModal from "@/components/UI/AddModal";
+import Advertisement from "@/components/UI/Advertisement";
 import DetailModal from "@/components/UI/DetailModal";
-import { Toast } from "bootstrap";
+import { Toast, Modal } from "bootstrap";
 
 export default {
   data() {
     return {
       toasts: []
     };
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      const modal = document.getElementById("advertisement");
+      if (modal && this.$store.getters.showAdvertisement) {
+        new Modal(modal).show();
+        this.$store.commit("unsetShowAdvertisement");
+      }
+    });
   },
 
   watch: {
@@ -78,7 +88,7 @@ export default {
   components: {
     Carousel,
     Menu,
-    AddModal,
+    Advertisement,
     DetailModal
   }
 };

@@ -30,4 +30,10 @@ export default {
 
 <style>
 @import "@/assets/scss/styles.scss";
+
+#top {
+  background-image: url("/images/home_best_selling_img_24fba90c-1178-4549-8a03-35e116b04ffc.webp");
+  background-position: center;
+  background-size: cover;
+}
 </style>
