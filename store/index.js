@@ -7,7 +7,8 @@ export const state = () => ({
     image: "",
     price: 0
   },
-  showAdvertisement: true
+  showAdvertisement: true,
+  discountCoupon: {},
 });
 
 export const getters = {
@@ -24,6 +25,10 @@ export const getters = {
     return state.detailcake;
   },
   /* DetailModal */
+
+  discountCoupon(state) {
+    return state.discountCoupon;
+  },
 
   showAdvertisement(state) {
     return state.showAdvertisement;
@@ -48,6 +53,14 @@ export const mutations = {
 
   reset(state) {
     state.cake = null;
+  },
+
+  setDiscountCoupon(state, payload) {
+    state.discountCoupon = payload;
+  },
+
+  resetDiscountCoupon(state) {
+    state.discountCoupon = {};
   },
 
   unsetShowAdvertisement(state) {

@@ -95,8 +95,19 @@
                     <th scope="col" class="py-4"></th>
                     <th scope="col" class="py-4"></th>
                     <th scope="col" class="py-4"></th>
-                    <th scope="col" class="py-4">Total</th>
-                    <th scope="col" class="py-4">NPR {{ $utils.npr(total) }}</th>
+                    <th scope="col" class="py-4">
+                      Total <br/>
+                      Discount <br/>
+                      Grand Total
+                    </th>
+                    <th scope="col" class="py-4">
+                      NPR {{ $utils.npr(total) }}
+                      <div v-if="discountCoupon.value" class="discount"> 
+                        -{{ discountCoupon.discount_type == 'Percentage' ? `${discountCoupon.value}%` : `NPR ${discountCoupon.value}`}}
+                      </div>
+                      <div v-else>0</div>
+                      NPR {{ $utils.npr(grandTotal) }}
+                    </th>
                   </tr>
                 </tbody>
               </table>
@@ -107,14 +118,20 @@
         <div class="row mt-4">
           <div class="col-12">
             <label class="mb-3 fw-bold">COUPON CODE</label>
-            <div class="mb-3 coupon-code d-flex">
+            <div class="mb-1 coupon-code d-flex">
               <input
                 type="text"
                 class="form-control py-2"
                 placeholder="eg: AIYPWZQP"
+                v-model="coupon_code"
+                :style="`border-color: ${coupon_code_input_border_color}`"
+                :disabled="discountCoupon.value"
               />
-              <button class="btn btn-dark px-4 py-2 ms-1">APPLY</button>
+              <button class="btn btn-dark px-4 py-2 ms-1" @click="applyCouponCode()" :disabled="discountCoupon.value">
+                APPLY
+              </button>
             </div>
+            <div v-if="message" class="" v-html="message"></div>
           </div>
         </div>
 
@@ -138,7 +155,26 @@
 <script>
 
 export default {
+  data() {
+    return {
+      coupon_code: '',
+      message: '',
+      coupon_code_input_border_color: '#ced4da',
+    }
+  },
+
+  mounted() {
+    if(this.$store.getters.discountCoupon.value) {
+      this.coupon_code = this.$store.getters.discountCoupon.code;
+      this.message = `<small class="text-success">Token Applied !</small>`;
+    }
+  },
+
   computed: {
+    discountCoupon() {
+      return this.$store.getters.discountCoupon;
+    },
+
     cakes() {
       return this.$store.getters.cart;
     },
@@ -147,6 +183,20 @@ export default {
       return this.cakes.reduce((acc, cake, index) => {
         return acc + cake.qty * cake.price;
       }, 0);
+    },
+
+    grandTotal() {
+      let total = this.cakes.reduce((acc, cake, index) => {
+        return acc + cake.qty * cake.price;
+      }, 0);
+
+      if(!this.discountCoupon.value) return total;
+
+      const discount_amount = this.discountCoupon.discount_type=='Percentage'
+        ? (parseFloat(this.discountCoupon.value)/100) * total
+        : this.discountCoupon.value;
+
+      return String(total - discount_amount);
     }
   },
 
@@ -162,6 +212,27 @@ export default {
 
     dec(cake) {
       this.$store.commit("dec", cake);
+    },
+
+    applyCouponCode() {
+      if(this.coupon_code == '') return;
+      let formData = new FormData();
+      formData.append('coupon_code', this.coupon_code);
+      this.$axios.
+        post('api/public/checkcoupon', formData)
+        .then(({ data }) => {
+          if(data.status == 'success') {
+            this.coupon_code_input_border_color = 'green';
+            this.$store.commit('setDiscountCoupon', data.coupon);
+            this.message = `<small class="text-success">Token Applied !</small>`;
+          }
+          else {
+            this.coupon_code_input_border_color = 'red';
+            this.$store.commit('resetDiscountCoupon');
+            this.message = `<small class="text-danger">Invalid Token !</small>`;
+          }
+        })
+        .catch(err => console.log(err));
     }
   }
 };

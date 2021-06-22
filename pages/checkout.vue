@@ -272,16 +272,31 @@ export default {
         }
       });
 
-      const orderData = {
-        ... this.order,
-        delivery: this.order.delivery ? 'Delivery' : 'PickUp',
-        items: items,
+      let orderData = null;
+      if(this.$store.getters.discountCoupon) {
+        let discountCoupon = {
+          _id: this.$store.getters.discountCoupon._id,
+          link: 'coupons',
+          display: 'code',
+        };
+        orderData = {
+          ... this.order,
+          delivery: this.order.delivery ? 'Delivery' : 'PickUp',
+          items: items,
+          coupon: discountCoupon,
+        }
+      } else  {
+        orderData = {
+          ... this.order,
+          delivery: this.order.delivery ? 'Delivery' : 'PickUp',
+          items: items,
+        }
       }
 
       this.$axios
         .post('api/collections/save/orders', { data: orderData })
         .then(res => {
-
+          this.$store.commit('resetDiscountCoupon');
           Swal.fire({
             icon: "success",
             title: "Success",
