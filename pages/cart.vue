@@ -88,12 +88,19 @@
                     </td>
                   </tr>
 
-                  <tr>
+                  <tr class="total">
                     <th scope="col" class="py-4"></th>
                     <th scope="col" class="py-4"></th>
                     <th scope="col" class="py-4"></th>
-                    <th scope="col" class="py-4">Total</th>
-                    <th scope="col" class="py-4">{{ npr(total) }}</th>
+                    <th scope="col" class="py-4"></th>
+                    <th scope="col" class="py-4">
+                      Total<br />Discount<br />Grand Total
+                    </th>
+                    <th scope="col" class="py-4">
+                      {{ npr(total) }}<br />
+                      15% <br />
+                      {{ npr(total) }}
+                    </th>
                   </tr>
                 </tbody>
               </table>
@@ -237,5 +244,9 @@ i {
       border-color: $primary;
     }
   }
+}
+
+.total {
+  line-height: 250%;
 }
 </style>
