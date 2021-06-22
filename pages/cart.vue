@@ -18,6 +18,7 @@
               <table class="table">
                 <thead>
                   <tr>
+                    <th scope="col">Preview</th>
                     <th scope="col">Product</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
@@ -48,6 +49,8 @@
                         src="https://via.placeholder.com/64x64"
                         class="img-fluid me-2"
                       />
+                    </td>
+                    <td class="py-5">
                       {{ cake.title }}
                     </td>
                     <td class="py-5">
