@@ -295,18 +295,26 @@ export default {
 
       this.$axios
         .post('api/collections/save/orders', { data: orderData })
-        .then(res => {
-          this.$store.commit('resetDiscountCoupon');
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            text:
-              "Your order has been placed successfully ! We will reach out to you shortly."
-            // footer: "<a href>Why do I have this issue?</a>"
-          }).then(() => {
-            this.$store.commit("checkout");
-            this.$router.replace("/");
-          });
+        .then(({ data }) => {
+          //
+          let formData = new FormData();
+          formData.append('order_id', data._id);
+          this.$axios
+            .post('https://jhyappy.gimmickbox.com.np/api/public/updateprice', formData)
+            .then(res => {})
+            .finally(res => {
+              this.$store.commit('resetDiscountCoupon');
+              Swal.fire({
+                icon: "success",
+                title: "Success",
+                text:
+                  "Your order has been placed successfully ! We will reach out to you shortly."
+                // footer: "<a href>Why do I have this issue?</a>"
+              }).then(() => {
+                this.$store.commit("checkout");
+                this.$router.replace("/");
+              });
+            });
         })
         .catch(err => {
           console.log(err);
