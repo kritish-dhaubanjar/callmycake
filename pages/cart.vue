@@ -119,6 +119,20 @@
               />
               <button class="btn btn-dark px-4 py-2 ms-1">APPLY</button>
             </div>
+
+            <strong class="text-danger"
+              >Whoops, the coupon appears to be out of date. Contact
+              Support.</strong
+            ><br />
+
+            <strong class="text-danger"
+              >Whoops, the coupon appears to be invalid. Contact
+              Support.</strong
+            ><br />
+
+            <strong class="text-success"
+              >Yay! The coupon was applied successfully.</strong
+            >
           </div>
         </div>
 
