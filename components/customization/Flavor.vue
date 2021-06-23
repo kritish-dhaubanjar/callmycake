@@ -19,13 +19,17 @@
     <hr />
     <div class="row">
       <div class="col-5">
-        <button class="btn btn-light navigation py-2">
+        <nuxt-link
+          to="/customize/type"
+          tag="button"
+          class="btn navigation py-2"
+        >
           <i class="las la-arrow-left"></i>
-        </button>
-        <span>Size</span>
+        </nuxt-link>
+        <span>Type</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>1/8</span>
+        <span>3/10</span>
       </div>
       <div class="col-5 text-end">
         <span>Filling</span>
@@ -48,25 +52,25 @@ export default {
       flavors: [
         {
           id: 1,
-          image: "/images/customization/flavors/001.png",
+          image: "/images/customization/flavors/<type>/001.png",
           icon: "/images/customization/flavor_options/001.png",
           value: "Top: White/Bottom: White"
         },
         {
           id: 2,
-          image: "/images/customization/flavors/002.png",
+          image: "/images/customization/flavors/<type>/002.png",
           icon: "/images/customization/flavor_options/002.png",
           value: "Top: Chocolate/Bottom: Chocolate"
         },
         {
           id: 3,
-          image: "/images/customization/flavors/003.png",
+          image: "/images/customization/flavors/<type>/003.png",
           icon: "/images/customization/flavor_options/003.png",
           value: "Top: White/Bottom: Chocolate"
         },
         {
           id: 4,
-          image: "/images/customization/flavors/004.png",
+          image: "/images/customization/flavors/<type>/004.png",
           icon: "/images/customization/flavor_options/004.png",
           value: "Top: Chocolate/Bottom: White"
         }

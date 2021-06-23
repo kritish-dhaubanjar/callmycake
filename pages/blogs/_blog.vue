@@ -78,6 +78,16 @@
   </section>
 </template>
 
+<script>
+export default {
+  head() {
+    return {
+      title: "CallMyCake | Blog"
+    };
+  }
+};
+</script>
+
 <style scoped>
 p {
   line-height: 150%;

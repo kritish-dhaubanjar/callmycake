@@ -58,7 +58,7 @@
         <span>Bottom Border</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>6/8</span>
+        <span>8/10</span>
       </div>
       <div class="col-5 text-end">
         <span>Topping</span>
@@ -89,21 +89,21 @@ export default {
         },
         {
           id: 1,
-          image: "/images/customization/flowers/openMums/001.png",
+          image: "/images/customization/flowers/openMums/<type>/001.png",
           icon: "#fff",
           value: "White",
           type: "openMums"
         },
         {
           id: 2,
-          image: "/images/customization/flowers/openMums/002.png",
+          image: "/images/customization/flowers/openMums/<type>/002.png",
           icon: "#f8e2db",
           value: "Light Pink",
           type: "openMums"
         },
         {
           id: 3,
-          image: "/images/customization/flowers/openMums/003.png",
+          image: "/images/customization/flowers/openMums/<type>/003.png",
           icon: "#fe64a1",
           value: "Pink",
           type: "openMums"
@@ -111,84 +111,84 @@ export default {
 
         {
           id: 4,
-          image: "/images/customization/flowers/openMums/004.png",
+          image: "/images/customization/flowers/openMums/<type>/004.png",
           type: "openMums",
           icon: "#c22b38",
           value: "Red"
         },
         {
           id: 5,
-          image: "/images/customization/flowers/openMums/005.png",
+          image: "/images/customization/flowers/openMums/<type>/005.png",
           type: "openMums",
           icon: "#ff6225",
           value: "Orange"
         },
         {
           id: 6,
-          image: "/images/customization/flowers/openMums/006.png",
+          image: "/images/customization/flowers/openMums/<type>/006.png",
           type: "openMums",
           icon: "#ffd802",
           value: "Yellow"
         },
         {
           id: 7,
-          image: "/images/customization/flowers/openMums/007.png",
+          image: "/images/customization/flowers/openMums/<type>/007.png",
           type: "openMums",
           icon: "#90dae5",
           value: "Light Blue"
         },
         {
           id: 8,
-          image: "/images/customization/flowers/openMums/008.png",
+          image: "/images/customization/flowers/openMums/<type>/008.png",
           type: "openMums",
           icon: "#0254bb",
           value: "Royal Blue"
         },
         {
           id: 9,
-          image: "/images/customization/flowers/openMums/009.png",
+          image: "/images/customization/flowers/openMums/<type>/009.png",
           type: "openMums",
           icon: "#6d419c",
           value: "Purple"
         },
         {
           id: 10,
-          image: "/images/customization/flowers/openMums/010.png",
+          image: "/images/customization/flowers/openMums/<type>/010.png",
           type: "openMums",
           icon: "#098a1d",
           value: "Green"
         },
         {
           id: 11,
-          image: "/images/customization/flowers/openMums/011.png",
+          image: "/images/customization/flowers/openMums/<type>/011.png",
           type: "openMums",
           icon: "#a6cd4e",
           value: "Bright Green"
         },
         {
           id: 12,
-          image: "/images/customization/flowers/openMums/012.png",
+          image: "/images/customization/flowers/openMums/<type>/012.png",
           type: "openMums",
           icon: "#07a99c",
           value: "Teal"
         },
         {
           id: 13,
-          image: "/images/customization/flowers/openMums/013.png",
+          image: "/images/customization/flowers/openMums/<type>/013.png",
           type: "openMums",
           icon: "#1c1b16",
           value: "Black"
         },
         {
           id: 14,
-          image: "/images/customization/flowers/openMums/014.png",
+          image: "/images/customization/flowers/openMums/<type>/014.png",
           type: "openMums",
           icon: "#c0b8ab",
           value: "Grey"
         },
         {
           id: 15,
-          image: "/images/customization/flowers/openMums/015.png",
+          image: "/images/customization/flowers/openMums/<type>/015.png",
           type: "beads",
           icon: "#663a2f",
           value: "Chocolate"

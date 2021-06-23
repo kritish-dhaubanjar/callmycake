@@ -160,6 +160,12 @@ let formatter = new Intl.NumberFormat("en-IN", {
 });
 
 export default {
+  head() {
+    return {
+      title: "CallMyCake | Cart"
+    };
+  },
+
   computed: {
     cakes() {
       return this.$store.getters.cart;

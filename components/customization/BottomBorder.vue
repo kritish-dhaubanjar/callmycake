@@ -58,7 +58,7 @@
         <span>Top Border</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>5/8</span>
+        <span>7/10</span>
       </div>
       <div class="col-5 text-end">
         <span>Flower</span>
@@ -89,105 +89,105 @@ export default {
         },
         {
           id: 1,
-          image: "/images/customization/bottomBorders/shells/001.png",
+          image: "/images/customization/bottomBorders/<type>/shells/001.png",
           type: "shells",
           icon: "#fff",
           value: "White"
         },
         {
           id: 2,
-          image: "/images/customization/bottomBorders/shells/002.png",
+          image: "/images/customization/bottomBorders/<type>/shells/002.png",
           type: "shells",
           icon: "#f8e2db",
           value: "Light Pink"
         },
         {
           id: 3,
-          image: "/images/customization/bottomBorders/shells/003.png",
+          image: "/images/customization/bottomBorders/<type>/shells/003.png",
           type: "shells",
           icon: "#fe64a1",
           value: "Pink"
         },
         {
           id: 4,
-          image: "/images/customization/bottomBorders/shells/004.png",
+          image: "/images/customization/bottomBorders/<type>/shells/004.png",
           type: "shells",
           icon: "#c22b38",
           value: "Red"
         },
         {
           id: 5,
-          image: "/images/customization/bottomBorders/shells/005.png",
+          image: "/images/customization/bottomBorders/<type>/shells/005.png",
           type: "shells",
           icon: "#ff6225",
           value: "Orange"
         },
         {
           id: 6,
-          image: "/images/customization/bottomBorders/shells/006.png",
+          image: "/images/customization/bottomBorders/<type>/shells/006.png",
           type: "shells",
           icon: "#ffd802",
           value: "Yellow"
         },
         {
           id: 7,
-          image: "/images/customization/bottomBorders/shells/007.png",
+          image: "/images/customization/bottomBorders/<type>/shells/007.png",
           type: "shells",
           icon: "#90dae5",
           value: "Light Blue"
         },
         {
           id: 8,
-          image: "/images/customization/bottomBorders/shells/008.png",
+          image: "/images/customization/bottomBorders/<type>/shells/008.png",
           type: "shells",
           icon: "#0254bb",
           value: "Royal Blue"
         },
         {
           id: 9,
-          image: "/images/customization/bottomBorders/shells/009.png",
+          image: "/images/customization/bottomBorders/<type>/shells/009.png",
           type: "shells",
           icon: "#6d419c",
           value: "Purple"
         },
         {
           id: 10,
-          image: "/images/customization/bottomBorders/shells/010.png",
+          image: "/images/customization/bottomBorders/<type>/shells/010.png",
           type: "shells",
           icon: "#098a1d",
           value: "Green"
         },
         {
           id: 11,
-          image: "/images/customization/bottomBorders/shells/011.png",
+          image: "/images/customization/bottomBorders/<type>/shells/011.png",
           type: "shells",
           icon: "#a6cd4e",
           value: "Bright Green"
         },
         {
           id: 12,
-          image: "/images/customization/bottomBorders/shells/012.png",
+          image: "/images/customization/bottomBorders/<type>/shells/012.png",
           type: "shells",
           icon: "#07a99c",
           value: "Teal"
         },
         {
           id: 13,
-          image: "/images/customization/bottomBorders/shells/013.png",
+          image: "/images/customization/bottomBorders/<type>/shells/013.png",
           type: "shells",
           icon: "#1c1b16",
           value: "Black"
         },
         {
           id: 14,
-          image: "/images/customization/bottomBorders/shells/014.png",
+          image: "/images/customization/bottomBorders/<type>/shells/014.png",
           type: "shells",
           icon: "#c0b8ab",
           value: "Grey"
         },
         {
           id: 15,
-          image: "/images/customization/bottomBorders/shells/015.png",
+          image: "/images/customization/bottomBorders/<type>/shells/015.png",
           type: "shells",
           icon: "#663a2f",
           value: "Chocolate"
@@ -204,105 +204,105 @@ export default {
         },
         {
           id: 1,
-          image: "/images/customization/bottomBorders/beads/001.png",
+          image: "/images/customization/bottomBorders/<type>/beads/001.png",
           type: "beads",
           icon: "#fff",
           value: "White"
         },
         {
           id: 2,
-          image: "/images/customization/bottomBorders/beads/002.png",
+          image: "/images/customization/bottomBorders/<type>/beads/002.png",
           type: "beads",
           icon: "#f8e2db",
           value: "Light Pink"
         },
         {
           id: 3,
-          image: "/images/customization/bottomBorders/beads/003.png",
+          image: "/images/customization/bottomBorders/<type>/beads/003.png",
           type: "beads",
           icon: "#fe64a1",
           value: "Pink"
         },
         {
           id: 4,
-          image: "/images/customization/bottomBorders/beads/004.png",
+          image: "/images/customization/bottomBorders/<type>/beads/004.png",
           type: "beads",
           icon: "#c22b38",
           value: "Red"
         },
         {
           id: 5,
-          image: "/images/customization/bottomBorders/beads/005.png",
+          image: "/images/customization/bottomBorders/<type>/beads/005.png",
           type: "beads",
           icon: "#ff6225",
           value: "Orange"
         },
         {
           id: 6,
-          image: "/images/customization/bottomBorders/beads/006.png",
+          image: "/images/customization/bottomBorders/<type>/beads/006.png",
           type: "beads",
           icon: "#ffd802",
           value: "Yellow"
         },
         {
           id: 7,
-          image: "/images/customization/bottomBorders/beads/007.png",
+          image: "/images/customization/bottomBorders/<type>/beads/007.png",
           type: "beads",
           icon: "#90dae5",
           value: "Light Blue"
         },
         {
           id: 8,
-          image: "/images/customization/bottomBorders/beads/008.png",
+          image: "/images/customization/bottomBorders/<type>/beads/008.png",
           type: "beads",
           icon: "#0254bb",
           value: "Royal Blue"
         },
         {
           id: 9,
-          image: "/images/customization/bottomBorders/beads/009.png",
+          image: "/images/customization/bottomBorders/<type>/beads/009.png",
           type: "beads",
           icon: "#6d419c",
           value: "Purple"
         },
         {
           id: 10,
-          image: "/images/customization/bottomBorders/beads/010.png",
+          image: "/images/customization/bottomBorders/<type>/beads/010.png",
           type: "beads",
           icon: "#098a1d",
           value: "Green"
         },
         {
           id: 11,
-          image: "/images/customization/bottomBorders/beads/011.png",
+          image: "/images/customization/bottomBorders/<type>/beads/011.png",
           type: "beads",
           icon: "#a6cd4e",
           value: "Bright Green"
         },
         {
           id: 12,
-          image: "/images/customization/bottomBorders/beads/012.png",
+          image: "/images/customization/bottomBorders/<type>/beads/012.png",
           type: "beads",
           icon: "#07a99c",
           value: "Teal"
         },
         {
           id: 13,
-          image: "/images/customization/bottomBorders/beads/013.png",
+          image: "/images/customization/bottomBorders/<type>/beads/013.png",
           type: "beads",
           icon: "#1c1b16",
           value: "Black"
         },
         {
           id: 14,
-          image: "/images/customization/bottomBorders/beads/014.png",
+          image: "/images/customization/bottomBorders/<type>/beads/014.png",
           type: "beads",
           icon: "#c0b8ab",
           value: "Grey"
         },
         {
           id: 15,
-          image: "/images/customization/bottomBorders/beads/015.png",
+          image: "/images/customization/bottomBorders/<type>/beads/015.png",
           type: "beads",
           icon: "#663a2f",
           value: "Chocolate"

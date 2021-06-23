@@ -48,7 +48,7 @@ window.addEventListener(
   "scroll",
   debounce(() => {
     let section = document.querySelector(".sticky-top");
-    if (section.offsetTop > 96) {
+    if (section.offsetTop > 100) {
       section.className = "my-4 sticky-top bg-white shadow-sm";
     } else {
       section.className = "py-4 sticky-top bg-white";

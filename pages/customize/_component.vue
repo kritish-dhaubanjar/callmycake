@@ -54,6 +54,7 @@
               <canvas id="custom-cake" class="w-100" width="674" height="379" />
             </div>
             <div class="col-lg-5">
+              <Type v-if="component === 'type'" />
               <Flavor v-if="component === 'flavor'" />
               <Filling v-if="component === 'filling'" />
               <Icing v-if="component === 'icing'" />
@@ -82,6 +83,7 @@
 </template>
 
 <script>
+import Type from "@/components/customization/Type";
 import Flavor from "@/components/customization/Flavor";
 import Filling from "@/components/customization/Filling";
 import Icing from "@/components/customization/Icing";
@@ -93,6 +95,7 @@ import Instruction from "@/components/customization/Instruction";
 import Upload from "@/components/customization/Upload";
 
 const components = [
+  "type",
   "base",
   "flavor",
   "icing",
@@ -106,11 +109,17 @@ const components = [
 ];
 
 export default {
+  scrollToTop: false,
+  head() {
+    return {
+      title: "CallMyCake | Customize Cake"
+    };
+  },
   data() {
     return {
       canvas: null,
       context: null,
-      component: "flavor"
+      component: "type"
     };
   },
 
@@ -191,6 +200,7 @@ export default {
   },
 
   components: {
+    Type,
     Flavor,
     Filling,
     Icing,

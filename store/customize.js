@@ -1,8 +1,10 @@
 export const state = () => ({
   cake: {
+    type: "round",
     base: {
-      image: "/images/customization/base.png"
+      image: "/images/customization/base/round.png"
     },
+    //
     filling: {
       id: 1,
       icon: "",
@@ -11,13 +13,13 @@ export const state = () => ({
     },
     icing: {
       id: 1,
-      image: "/images/customization/icings/001.png",
+      image: "/images/customization/icings/round/001.png",
       icon: "#fff",
       value: "White"
     },
     flavor: {
       id: 1,
-      image: "/images/customization/flavors/001.png",
+      image: "/images/customization/flavors/round/001.png",
       icon: "/images/customization/flavor_options/001.png",
       value: "Top: White/Bottom: White"
     },
@@ -62,7 +64,26 @@ export const getters = {
 };
 
 export const mutations = {
+  setType(state, type) {
+    const components = Object.keys(state.cake);
+
+    components.forEach(component => {
+      let image = state.cake[component].image;
+
+      if (image && !image.includes(type)) {
+        const toReplace = type === "round" ? "square" : "round";
+        image = image.replace(toReplace, type);
+        state.cake[component].image = image;
+      }
+    });
+
+    state.cake.type = type;
+  },
+
   set(state, { component, option }) {
+    if (option.image) {
+      option.image = option.image.replace("<type>", state.cake.type);
+    }
     state.cake[component] = option;
   }
 };

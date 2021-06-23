@@ -39,7 +39,7 @@
         <span>Flower</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>7/8</span>
+        <span>9/10</span>
       </div>
       <div class="col-5 text-end">
         <span>Instruction</span>
@@ -67,7 +67,7 @@ export default {
         },
         {
           id: 1,
-          image: "/images/customization/toppings/001.png",
+          image: "/images/customization/toppings/<type>/001.png",
           icon: "/images/customization/topping_options/001.png",
           value: "Sprinkles"
         }

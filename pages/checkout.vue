@@ -181,6 +181,12 @@ import Swal from "sweetalert2";
 export default {
   middleware: ["hasItem"],
 
+  head() {
+    return {
+      title: "CallMyCake | CheckOut"
+    };
+  },
+
   data() {
     return {
       order: {

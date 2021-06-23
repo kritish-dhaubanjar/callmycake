@@ -30,7 +30,7 @@
         <span>Filling</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>3/8</span>
+        <span>5/10</span>
       </div>
       <div class="col-5 text-end">
         <span>Top Border</span>
@@ -53,91 +53,91 @@ export default {
       icings: [
         {
           id: 1,
-          image: "/images/customization/icings/001.png",
+          image: "/images/customization/icings/<type>/001.png",
           icon: "#fff",
           value: "White"
         },
         {
           id: 2,
-          image: "/images/customization/icings/002.png",
+          image: "/images/customization/icings/<type>/002.png",
           icon: "#f8e2db",
           value: "Light Pink"
         },
         {
           id: 3,
-          image: "/images/customization/icings/003.png",
+          image: "/images/customization/icings/<type>/003.png",
           icon: "#fe64a1",
           value: "Pink"
         },
         {
           id: 4,
-          image: "/images/customization/icings/004.png",
+          image: "/images/customization/icings/<type>/004.png",
           icon: "#c22b38",
           value: "Red"
         },
         {
           id: 5,
-          image: "/images/customization/icings/005.png",
+          image: "/images/customization/icings/<type>/005.png",
           icon: "#ff6225",
           value: "Orange"
         },
         {
           id: 6,
-          image: "/images/customization/icings/006.png",
+          image: "/images/customization/icings/<type>/006.png",
           icon: "#ffd802",
           value: "Yellow"
         },
         {
           id: 7,
-          image: "/images/customization/icings/007.png",
+          image: "/images/customization/icings/<type>/007.png",
           icon: "#90dae5",
           value: "Light Blue"
         },
         {
           id: 8,
-          image: "/images/customization/icings/008.png",
+          image: "/images/customization/icings/<type>/008.png",
           icon: "#0254bb",
           value: "Royal Blue"
         },
         {
           id: 9,
-          image: "/images/customization/icings/009.png",
+          image: "/images/customization/icings/<type>/009.png",
           icon: "#6d419c",
           value: "Purple"
         },
         {
           id: 10,
-          image: "/images/customization/icings/010.png",
+          image: "/images/customization/icings/<type>/010.png",
           icon: "#098a1d",
           value: "Green"
         },
         {
           id: 11,
-          image: "/images/customization/icings/011.png",
+          image: "/images/customization/icings/<type>/011.png",
           icon: "#a6cd4e",
           value: "Bright Green"
         },
         {
           id: 12,
-          image: "/images/customization/icings/012.png",
+          image: "/images/customization/icings/<type>/012.png",
           icon: "#07a99c",
           value: "Teal"
         },
         {
           id: 13,
-          image: "/images/customization/icings/013.png",
+          image: "/images/customization/icings/<type>/013.png",
           icon: "#1c1b16",
           value: "Black"
         },
         {
           id: 14,
-          image: "/images/customization/icings/014.png",
+          image: "/images/customization/icings/<type>/014.png",
           icon: "#c0b8ab",
           value: "Grey"
         },
         {
           id: 15,
-          image: "/images/customization/icings/015.png",
+          image: "/images/customization/icings/<type>/015.png",
           icon: "#663a2f",
           value: "Chocolate"
         }
