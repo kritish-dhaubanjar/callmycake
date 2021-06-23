@@ -1,6 +1,7 @@
 export const state = () => ({
   cake: {
     type: "round",
+    layer: 1,
     base: {
       image: "/images/customization/base/round.png"
     },

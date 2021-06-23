@@ -51,7 +51,8 @@
         >
           <div class="row">
             <div class="col-lg-7">
-              <canvas id="custom-cake" class="w-100" width="674" height="379" />
+              <!-- <canvas id="custom-cake" class="w-100" width="674" height="379" /> -->
+              <canvas id="custom-cake" class="w-100" width="674" height="512" />
             </div>
             <div class="col-lg-5">
               <Type v-if="component === 'type'" />
@@ -108,6 +109,11 @@ const components = [
   "instruction"
 ];
 
+const sX = 0;
+const sY = 0;
+const sW = 674;
+const sH = 379;
+
 export default {
   scrollToTop: false,
   head() {
@@ -157,13 +163,46 @@ export default {
         const src = this.cake[component].image;
         if (src) {
           const image = await this.asyncLoader(this.cake[component].image);
-          this.context.drawImage(
-            image,
-            0,
-            0,
-            this.canvas.width,
-            this.canvas.height
-          );
+          this.context.drawImage(image, sX, sY, sW, sH, 0, 512 - sH, sW, sH);
+        }
+      }
+
+      if (this.cake.layer >= 2) {
+        for (const component of components) {
+          const src = this.cake[component].image;
+          if (src && component != "base") {
+            const image = await this.asyncLoader(this.cake[component].image);
+            this.context.drawImage(
+              image,
+              sX,
+              sY,
+              sW,
+              sH,
+              this.cake.type === "round" ? 80 : 90,
+              this.cake.type === "round" ? 60 : 110,
+              this.cake.type === "round" ? sW / 1.3 : sW / 1.5,
+              this.cake.type === "round" ? sH / 1.3 : sH / 1.5
+            );
+          }
+        }
+      }
+      if (this.cake.layer === 3) {
+        for (const component of components) {
+          const src = this.cake[component].image;
+          if (src && component != "base") {
+            const image = await this.asyncLoader(this.cake[component].image);
+            this.context.drawImage(
+              image,
+              sX,
+              sY,
+              sW,
+              sH,
+              this.cake.type === "round" ? 150 : 150,
+              this.cake.type === "round" ? 10 : 90,
+              this.cake.type === "round" ? sW / 1.8 : sW / 2.3,
+              this.cake.type === "round" ? sH / 1.8 : sH / 2.3
+            );
+          }
         }
       }
     },

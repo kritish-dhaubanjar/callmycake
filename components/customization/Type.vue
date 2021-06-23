@@ -19,6 +19,32 @@
       </button>
     </div>
 
+    <br />
+
+    <div>
+      <button
+        class="btn btn-light"
+        @click="setLayer(1)"
+        :class="{ active: cake.layer === 1 }"
+      >
+        1 Layer
+      </button>
+      <button
+        class="btn btn-light"
+        @click="setLayer(2)"
+        :class="{ active: cake.layer === 2 }"
+      >
+        2 Layer
+      </button>
+      <button
+        class="btn btn-light"
+        @click="setLayer(3)"
+        :class="{ active: cake.layer === 3 }"
+      >
+        3 Layer
+      </button>
+    </div>
+
     <hr />
     <div class="row">
       <div class="col-5">
@@ -55,6 +81,10 @@ export default {
   methods: {
     setType(option) {
       this.$store.commit("customize/setType", option);
+    },
+
+    setLayer(option) {
+      this.$store.commit("customize/set", { component: "layer", option });
     }
   }
 };
