@@ -59,8 +59,8 @@ export default {
   axios: {
     baseURL:
       process.env.NODE_ENV === 'development'
-        ? 'https://jhyappy.gimmickbox.com.np/'
-        : 'https://jhyappy.gimmickbox.com.np/'
+        ? 'https://api.callmycake.com/'
+        : 'https://api.callmycake.com/'
   },
   /*
    ** Build configuration
