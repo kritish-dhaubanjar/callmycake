@@ -18,6 +18,7 @@
               <table class="table">
                 <thead>
                   <tr>
+                    <th scope="col">Preview</th>
                     <th scope="col">Product</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
@@ -50,6 +51,8 @@
                         width="64"
                         class="img-fluid me-2"
                       />
+                    </td>
+                    <td class="py-5">
                       {{ cake.title }}
                       <p>
                       <span class="badge badge-success text-dark">{{cake.variant_selected}}</span>
@@ -91,7 +94,7 @@
                     </td>
                   </tr>
 
-                  <tr>
+                  <tr class="total">
                     <th scope="col" class="py-4"></th>
                     <th scope="col" class="py-4"></th>
                     <th scope="col" class="py-4"></th>
@@ -224,13 +227,12 @@ export default {
           if(data.status == 'success') {
             this.coupon_code_input_border_color = 'green';
             this.$store.commit('setDiscountCoupon', data.coupon);
-            this.message = `<small class="text-success">Token Applied !</small>`;
           }
           else {
             this.coupon_code_input_border_color = 'red';
             this.$store.commit('resetDiscountCoupon');
-            this.message = `<small class="text-danger">Invalid Token !</small>`;
           }
+          this.message = data.message;
         })
         .catch(err => console.log(err));
     }
@@ -304,5 +306,9 @@ i {
       border-color: $primary;
     }
   }
+}
+
+.total {
+  line-height: 250%;
 }
 </style>
