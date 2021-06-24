@@ -62,7 +62,7 @@
           </div>
 
           <div class="col-lg-6">
-            <form @submit.prevent="placeOrder">
+            <form @submit.prevent="submitContactForm">
               <div class="row mt-4">
                 <div class="col-12">
                   <div class="mb-3">
@@ -70,7 +70,7 @@
                     <input
                       type="text"
                       class="form-control py-2"
-                      v-model="order.name"
+                      v-model="contact.name"
                       placeholder="eg: Jane Doe"
                       required
                     />
@@ -83,7 +83,7 @@
                     <input
                       type="email"
                       class="form-control py-2"
-                      v-model="order.email"
+                      v-model="contact.email"
                       placeholder="eg: janedoe@example.org"
                     />
                   </div>
@@ -95,7 +95,7 @@
                     <input
                       type="text"
                       class="form-control py-2"
-                      v-model="order.phone"
+                      v-model="contact.phone"
                       required
                       placeholder="eg: +977 987654321"
                     />
@@ -106,7 +106,7 @@
                   <div class="mb-3">
                     <label class="form-label">Message *</label>
                     <textarea
-                      v-model="order.notes"
+                      v-model="contact.message"
                       class="form-control py-2"
                       rows="4"
                       placeholder="Special Preference, Sender Details (or others)"
@@ -139,31 +139,30 @@ export default {
   },
   data() {
     return {
-      order: {
-        delivery: true,
+      contact: {
         name: "",
         email: "",
         phone: "",
-        address: "",
-        location: "",
-        datetime: new Date().toISOString().slice(0, 16),
-        notes: ""
+        message: ""
       }
     };
   },
 
   methods: {
-    placeOrder() {
-      Swal.fire({
-        icon: "success",
-        title: "Success",
-        text:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eum vero ipsum nostrum mollitia! Aut eum ab unde asperiores rerum minima aliquid ipsum repudiandae recusandae ut quae, nostrum sequi quis?"
-        // footer: "<a href>Why do I have this issue?</a>"
-      }).then(() => {
-        this.$store.commit("checkout");
-        // this.$router.replace("/");
-      });
+    submitContactForm() {
+      this.$axios
+        .post('api/collections/save/contact', {data: this.contact})
+        .then(({data}) => {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text:
+              "Thank you for your feedback :)"
+            // footer: "<a href>Why do I have this issue?</a>"
+          }).then(() => {
+            this.$router.replace("/");
+          });
+        });
     }
   }
 };
