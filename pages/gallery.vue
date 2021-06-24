@@ -38,16 +38,16 @@
       <div class="row grid" id="lightgallery">
         <a
           class="grid-item col-12 col-md-6 col-lg-4 p-3"
-          v-for="i in 10"
+          v-for="(item, i) in items"
           :key="i"
-          :class="tags[i % 4]"
-          href="images/image_4_570x.webp"
+          :class="`All ${item.category.display} ${item.tag.join(' ')}`"
+          :href="`${$axios.defaults.baseURL}${item.image.path}`"
         >
-          <img src="images/image_4_570x.webp" class="d-none" />
-          <div class="position-relative">
+          <img :src="`${$axios.defaults.baseURL}${item.image.path}`" class="d-none" />
+          <div class="position-relative" :style="`background-image: url('${$axios.defaults.baseURL}${item.image.path}')`">
             <div class="position-absolute text-center w-100 py-3">
-              <h6 class="pb-2">Baby Shower Cake</h6>
-              <em>ANNIVERSARY CAKE</em>
+              <h6 class="pb-2">{{ item.title }}</h6>
+              <em>{{ item.category.display }}</em>
             </div>
           </div>
         </a>
@@ -75,24 +75,56 @@ export default {
   data() {
     return {
       isotope: null,
-      activeTag: "grid-item",
-      tags: ["grid-item", "metal", "transition", "alkali", "alkalaine-earth"]
+      activeTag: "All",
+      tags: [],
+      items: [],
     };
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.isotope = new Isotope(".grid");
-    });
 
-    this.$nextTick(() => {
-      lightGallery(document.getElementById("lightgallery"), {
-        plugins: [lgZoom, lgThumbnail],
-        speed: 500
+  beforeCreate() {
+    this.$axios
+      .get('api/collections/get/categories')
+      .then(({ data }) => {
+        this.tags = [
+          'All',
+          ... data.entries.map(el => el.name)
+        ];
       });
-    });
+  },
+
+  mounted() {
+    this.$axios
+      .get('api/collections/get/gallery')
+      .then(({ data }) => {
+        this.items = data.entries;
+        // this.tags = this.getUniqueTagsFromItems(data.entries);
+          this.$nextTick(() => {
+            this.isotope = new Isotope(".grid");
+          });
+          this.$nextTick(() => {
+            lightGallery(document.getElementById("lightgallery"), {
+              plugins: [lgZoom, lgThumbnail],
+              speed: 500
+            });
+          });
+      });
+
   },
 
   methods: {
+    getUniqueTagsFromItems(items) {
+      if( !items || items.length == 0 ) return [];
+      let totalTags = items.reduce((current, prev) => {
+        console.log('prev',prev.tag, 'current', current)
+        return [
+          ...current,
+          ...prev.tag
+        ];
+      },['All']);
+
+      return [... new Set(totalTags)];
+    },
+
     filter(tag) {
       this.activeTag = tag;
       this.isotope.arrange({ filter: `.${tag}` });
