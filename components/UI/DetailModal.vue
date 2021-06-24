@@ -28,8 +28,14 @@
             </div>
 
             <div class="d-flex justify-content-between align-items-center px-4">
-              <h5 class="cake">Anniversary Cake</h5>
-              <h5 class="price">NRP 2,000.00</h5>
+              <h5 class="cake price fw-bold">
+                Anniversary Cake
+              </h5>
+              <h5 class="price">
+                <span class="badge bg-danger">
+                  <h5 class="mb-0">NRP 2,000.00</h5></span
+                >
+              </h5>
             </div>
 
             <div class="px-4 mt-3">
@@ -44,9 +50,22 @@
                   </div>
                   <small class="text-muted">Select one</small>
                   <div class="my-3 pounds">
-                    <span class="badge selected p-2">2 Pound</span>
-                    <span class="badge bg-light text-dark p-2">3 Pound</span>
-                    <span class="badge bg-light text-dark p-2">4 Pound</span>
+                    <span class="badge selected p-2 mb-1">2 Pound</span>
+                    <span class="badge bg-light text-dark p-2 mb-1"
+                      >3 Pound</span
+                    >
+                    <span class="badge bg-light text-dark p-2 mb-1"
+                      >4 Pound</span
+                    >
+                    <span class="badge bg-light text-dark p-2 mb-1"
+                      >5 Pound</span
+                    >
+                    <span class="badge bg-light text-dark p-2 mb-1"
+                      >6 Pound</span
+                    >
+                    <span class="badge bg-light text-dark p-2 mb-1"
+                      >7 Pound</span
+                    >
                   </div>
                 </div>
                 <div class="col-12 col-sm-6 my-1">
