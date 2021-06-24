@@ -67,6 +67,11 @@ import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lightgallery.css";
 
 export default {
+  head() {
+    return {
+      title: "CallMyCake | Gallery"
+    };
+  },
   data() {
     return {
       isotope: null,

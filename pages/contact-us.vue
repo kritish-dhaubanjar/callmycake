@@ -132,6 +132,11 @@
 import Swal from "sweetalert2";
 
 export default {
+  head() {
+    return {
+      title: "CallMyCake | Contact Us"
+    };
+  },
   data() {
     return {
       order: {

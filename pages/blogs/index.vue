@@ -41,6 +41,12 @@
 </template>
 <script>
   export default {
+    head() {
+      return {
+        title: "CallMyCake | Blogs"
+      };
+    },
+
     data() {
       return {
         blogs: [],

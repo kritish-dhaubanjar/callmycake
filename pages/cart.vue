@@ -158,6 +158,12 @@
 <script>
 
 export default {
+  head() {
+    return {
+      title: "CallMyCake | Cart"
+    };
+  },
+
   data() {
     return {
       coupon_code: '',
@@ -169,7 +175,7 @@ export default {
   mounted() {
     if(this.$store.getters.discountCoupon.value) {
       this.coupon_code = this.$store.getters.discountCoupon.code;
-      this.message = `<small class="text-success">Token Applied !</small>`;
+      this.message = `<strong class="text-success">Yay! The coupon was applied successfully.</strong>`;
     }
   },
 

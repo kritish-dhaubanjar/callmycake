@@ -29,7 +29,7 @@
         <span>Flavor</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>2/8</span>
+        <span>4/10</span>
       </div>
       <div class="col-5 text-end">
         <span>Icing</span>
@@ -58,13 +58,13 @@ export default {
         },
         {
           id: 2,
-          image: "/images/customization/fillings/002.png",
+          image: "/images/customization/fillings/<type>/002.png",
           icon: "/images/customization/filling_options/002.png",
           value: "Strawberry"
         },
         {
           id: 3,
-          image: "/images/customization/fillings/003.png",
+          image: "/images/customization/fillings/<type>/003.png",
           icon: "/images/customization/filling_options/003.png",
           value: "Bavarian creme"
         }

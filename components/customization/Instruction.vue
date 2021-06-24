@@ -42,7 +42,7 @@
         <span>Topping</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>8/8</span>
+        <span>10/10</span>
       </div>
       <div class="col-5 text-end">
         <span>Order</span>

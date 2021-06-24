@@ -7,6 +7,8 @@
           <a href="#"><i class="lab la-facebook"/></a>
           <a href="#"><i class="lab la-instagram px-2"/></a>
           <a href="#"><i class="lab la-twitter"/></a>
+          <a href="#"><i class="lab la-viber"/></a>
+          <a href="#"><i class="lab la-whatsapp"/></a>
         </div>
       </div>
     </div>
@@ -15,10 +17,10 @@
 
 <style scoped>
 * {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 i {
-  font-size: 18px;
+  font-size: 20px;
 }
 </style>

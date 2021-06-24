@@ -41,7 +41,7 @@
 
         <div class="col-lg-3 mb-5">
           <iframe
-            src="http://instagram.com/p/a1wDZKopa2/embed"
+            src="https://instagram.com/p/a1wDZKopa2/embed"
             frameborder="0"
             scrolling="yes"
             height="300"
@@ -75,13 +75,20 @@
             <li>
               <a target="_blank" :href="footer.twitter"><i class="lab la-twitter la-2x"/></a>
             </li>
+            <li>
+              <a href="#"><i class="lab la-viber la-2x"/></a>
+            </li>
+            <li>
+              <a href="#"><i class="lab la-whatsapp la-2x"/></a>
+            </li>
           </ul>
         </div>
       </div>
       <!--  -->
       <div class="row py-4">
         <div class="col-12 text-center">
-          2021 &copy; Copy Right by Kritish Dhaubanjar
+          {{ new Date().getFullYear() }} &copy; Copyright. Crafted with
+          <i class="las la-heart text-danger" /> theGimmickBox
         </div>
       </div>
     </div>

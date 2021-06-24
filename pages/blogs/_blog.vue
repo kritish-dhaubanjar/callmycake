@@ -28,8 +28,15 @@
     </div>
   </section>
 </template>
+
 <script>
   export default {
+    head() {
+      return {
+        title: "CallMyCake | Blog"
+      };
+    },
+
     data() {
       return {
         blog: {},
