@@ -1,11 +1,15 @@
 <template>
   <div id="top">
-    <Offers />
-    <Topbar />
-    <Navigation />
-    <NavigationBar />
-    <nuxt />
-    <Footer />
+    <SideNav :show="show" @hide="show = false" />
+    <!--  -->
+    <main>
+      <Offers />
+      <Topbar />
+      <Navigation @show="show = true" />
+      <NavigationBar />
+      <nuxt />
+      <Footer />
+    </main>
     <div id="fb-root"></div>
     <div id="fb-customer-chat" class="fb-customerchat"></div>
   </div>
@@ -18,14 +22,29 @@ import Topbar from "@/components/includes/Topbar";
 import Navigation from "@/components/includes/Navigation";
 import NavigationBar from "@/components/includes/NavigationBar";
 import Footer from "@/components/includes/Footer";
+import SideNav from "@/components/includes/SideNav";
 
 export default {
-  components: {
-    Offers,
-    Topbar,
-    Navigation,
-    NavigationBar,
-    Footer
+  data() {
+    return {
+      show: false
+    };
+  },
+
+  watch: {
+    show() {
+      if (this.show) {
+        document.body.classList = "sidebar";
+      } else {
+        document.body.classList = "";
+      }
+    }
+  },
+
+  created() {
+    this.$router.afterEach(() => {
+      this.show = false;
+    });
   },
 
   mounted() {
@@ -51,11 +70,20 @@ export default {
         fjs.parentNode.insertBefore(js, fjs);
       })(document, "script", "facebook-jssdk");
     });
+  },
+
+  components: {
+    Offers,
+    Topbar,
+    Navigation,
+    NavigationBar,
+    Footer,
+    SideNav
   }
 };
 </script>
 
-<style>
+<style lang="scss">
 @import "@/assets/scss/styles.scss";
 
 #top {

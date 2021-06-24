@@ -107,8 +107,8 @@ export default {
 .nav-link.active {
   background-color: #fff !important;
   border-radius: 0;
-  border: 2px solid;
-  color: $primary;
+  border: 2px solid !important;
+  color: $primary !important;
 }
 
 h1 {

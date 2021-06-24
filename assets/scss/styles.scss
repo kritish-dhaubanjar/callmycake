@@ -46,3 +46,21 @@ a:focus {
 .swal2-popup {
   border-radius: 0 !important;
 }
+
+//sidebar
+@media screen and(max-width: 1200px) {
+  .sidebar {
+    overflow: hidden;
+    height: 100vh;
+    #__nuxt {
+      overflow-x: hidden;
+      #__layout {
+        overflow-x: hidden;
+        & > div > main {
+          transform: translateX(328px);
+          transition: 150ms;
+        }
+      }
+    }
+  }
+}
