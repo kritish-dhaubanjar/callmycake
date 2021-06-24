@@ -40,7 +40,7 @@
           class="grid-item col-12 col-md-6 col-lg-4 p-3"
           v-for="(item, i) in items"
           :key="i"
-          :class="`All ${item.category.display} ${item.tag.join(' ')}`"
+          :class="`All ${slug(item.category.display)}`"
           :href="`${$axios.defaults.baseURL}${item.image.path}`"
         >
           <img :src="`${$axios.defaults.baseURL}${item.image.path}`" class="d-none" />
@@ -81,23 +81,23 @@ export default {
     };
   },
 
-  beforeCreate() {
-    this.$axios
-      .get('api/collections/get/categories')
-      .then(({ data }) => {
-        this.tags = [
-          'All',
-          ... data.entries.map(el => el.name)
-        ];
-      });
-  },
+  // beforeCreate() {
+  //   this.$axios
+  //     .get('api/collections/get/categories')
+  //     .then(({ data }) => {
+  //       this.tags = [
+  //         'All',
+  //         ... data.entries.map(el => el.name)
+  //       ];
+  //     });
+  // },
 
   mounted() {
     this.$axios
       .get('api/collections/get/gallery')
       .then(({ data }) => {
         this.items = data.entries;
-        // this.tags = this.getUniqueTagsFromItems(data.entries);
+        this.tags = this.getUniqueTagsFromItems(data.entries);
           this.$nextTick(() => {
             this.isotope = new Isotope(".grid");
           });
@@ -112,14 +112,25 @@ export default {
   },
 
   methods: {
+    slug(text) {
+      return text.replace(/ /g, '-');
+    },
+
     getUniqueTagsFromItems(items) {
       if( !items || items.length == 0 ) return [];
       let totalTags = items.reduce((current, prev) => {
-        console.log('prev',prev.tag, 'current', current)
-        return [
-          ...current,
-          ...prev.tag
-        ];
+        // return [
+        //   ...current,
+        //   ...prev.tag
+        // ];
+        if(prev.category.display) {
+          return [
+            ...current,
+            prev.category.display
+          ];
+        } else {
+          return current;
+        }
       },['All']);
 
       return [... new Set(totalTags)];
@@ -127,7 +138,7 @@ export default {
 
     filter(tag) {
       this.activeTag = tag;
-      this.isotope.arrange({ filter: `.${tag}` });
+      this.isotope.arrange({ filter: `.${this.slug(tag)}` });
     }
   },
 
