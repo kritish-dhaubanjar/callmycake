@@ -3,18 +3,34 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="text-md-center">
-            <nuxt-link
-              to="/"
-              tag="img"
-              src="/images/logo.webp"
-              class="img-fluid py-1"
-              width="178"
-            />
-            <nuxt-link to="/cart#top" class="float-end">
-              <i class="las la-shopping-cart la-3x mt-4"></i>
-              <span class="badge">{{ count }}</span>
-            </nuxt-link>
+          <div
+            class="text-md-center  d-flex align-items-center justify-content-between"
+          >
+            <div class="m-0 m-md-auto">
+              <nuxt-link
+                to="/"
+                tag="img"
+                src="/images/cmc.png"
+                class="img-fluid py-1"
+                width="70"
+              />
+            </div>
+            <div class="float-end">
+              <nuxt-link to="/cart#top">
+                <i class="las la-shopping-cart la-3x my-4"></i>
+                <span class="badge">{{ count }}</span>
+              </nuxt-link>
+
+              <button
+                class="navbar-toggler px-0 border-0 my-4 ms-2"
+                type="button"
+                @click="$emit('show')"
+              >
+                <i class="las la-bars la-2x d-md-none"></i>
+              </button>
+
+              <!-- <i class="las la-bars la-2x my-4 ms-2 d-md-none"></i> -->
+            </div>
           </div>
         </div>
       </div>
@@ -73,5 +89,10 @@ section {
 
 img {
   cursor: pointer;
+}
+
+button {
+  outline: none !important;
+  box-shadow: none !important;
 }
 </style>

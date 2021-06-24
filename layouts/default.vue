@@ -1,11 +1,17 @@
 <template>
   <div id="top">
-    <Offers />
-    <Topbar />
-    <Navigation />
-    <NavigationBar />
-    <nuxt />
-    <Footer />
+    <SideNav :show="show" @hide="show = false" />
+    <!--  -->
+    <main>
+      <Offers />
+      <Topbar />
+      <Navigation @show="show = true" />
+      <NavigationBar />
+      <nuxt />
+      <Footer />
+    </main>
+    <div id="fb-root"></div>
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
   </div>
 </template>
 
@@ -16,19 +22,68 @@ import Topbar from "@/components/includes/Topbar";
 import Navigation from "@/components/includes/Navigation";
 import NavigationBar from "@/components/includes/NavigationBar";
 import Footer from "@/components/includes/Footer";
+import SideNav from "@/components/includes/SideNav";
 
 export default {
+  data() {
+    return {
+      show: false
+    };
+  },
+
+  watch: {
+    show() {
+      if (this.show) {
+        document.body.classList = "sidebar";
+      } else {
+        document.body.classList = "";
+      }
+    }
+  },
+
+  created() {
+    this.$router.afterEach(() => {
+      this.show = false;
+    });
+  },
+
+  mounted() {
+    this.$nextTick(() => {
+      const chatbox = document.getElementById("fb-customer-chat");
+      chatbox.setAttribute("page_id", "105343014140550");
+      chatbox.setAttribute("attribution", "page_inbox");
+
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml: true,
+          version: "v11.0"
+        });
+      };
+
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    });
+  },
+
   components: {
     Offers,
     Topbar,
     Navigation,
     NavigationBar,
-    Footer
+    Footer,
+    SideNav
   }
 };
 </script>
 
-<style>
+<style lang="scss">
 @import "@/assets/scss/styles.scss";
 
 #top {

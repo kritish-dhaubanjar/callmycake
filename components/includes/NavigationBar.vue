@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <hr class="mb-0" />
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
           <!-- <button
             class="navbar-toggler"

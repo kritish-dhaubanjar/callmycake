@@ -27,9 +27,15 @@
               <img :src="detailcake.image ? `${$axios.defaults.baseURL}${detailcake.image.path}`:'/images/modal_cake.jpg'" class="img-fluid" />
             </div>
 
-            <div class="d-flex justify-content-between align-items-center px-4">
-              <h5 class="cake">{{ detailcake.category ? detailcake.category.name : '' }}</h5>
-              <h5 class="price">NRP {{ $utils.npr(price()) }}</h5>
+            <div class="d-flex justify-content-between align-items-center px-4 pt-3">
+              <h5 class="cake price fw-bold">
+                {{ detailcake.category ? detailcake.category.display : '' }}
+              </h5>
+              <h5 class="price">
+                <span class="badge bg-danger">
+                  <h5 class="mb-0">NPR {{ $utils.npr(price()) }}</h5></span
+                >
+              </h5>
             </div>
 
             <div class="px-4 mt-3">
