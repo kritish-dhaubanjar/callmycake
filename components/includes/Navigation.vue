@@ -7,12 +7,12 @@
             <nuxt-link
               to="/"
               tag="img"
-              src="/images/logo.webp"
+              src="/images/cmc.png"
               class="img-fluid py-1"
-              width="178"
+              width="80"
             />
             <nuxt-link to="/cart#top" class="float-end">
-              <i class="las la-shopping-cart la-3x mt-4"></i>
+              <i class="las la-shopping-cart la-3x my-4"></i>
               <span class="badge">{{ count }}</span>
             </nuxt-link>
           </div>
