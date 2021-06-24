@@ -55,8 +55,8 @@
                     <td class="py-5">
                       {{ cake.title }}
                       <p>
-                      <span class="badge badge-success text-dark">{{cake.variant_selected}}</span>
-                      <span class="badge badge-success text-dark">{{ !cake.hasEgg ? 'Eggless': '' }}</span>
+                      <span class="badge badge-success bg-danger">{{cake.variant_selected}}</span>
+                      <span class="badge badge-success bg-danger">{{ !cake.hasEgg ? 'Eggless': '' }}</span>
                       </p>
                     </td>
                     <td class="py-5">
