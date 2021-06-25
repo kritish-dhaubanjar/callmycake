@@ -55,7 +55,7 @@
           <h5 class="fw-bold">CONTACT US</h5>
           <ul class="list-group">
             <li>
-              <i class="las la-map-marker" /> {{ footer.address }}
+              <i class="las la-map-marker" /> {{ footer.address1 }}
             </li>
             <li><i class="las la-phone" /> <a href="#">{{ footer.phone_primary }}</a></li>
             <li>
@@ -95,17 +95,7 @@
 </template>
 <script>
   export default {
-    data() {
-      return {
-        footer: {}
-      }
-    },
-
-    created() {
-      this.$axios
-        .get('api/singletons/get/footer')
-        .then(({ data }) => this.footer = data);
-    }
+    props: ['footer'],
   };
 </script>
 <style scoped lang="scss">

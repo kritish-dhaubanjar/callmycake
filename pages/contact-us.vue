@@ -16,30 +16,30 @@
           <div class="col-12 col-sm-4 mb-4">
             <h6 class="mb-3">CONTACT US</h6>
             <h6>
-              <a href="#">+91 123 - 456 - 7890</a>
+              <a href="#">{{ info.phone_primary }}</a>
             </h6>
             <h6>
-              <a href="#">+86 163 - 451 - 7894</a>
+              <a href="#">{{ info.phone_secondary }}</a>
             </h6>
           </div>
 
           <div class="col-12 col-sm-4 mb-4">
             <h6 class="mb-3">ADDRESS</h6>
             <h6>
-              ABC Complex, Near xyz
+              {{ info.address1 }}
             </h6>
             <h6>
-              New York, USA 123456
+              {{ info.address2 }}
             </h6>
           </div>
 
           <div class="col-12 col-sm-4 mb-4">
             <h6 class="mb-3">EMAIL</h6>
             <h6>
-              <a href="#">Support@pixelstrep.com</a>
+              <a href="#">{{ info.email_primary }}</a>
             </h6>
             <h6>
-              <a href="#">info@pixelstrep.com</a>
+              <a href="#">{{ info.email_secondary }}</a>
             </h6>
           </div>
         </div>
@@ -144,8 +144,15 @@ export default {
         email: "",
         phone: "",
         message: ""
-      }
+      },
+      info: {},
     };
+  },
+
+  created() {
+    this.$axios
+      .get('api/singletons/get/footer')
+      .then(({ data }) => this.info = data);
   },
 
   methods: {

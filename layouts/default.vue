@@ -4,11 +4,11 @@
     <!--  -->
     <main>
       <Offers />
-      <Topbar />
+      <Topbar :contactInfo="contactInfo" />
       <Navigation @show="show = true" />
       <NavigationBar />
       <nuxt />
-      <Footer />
+      <Footer :footer="contactInfo" />
     </main>
     <div id="fb-root"></div>
     <div id="fb-customer-chat" class="fb-customerchat"></div>
@@ -27,7 +27,8 @@ import SideNav from "@/components/includes/SideNav";
 export default {
   data() {
     return {
-      show: false
+      show: false,
+      contactInfo: {},
     };
   },
 
@@ -45,6 +46,9 @@ export default {
     this.$router.afterEach(() => {
       this.show = false;
     });
+      this.$axios
+        .get('api/singletons/get/footer')
+        .then(({ data }) => this.contactInfo = data);
   },
 
   mounted() {
