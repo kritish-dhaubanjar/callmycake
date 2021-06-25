@@ -55,13 +55,12 @@
           <h5 class="fw-bold">CONTACT US</h5>
           <ul class="list-group">
             <li>
-              <i class="las la-map-marker" /> Fiot Fashion Demo Store Demo Store
-              USA
+              <i class="las la-map-marker" /> {{ footer.address }}
             </li>
-            <li><i class="las la-phone" /> <a href="#">123-456-7898</a></li>
+            <li><i class="las la-phone" /> <a href="#">{{ footer.phone_primary }}</a></li>
             <li>
               <i class="las la-envelope-open" />
-              <a href="#">Support@Fiot.com</a>
+              <a href="#">{{ footer.email_primary }}</a>
             </li>
           </ul>
 
@@ -76,10 +75,10 @@
               <a target="_blank" :href="footer.twitter"><i class="lab la-twitter la-2x"/></a>
             </li>
             <li>
-              <a href="#"><i class="lab la-viber la-2x"/></a>
+              <a :href="`viber://add?number=${footer.viber || ''}`"><i class="lab la-viber la-2x"/></a>
             </li>
             <li>
-              <a href="#"><i class="lab la-whatsapp la-2x"/></a>
+              <a :href="`https://wa.me/${footer.whatsapp || ''}`"><i class="lab la-whatsapp la-2x"/></a>
             </li>
           </ul>
         </div>
