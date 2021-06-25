@@ -2,7 +2,7 @@
   <div>
     <Carousel />
     <Menu />
-    <Advertisement />
+    <Advertisement :popupAdImage="popupAdImage" />
     <DetailModal />
     <div class="toast-container">
       <div
@@ -42,18 +42,28 @@ import { Toast, Modal } from "bootstrap";
 export default {
   data() {
     return {
-      toasts: []
+      toasts: [],
+      popupAdImage: '/images/cakes_advertising_banner_colorful_decor_webpage_design_6837239.jpg',
     };
   },
 
   mounted() {
-    this.$nextTick(() => {
-      const modal = document.getElementById("advertisement");
-      if (modal && this.$store.getters.showAdvertisement) {
-        new Modal(modal).show();
-        this.$store.commit("unsetShowAdvertisement");
-      }
+    this.$axios
+      .get('api/singletons/get/advertisements')
+      .then(({ data }) => {
+        if(data.popup_ad_enabled) {
+          // configure ad modal
+          this.popupAdImage = `${this.$axios.defaults.baseURL}${data.popup_ad_image.path}`;
+          this.$nextTick(() => {
+            const modal = document.getElementById("advertisement");
+            if (modal && this.$store.getters.showAdvertisement) {
+              new Modal(modal).show();
+              this.$store.commit("unsetShowAdvertisement");
+            }
+          });
+        }
     });
+
   },
 
   watch: {

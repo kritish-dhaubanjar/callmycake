@@ -22,7 +22,7 @@
               <div class="col-12 col-lg-8">
                 <div class="text-center">
                   <img
-                    src="/images/cakes_advertising_banner_colorful_decor_webpage_design_6837239.jpg"
+                    :src="popupAdImage"
                     class="img-fluid"
                   />
                 </div>
@@ -67,6 +67,7 @@
 
 <script>
 export default {
+  props: ['popupAdImage'],
   methods: {
     go() {
       this.$router.push("/customize#top");

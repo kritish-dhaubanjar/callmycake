@@ -2,7 +2,7 @@
   <section>
     <transition name="fade">
       <div class="text-center py-2 fw-bold" v-if="show">
-        FREE SHIPPING FOR ORDERS ABOVE $500.00 USD
+        {{ text }}
         <i class="las la-times float-end me-3 mt-1" @click="show = false" />
       </div>
     </transition>
@@ -13,8 +13,17 @@
 export default {
   data() {
     return {
-      show: true
+      show: false,
+      text: ''
     };
+  },
+  created() {
+    this.$axios
+      .get('api/singletons/get/advertisements')
+      .then(({ data }) => {
+        this.show = data.top_offer_enabled || false;
+        this.text = data.top_offer_text;
+      });
   }
 };
 </script>
