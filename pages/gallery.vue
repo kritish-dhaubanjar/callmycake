@@ -81,17 +81,6 @@ export default {
     };
   },
 
-  // beforeCreate() {
-  //   this.$axios
-  //     .get('api/collections/get/categories')
-  //     .then(({ data }) => {
-  //       this.tags = [
-  //         'All',
-  //         ... data.entries.map(el => el.name)
-  //       ];
-  //     });
-  // },
-
   mounted() {
     this.$axios
       .get('api/collections/get/gallery')
