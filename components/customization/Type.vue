@@ -3,6 +3,19 @@
     <h5 class="mb-3">Type</h5>
 
     <div>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder='10" / 48 servings / 1.5 pounds'
+        />
+        <span class="input-group-text">Size / Diameter / Servings</span>
+      </div>
+    </div>
+
+    <br />
+
+    <div>
       <button
         class="btn btn-light"
         @click="setType('round')"
@@ -48,13 +61,13 @@
     <hr />
     <div class="row">
       <div class="col-5">
-        <button class="btn btn-light navigation py-2">
+        <!-- <button class="btn btn-light navigation py-2">
           <i class="las la-arrow-left"></i>
         </button>
-        <span>Size</span>
+        <span>Size</span> -->
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>2/10</span>
+        <span>1/9</span>
       </div>
       <div class="col-5 text-end">
         <span>Flavor</span>
@@ -91,6 +104,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/scss/colors.scss";
 .navigation {
   border-radius: 100%;
   border-color: #000;
@@ -121,5 +135,34 @@ button {
   &.active {
     border: 2px solid #000;
   }
+}
+
+input {
+  resize: none;
+  border-radius: 0;
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: rgb(229, 229, 229);
+  &:focus,
+  &:active {
+    background-color: #f7f7f7;
+    border-color: rgb(229, 229, 229);
+  }
+}
+
+input,
+textarea {
+  color: #000;
+  font-weight: 500;
+  border-width: 2px;
+
+  &:active,
+  &:focus {
+    border-color: $primary;
+  }
+}
+input::placeholder,
+textarea::placeholder {
+  color: #d1d1d1;
 }
 </style>

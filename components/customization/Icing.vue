@@ -30,7 +30,7 @@
         <span>Filling</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>5/10</span>
+        <span>4/9</span>
       </div>
       <div class="col-5 text-end">
         <span>Top Border</span>

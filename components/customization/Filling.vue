@@ -29,7 +29,7 @@
         <span>Flavor</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>4/10</span>
+        <span>3/9</span>
       </div>
       <div class="col-5 text-end">
         <span>Icing</span>

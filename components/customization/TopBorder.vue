@@ -58,7 +58,7 @@
         <span>Icing</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>6/10</span>
+        <span>5/9</span>
       </div>
       <div class="col-5 text-end">
         <span>Bottom Border</span>

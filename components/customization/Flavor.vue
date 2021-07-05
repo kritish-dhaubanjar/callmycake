@@ -29,7 +29,7 @@
         <span>Type</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>3/10</span>
+        <span>2/9</span>
       </div>
       <div class="col-5 text-end">
         <span>Filling</span>
@@ -73,6 +73,12 @@ export default {
           image: "/images/customization/flavors/<type>/004.png",
           icon: "/images/customization/flavor_options/004.png",
           value: "Top: Chocolate/Bottom: White"
+        },
+        {
+          id: 5,
+          image: "/images/customization/flavors/<type>/005.png",
+          icon: "/images/customization/flavor_options/005.png",
+          value: "Top: Red Velvet/Bottom: Red Velvet"
         }
       ]
     };

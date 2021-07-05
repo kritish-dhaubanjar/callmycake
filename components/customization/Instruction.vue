@@ -28,6 +28,68 @@
           />
         </div>
       </div>
+
+      <div class="col-12 mt-3">
+        <h5>Upload an image to be printed on cake</h5>
+
+        <img :src="result" class="img-fluid" width="256" />
+
+        <div class="d-grid gap-2 my-4">
+          <button class="btn btn-info" type="button" @click="open">
+            <i class="las la-upload"></i> Upload
+          </button>
+        </div>
+
+        <input
+          class="form-control d-none"
+          type="file"
+          id="formFile"
+          ref="file"
+          @change="preview"
+          accept="image/*"
+        />
+      </div>
+
+      <div class="col-12 mb-3">
+        <form @submit.prevent="placeOrder">
+          <div class="row mt-4">
+            <div class="col-12">
+              <div class="mb-3">
+                <label class="form-label">Name *</label>
+                <input
+                  type="text"
+                  class="form-control py-2"
+                  placeholder="eg: Jane Doe"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control py-2"
+                  placeholder="eg: janedoe@example.org"
+                />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="mb-3">
+                <label class="form-label">Phone Number *</label>
+                <input
+                  type="text"
+                  class="form-control py-2"
+                  required
+                  placeholder="eg: +977 987654321"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
     <div class="row">
@@ -42,7 +104,7 @@
         <span>Topping</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>10/10</span>
+        <span>9/9</span>
       </div>
       <div class="col-5 text-end">
         <span>Order</span>
@@ -58,9 +120,12 @@
 </template>
 
 <script>
+const fileReader = new FileReader();
+
 export default {
   data() {
     return {
+      result: "/images/placeholder-image.jpg",
       instruction: {
         message: "",
         notes: ""
@@ -82,12 +147,30 @@ export default {
     }
   },
 
+  created() {
+    fileReader.onload = ({ target }) => {
+      this.result = target.result;
+    };
+  },
+
   methods: {
     setInstruction() {
       this.$store.commit("customize/set", {
         component: "instruction",
         option: { ...this.instruction }
       });
+    },
+
+    open() {
+      this.$refs.file.click();
+    },
+
+    preview(e) {
+      const files = e.target.files;
+
+      if (files.length > 0) {
+        fileReader.readAsDataURL(files[0]);
+      }
     }
   }
 };
@@ -120,16 +203,38 @@ li.selected {
 }
 
 input,
+select,
+textarea {
+  resize: none;
+  border-radius: 0;
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: rgb(229, 229, 229);
+  &:focus,
+  &:active {
+    background-color: #f7f7f7;
+    border-color: rgb(229, 229, 229);
+  }
+}
+
+label {
+  color: #444;
+  font-weight: 500;
+}
+
+input,
 textarea {
   color: #000;
   font-weight: 500;
   border-width: 2px;
-  box-shadow: none !important;
-  outline: none !important;
 
   &:active,
   &:focus {
     border-color: $primary;
   }
+}
+input::placeholder,
+textarea::placeholder {
+  color: #d1d1d1;
 }
 </style>
