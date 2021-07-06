@@ -52,9 +52,13 @@ export const state = () => ({
 
     //
     instruction: {
-      message: "",
-      notes: ""
-    }
+      message: '',
+      notes: '',
+      name: '',
+      email: '',
+      phone: '',
+      cake_topper_image: null,
+    },
   }
 });
 

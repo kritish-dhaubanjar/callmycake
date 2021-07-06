@@ -60,6 +60,7 @@
                   type="text"
                   class="form-control py-2"
                   placeholder="eg: Jane Doe"
+                  v-model="instruction.name"
                   required
                 />
               </div>
@@ -72,6 +73,8 @@
                   type="email"
                   class="form-control py-2"
                   placeholder="eg: janedoe@example.org"
+                  v-model="instruction.email"
+                  required
                 />
               </div>
             </div>
@@ -84,6 +87,7 @@
                   class="form-control py-2"
                   required
                   placeholder="eg: +977 987654321"
+                  v-model = "instruction.phone"
                 />
               </div>
             </div>
@@ -110,7 +114,7 @@
         <span>Order</span>
         <button
           class="btn btn-dark navigation py-2"
-          @click="$emit('addToCart')"
+          @click="$emit('addToCart', instruction)"
         >
           <i class="las la-arrow-right"></i>
         </button>
@@ -127,9 +131,13 @@ export default {
     return {
       result: "/images/placeholder-image.jpg",
       instruction: {
-        message: "",
-        notes: ""
-      }
+        message: '',
+        notes: '',
+        name: '',
+        email: '',
+        phone: '',
+        cake_topper_image: null,
+      },
     };
   },
 
@@ -170,6 +178,7 @@ export default {
 
       if (files.length > 0) {
         fileReader.readAsDataURL(files[0]);
+        this.instruction.cake_topper_image = files[0];
       }
     }
   }

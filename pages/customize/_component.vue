@@ -94,6 +94,7 @@ import Flower from "@/components/customization/Flower";
 import Topping from "@/components/customization/Topping";
 import Instruction from "@/components/customization/Instruction";
 import Upload from "@/components/customization/Upload";
+import Swal from "sweetalert2";
 
 const components = [
   "type",
@@ -207,19 +208,63 @@ export default {
       }
     },
 
-    addToCart() {
+    addToCart(instr) {
+      // upload images first
+      let formData = new FormData();
+
+      // let canvasImage = this.canvas.toDataURL("image/png");
       this.canvas.toBlob(blob => {
-        let file = new File([blob], "custom_cake.png", {
+        //
+        let canvasImage = new File([blob], "custom_cake.png", {
           type: "image/png"
         });
+        formData.append('files[]', canvasImage);
+        //
+        if(instr.cake_topper_image) {
+          formData.append('files[]', instr.cake_topper_image);
+        }
+        //
+        this.$axios
+          .post('api/cockpit/addAssets?token=b25b0bb3eb766c53531916bcf5fd6b', formData)
+          .then(({ data }) => {
+            if(data.assets.length > 0) {
+              // path for cake_image generated from custom shop
+              let cake_image = null;
+              let index = data.assets.findIndex(el => el.title == 'custom_cake.png');
+              if(index > -1) {
+                cake_image = { path: '/storage/uploads' + data.assets[index].path };
+              }
 
-        const a = window.document.createElement("a");
-        a.href = window.URL.createObjectURL(file);
-        a.download = "custom_cake.png";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      }, "image/png");
+              if(instr.cake_topper_image) {
+                let i = data.assets.findIndex(el => el.title == instr.cake_topper_image.name);
+                if(i > -1) {
+                  instr.cake_topper_image = { path: '/storage/uploads' + data.assets[i].path };
+                }
+              }
+
+              // finally store custom order
+              const newData = {
+                ...instr,
+                cake_image,
+                type: 'Custom Shop',
+              }
+              // finally store order with cake_image
+              this.$axios
+                .post('api/collections/save/custom_orders', { data: newData })
+                .then(({ data }) => {
+                  Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text:
+                      "Your order request has been sent successfully ! We will reach out to you shortly."
+                    // footer: "<a href>Why do I have this issue?</a>"
+                  }).then(() => {
+                    this.$router.replace("/");
+                  });
+                });
+            }
+          });
+      }, 'image/png');
     }
   },
 
