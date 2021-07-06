@@ -12,7 +12,7 @@
           </button>
         </div>
 
-        <form @submit.prevent="placeOrder">
+        <form @submit.prevent="request">
           <div class="row mt-4">
             <div class="col-12">
               <div class="mb-3">
@@ -21,6 +21,7 @@
                   type="text"
                   class="form-control py-2"
                   placeholder="eg: Jane Doe"
+                  v-model="data.name"
                   required
                 />
               </div>
@@ -33,6 +34,7 @@
                   type="email"
                   class="form-control py-2"
                   placeholder="eg: janedoe@example.org"
+                  v-model="data.email"
                 />
               </div>
             </div>
@@ -45,17 +47,32 @@
                   class="form-control py-2"
                   required
                   placeholder="eg: +977 987654321"
+                  v-model="data.phone"
                 />
               </div>
             </div>
 
             <div class="col-12">
               <div class="mb-3">
-                <label class="form-label">Message *</label>
+                <label class="form-label fw-bold mb-0">Message on Cake</label><br />
+                <small>Handwritten message on icing. 50 charactes max.</small>
+                <input
+                  type="text"
+                  class="form-control py-2 mt-3"
+                  v-model="data.message"
+                  placeholder="eg: Happy Birthday"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mb-3">
+                <label class="form-label">Notes</label>
                 <textarea
                   class="form-control py-2"
                   rows="4"
                   placeholder="Special Preference, Sender Details (or others)"
+                  v-model="data.notes"
                 />
               </div>
             </div>
@@ -64,7 +81,6 @@
               <button
                 class="btn btn-dark px-4 py-3"
                 type="submit"
-                @click="request"
               >
                 REQUEST ORDER
               </button>
@@ -93,7 +109,16 @@ const fileReader = new FileReader();
 export default {
   data() {
     return {
-      result: "/images/placeholder-image.jpg"
+      result: "/images/placeholder-image.jpg",
+      data: {
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+        notes: '',
+        type: 'Upload Photo'
+      },
+      cake_image: null,
     };
   },
 
@@ -113,17 +138,40 @@ export default {
 
       if (files.length > 0) {
         fileReader.readAsDataURL(files[0]);
+        this.cake_image = files[0];
       }
     },
 
     request() {
-      Swal.fire({
-        icon: "success",
-        title: "Success",
-        text:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eum vero ipsum nostrum mollitia! Aut eum ab unde asperiores rerum minima aliquid ipsum repudiandae recusandae ut quae, nostrum sequi quis?"
-        // footer: "<a href>Why do I have this issue?</a>"
-      }).then(() => {});
+      //
+      if(this.cake_image) {
+        let formData = new FormData();
+        formData.append('files[]', this.cake_image);
+        this.$axios
+          .post('api/cockpit/addAssets?token=b25b0bb3eb766c53531916bcf5fd6b', formData)
+          .then(({ data }) => {
+            if(data.assets.length > 0) {
+              const newData = {
+                ...this.data,
+                cake_image: { path: '/storage/uploads' + data.assets[0].path },
+              }
+              // finally store order with cake_image
+              this.$axios
+                .post('api/collections/save/custom_orders', { data: newData })
+                .then(({ data }) => {
+                  Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text:
+                      "Your order request has been sent successfully ! We will reach out to you shortly."
+                    // footer: "<a href>Why do I have this issue?</a>"
+                  }).then(() => {
+                    this.$router.replace("/");
+                  });
+                });
+            }
+          });
+      }
     }
   }
 };
