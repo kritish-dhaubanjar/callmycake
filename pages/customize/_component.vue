@@ -247,6 +247,7 @@ export default {
                 ...instr,
                 cake_image,
                 type: 'Custom Shop',
+                custom_shop_cake_spec: this.cake,
               }
               // finally store order with cake_image
               this.$axios
