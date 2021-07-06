@@ -187,15 +187,19 @@ export default {
     },
 
     price() {
-      if(this.hasEgg) {
-        return this.detailcake.discounted_price
-          ? this.detailcake.discounted_price
-          : this.detailcake.price
-      }
-
       let price = parseFloat(this.detailcake.discounted_price ? this.detailcake.discounted_price : this.detailcake.price);
 
-      return String(price + 200);
+      // add 200 if hasEgg false
+      if(this.hasEgg == false) {
+        price = price + 200;
+      }
+      // base price * number of pounds (taking eggless into account before multiplying)
+      if(this.variant_selected >=0 && this.detailcake.variants && this.detailcake.variants[this.variant_selected]) {
+        const pound = parseFloat(this.detailcake.variants[this.variant_selected]);
+        price = price * pound;
+      }
+
+      return String(price);
     }
   },
   computed: {
