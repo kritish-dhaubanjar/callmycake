@@ -29,7 +29,7 @@
         <span>Type</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>3/10</span>
+        <span>2/9</span>
       </div>
       <div class="col-5 text-end">
         <span>Filling</span>
@@ -62,17 +62,23 @@ export default {
           icon: "/images/customization/flavor_options/002.png",
           value: "Top: Chocolate/Bottom: Chocolate"
         },
+        // {
+        //   id: 3,
+        //   image: "/images/customization/flavors/<type>/003.png",
+        //   icon: "/images/customization/flavor_options/003.png",
+        //   value: "Top: White/Bottom: Chocolate"
+        // },
+        // {
+        //   id: 4,
+        //   image: "/images/customization/flavors/<type>/004.png",
+        //   icon: "/images/customization/flavor_options/004.png",
+        //   value: "Top: Chocolate/Bottom: White"
+        // },
         {
-          id: 3,
-          image: "/images/customization/flavors/<type>/003.png",
-          icon: "/images/customization/flavor_options/003.png",
-          value: "Top: White/Bottom: Chocolate"
-        },
-        {
-          id: 4,
-          image: "/images/customization/flavors/<type>/004.png",
-          icon: "/images/customization/flavor_options/004.png",
-          value: "Top: Chocolate/Bottom: White"
+          id: 5,
+          image: "/images/customization/flavors/<type>/005.png",
+          icon: "/images/customization/flavor_options/005.png",
+          value: "Top: Red Velvet/Bottom: Red Velvet"
         }
       ]
     };

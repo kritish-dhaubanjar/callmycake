@@ -3,14 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h1>WE DESIGN DELICIOUS</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-            possimus eveniet aspernatur neque esse, animi aperiam necessitatibus
-            adipisci ipsum molestiae consectetur sint asperiores consequatur
-            ducimus qui optio unde nobis ea.
-          </p>
-          <br />
+          <h3>WE DESIGN DELICIOUS CAKES</h3>
           <br />
           <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li

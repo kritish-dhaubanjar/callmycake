@@ -58,7 +58,7 @@
         <span>Top Border</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>7/10</span>
+        <span>6/9</span>
       </div>
       <div class="col-5 text-end">
         <span>Flower</span>

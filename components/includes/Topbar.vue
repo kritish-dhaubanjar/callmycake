@@ -2,7 +2,11 @@
   <section class="bg-light py-2">
     <div class="container">
       <div class="row">
-        <div class="col-6"><i class="las la-phone" /> {{ contactInfo.phone_primary }}</div>
+        <div class="col-6">
+          <a :href="`tel:${contactInfo.phone_primary}`">
+            <i class="las la-phone" /> {{ contactInfo.phone_primary }}
+          </a>
+        </div>
         <div class="col-6 text-end">
           <a target="_blank" :href="contactInfo.facebook"><i class="lab la-facebook"/></a>
           <a target="_blank" :href="contactInfo.instagram"><i class="lab la-instagram px-2"/></a>

@@ -54,8 +54,8 @@ export default {
   mounted() {
     this.$nextTick(() => {
       const chatbox = document.getElementById("fb-customer-chat");
-      chatbox.setAttribute("page_id", "105343014140550");
-      chatbox.setAttribute("attribution", "page_inbox");
+      chatbox.setAttribute("page_id", "105646680946851");
+      chatbox.setAttribute("attribution", "setup_tool");
 
       window.fbAsyncInit = function() {
         FB.init({

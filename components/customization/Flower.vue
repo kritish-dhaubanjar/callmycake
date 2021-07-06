@@ -58,7 +58,7 @@
         <span>Bottom Border</span>
       </div>
       <div class="col-2 d-flex align-items-center">
-        <span>8/10</span>
+        <span>7/9</span>
       </div>
       <div class="col-5 text-end">
         <span>Topping</span>
