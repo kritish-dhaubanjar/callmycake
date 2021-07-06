@@ -41,7 +41,8 @@
 
         <div class="col-lg-3 mb-5">
           <iframe
-            src="https://www.instagram.com/p/CQ8QIbjMs01/embed"
+            v-if="footer.instagram_post_link"
+            :src="`${footer.instagram_post_link}/embed`"
             frameborder="0"
             scrolling="yes"
             height="300"
