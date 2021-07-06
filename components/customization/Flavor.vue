@@ -62,18 +62,18 @@ export default {
           icon: "/images/customization/flavor_options/002.png",
           value: "Top: Chocolate/Bottom: Chocolate"
         },
-        {
-          id: 3,
-          image: "/images/customization/flavors/<type>/003.png",
-          icon: "/images/customization/flavor_options/003.png",
-          value: "Top: White/Bottom: Chocolate"
-        },
-        {
-          id: 4,
-          image: "/images/customization/flavors/<type>/004.png",
-          icon: "/images/customization/flavor_options/004.png",
-          value: "Top: Chocolate/Bottom: White"
-        },
+        // {
+        //   id: 3,
+        //   image: "/images/customization/flavors/<type>/003.png",
+        //   icon: "/images/customization/flavor_options/003.png",
+        //   value: "Top: White/Bottom: Chocolate"
+        // },
+        // {
+        //   id: 4,
+        //   image: "/images/customization/flavors/<type>/004.png",
+        //   icon: "/images/customization/flavor_options/004.png",
+        //   value: "Top: Chocolate/Bottom: White"
+        // },
         {
           id: 5,
           image: "/images/customization/flavors/<type>/005.png",

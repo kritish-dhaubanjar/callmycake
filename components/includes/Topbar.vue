@@ -2,7 +2,9 @@
   <section class="bg-light py-2">
     <div class="container">
       <div class="row">
-        <div class="col-6"><i class="las la-phone" /> 123-456-7890</div>
+        <div class="col-6">
+          <a href="#"><i class="las la-phone" /> 123-456-7890</a>
+        </div>
         <div class="col-6 text-end">
           <a href="#"><i class="lab la-facebook"/></a>
           <a href="#"><i class="lab la-instagram px-2"/></a>
