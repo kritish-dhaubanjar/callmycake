@@ -7,7 +7,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || "",
+    title: "Call My Cake",
     meta: [
       { charset: "utf-8" },
       {
@@ -17,7 +17,8 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
+        content:
+          "Call My Cake is a small startup by home bakers. Our cakes have a home touch to it which provides a unique flavor then the cakes that you will usually get in the market. The cakes are freshly made once we receive your order and delivered to your door."
       }
     ],
     link: [
@@ -58,9 +59,9 @@ export default {
    */
   axios: {
     baseURL:
-      process.env.NODE_ENV === 'development'
-        ? 'https://api.callmycake.com/'
-        : 'https://api.callmycake.com/'
+      process.env.NODE_ENV === "development"
+        ? "https://api.callmycake.com/"
+        : "https://api.callmycake.com/"
   },
   /*
    ** Build configuration
