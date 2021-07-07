@@ -28,6 +28,15 @@
           <i class="las la-search" />
         </button>
       </div>
+      <button
+        @click="setDetailCake"
+        tag="button"
+        class="btn btn-primary btn-sm showDetails"
+        data-bs-toggle="modal"
+        data-bs-target="#detail"
+      >
+        <i class="las la-plus" /> Add to Cart
+      </button>
     </div>
   </div>
 </template>
@@ -92,7 +101,7 @@ export default {
     opacity: 0;
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 60px;
     left: 0;
     right: 0;
     display: flex;
@@ -100,7 +109,7 @@ export default {
     justify-content: center;
   }
 
-  button {
+  .options button {
     transition: 256ms;
     background-color: $primary;
     border: 2px solid $primary;
@@ -119,5 +128,14 @@ export default {
   right: 0;
   top: 24px;
   transform: rotate(270deg);
+}
+
+.showDetails {
+  background-color: $primary;
+  color: #fff;
+  border: 2px solid $primary;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: 50em;
 }
 </style>
