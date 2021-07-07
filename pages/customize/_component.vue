@@ -73,8 +73,8 @@
                 @addToCart="addToCart"
               />
 
-              <div class="table-responsive">
-                <table class="table table-warning my-5">
+              <div class="table-responsive my-5">
+                <table class="table table-warning">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -89,7 +89,7 @@
                       <th scope="row">1</th>
                       <td>Pound</td>
                       <td>{{ this.cake.pound }} Pound</td>
-                      <td>NPR 600/-</td>
+                      <td>600/-</td>
                       <td>{{ this.cake.pound * 600 }}/-</td>
                     </tr>
                     <tr>
@@ -97,8 +97,8 @@
                       <td>
                         <p class="mb-0">{{ this.cake.flavor.value }}</p>
                       </td>
-                      <td>{{ this.cake.pound }} Pound</td>
-                      <td>NPR {{ this.cake.flavor.rate }}/-</td>
+                      <td>{{ this.cake.pound }}&nbsp;Pound</td>
+                      <td>{{ this.cake.flavor.rate }}/-</td>
                       <td>{{ this.cake.pound * this.cake.flavor.rate }}/-</td>
                     </tr>
 
@@ -116,6 +116,7 @@
                     </tr>
                   </tbody>
                 </table>
+                <small>* Price in NPR</small>
               </div>
             </div>
           </div>
