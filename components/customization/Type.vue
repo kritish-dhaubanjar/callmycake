@@ -135,7 +135,7 @@ export default {
   data() {
     return {
       customPound: 1,
-      min: 0.5,
+      min: 1,
       wide: [{ pound: 1 }, { pound: 2 }, { pound: 3 }],
       tall: [
         { pound: 1, size: '3" tall' },
