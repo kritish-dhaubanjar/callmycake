@@ -238,6 +238,12 @@ export default {
                 },
                 {
                   "type": "text",
+                  "name": "addons",
+                  "label": "Addons",
+                  "display": "$value"
+                },
+                {
+                  "type": "text",
                   "name": "egg_eggless",
                   "label": "Egg or Eggless",
                   "display": "$value"
@@ -267,6 +273,7 @@ export default {
             item_title: el.title,
             qty: el.qty,
             variant: el.variant_selected,
+            addons: el.addons_selected ? el.addons_selected.map(el => el.name).join(', ') : '',
             egg_eggless: el.hasEgg ? 'Egg' : 'Eggless',
             message: el.message,
             cake: {
@@ -306,7 +313,7 @@ export default {
           let formData = new FormData();
           formData.append('order_id', data._id);
           this.$axios
-            .post('https://jhyappy.gimmickbox.com.np/api/public/updateprice', formData)
+            .post('api/public/updateprice', formData)
             .then(res => {})
             .finally(res => {
               this.$store.commit('resetDiscountCoupon');

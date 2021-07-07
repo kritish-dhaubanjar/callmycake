@@ -87,29 +87,32 @@
               >
               <div class="my-3">
                 <div class="row">
-                  <div class="col-12 col-lg-4 mb-2" v-for="i in 6" :key="i">
+                  <div class="col-12 col-lg-4 mb-2" v-for="(addon,i) in addons" :key="i">
                     <div class="form-check form-switch">
                       <input
                         class="form-check-input mt-3"
                         type="checkbox"
-                        id="Small-Red-Rose-Buckey"
+                        v-model="addon.selected"
+                        :id="`addon-${i}`"
+                        @change="updateSelectedAddons()"
                       />
                       <!-- checked -->
                       <label
                         class="form-check-label"
-                        for="Small-Red-Rose-Buckey"
+                        :for="`addon-${i}`"
                       >
                         <div class="d-flex">
                           <div>
+                              <!-- src="https://via.placeholder.com/48x48" -->
                             <img
-                              src="https://via.placeholder.com/48x48"
+                              :src="addon.img"
                               class="img-fluid"
                             />
                           </div>
                           <p class="mb-0 ms-2">
-                            <small class="addon">Small Red Rose Buckey</small
+                            <small class="addon">{{ addon.name }}</small
                             ><br />
-                            <small>NPR 1,650.00</small>
+                            <small>NPR {{ $utils.npr(String(addon.price)) }}</small>
                           </p>
                         </div>
                       </label>
@@ -165,16 +168,38 @@ export default {
       hasEgg: true,
       addons_selected: [],
       message: '',
+      addons: [
+        { name: 'Snow spray', img: '/images/addons/Snow%20Spray.png', price: 120, selected: false},
+        { name: 'Birthday cake topper', img: '/images/addons/Birthday%20cake%20topper.png', price: 200, selected: false },
+        { name: 'Red rose boque (10 roses)', img: '/images/addons/Red%20Roses%20Boque.png', price: 700, selected: false },
+        { name: 'Party poppers (size M)', img: '/images/addons/party%20Popper.png', price: 200, selected: false },
+        { name: 'Sparkling candle', img: '/images/addons/Sparkling%20Candle.png', price: 50, selected: false },
+        { name: 'Magic candle', img: '/images/addons/Magic%20Candle.png', price: 30, selected: false },
+      ]
     }
   },
 
   methods: {
+    resetAddons() {
+      this.addons = [
+        { name: 'Snow spray', img: '/images/addons/Snow%20Spray.png', price: 120, selected: false},
+        { name: 'Birthday cake topper', img: '/images/addons/Birthday%20cake%20topper.png', price: 200, selected: false },
+        { name: 'Red rose boque (10 roses)', img: '/images/addons/Red%20Roses%20Boque.png', price: 700, selected: false },
+        { name: 'Party poppers (size M)', img: '/images/addons/party%20Popper.png', price: 200, selected: false },
+        { name: 'Sparkling candle', img: '/images/addons/Sparkling%20Candle.png', price: 50, selected: false },
+        { name: 'Magic candle', img: '/images/addons/Magic%20Candle.png', price: 30, selected: false },
+      ];
+    },
+    updateSelectedAddons() {
+      this.addons_selected = this.addons.filter(el => el.selected);
+    },
     addToCart() {
       let updated_price = this.price();
+      console.log(this.addons_selected)
       this.$store.commit("add", {
         ...this.detailcake,
         variant_selected: this.detailcake.variants[this.variant_selected],
-        addons_selected: this.addons_selected,
+        addons_selected: [...this.addons_selected],
         message: this.message,
         hasEgg: this.hasEgg,
         price: updated_price, // price value gets updated according to hasEgg, discounted_price, etc
@@ -182,8 +207,8 @@ export default {
 
       this.variant_selected = 0;
       this.hasEgg = true;
-      this.addons_selected = [];
       this.message = '';
+      this.resetAddons();
     },
 
     price() {
@@ -199,13 +224,20 @@ export default {
         price = price * pound;
       }
 
+      // addons selected
+      if(this.addons_selected.length > 0) {
+        this.addons_selected.forEach(el => {
+          price = price + el.price;
+        });
+      }
+
       return String(price);
     }
   },
   computed: {
     detailcake() {
       return this.$store.getters.detailcake
-        ? this.$store.getters.detailcake
+        ? {...this.$store.getters.detailcake}
         : {}
     },
   },
