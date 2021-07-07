@@ -2,124 +2,126 @@
   <section>
     <h5 class="mb-3">Instruction</h5>
 
-    <div class="row mt-4">
-      <div class="col-12">
-        <div class="mb-3">
-          <label class="form-label fw-bold mb-0">Message on Cake</label><br />
-          <small>Handwritten message on icing. 50 charactes max.</small>
+    <form @submit.prevent="placeOrder">
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="form-label fw-bold mb-0">Message on Cake</label><br />
+            <small>Handwritten message on icing. 50 charactes max.</small>
+            <input
+              type="text"
+              class="form-control py-2 mt-3"
+              v-model="instruction.message"
+              placeholder="eg: Happy Birthday"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Order Notes</label>
+            <textarea
+              v-model="instruction.notes"
+              class="form-control py-2"
+              rows="4"
+              placeholder="Special Preference, Sender Details (or others)"
+            />
+          </div>
+        </div>
+
+        <div class="col-12 mt-3">
+          <h5>Upload an image to be printed on cake</h5>
+
+          <img :src="result" class="img-fluid" width="256" />
+
+          <div class="d-grid gap-2 my-4">
+            <button class="btn btn-info" type="button" @click="open">
+              <i class="las la-upload"></i> Upload
+            </button>
+          </div>
+
           <input
-            type="text"
-            class="form-control py-2 mt-3"
-            v-model="instruction.message"
-            placeholder="eg: Happy Birthday"
-            required
+            class="form-control d-none"
+            type="file"
+            id="formFile"
+            ref="file"
+            @change="preview"
+            accept="image/*"
           />
+        </div>
+
+        <div class="col-12 mb-3">
+            <div class="row mt-4">
+              <div class="col-12">
+                <div class="mb-3">
+                  <label class="form-label">Name *</label>
+                  <input
+                    type="text"
+                    class="form-control py-2"
+                    placeholder="eg: Jane Doe"
+                    v-model="instruction.name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control py-2"
+                    placeholder="eg: janedoe@example.org"
+                    v-model="instruction.email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="mb-3">
+                  <label class="form-label">Phone Number *</label>
+                  <input
+                    type="text"
+                    class="form-control py-2"
+                    required
+                    placeholder="eg: +977 987654321"
+                    v-model = "instruction.phone"
+                  />
+                </div>
+              </div>
+
+            </div>
         </div>
       </div>
 
-      <div class="col-12">
-        <div class="mb-3">
-          <label class="form-label fw-bold">Order Notes</label>
-          <textarea
-            v-model="instruction.notes"
-            class="form-control py-2"
-            rows="4"
-            placeholder="Special Preference, Sender Details (or others)"
-          />
+      <div class="row">
+        <div class="col-5">
+          <nuxt-link
+            tag="button"
+            class="btn btn-light navigation py-2"
+            to="/customize/topping"
+          >
+            <i class="las la-arrow-left"></i>
+          </nuxt-link>
+          <span>Topping</span>
         </div>
-      </div>
-
-      <div class="col-12 mt-3">
-        <h5>Upload an image to be printed on cake</h5>
-
-        <img :src="result" class="img-fluid" width="256" />
-
-        <div class="d-grid gap-2 my-4">
-          <button class="btn btn-info" type="button" @click="open">
-            <i class="las la-upload"></i> Upload
+        <div class="col-2 d-flex align-items-center">
+          <span>9/9</span>
+        </div>
+        <div class="col-5 text-end">
+          <span>Order</span>
+          <button
+            type="submit"
+            class="btn btn-dark navigation py-2"
+          >
+            <i class="las la-arrow-right"></i>
           </button>
         </div>
-
-        <input
-          class="form-control d-none"
-          type="file"
-          id="formFile"
-          ref="file"
-          @change="preview"
-          accept="image/*"
-        />
       </div>
+    </form>
 
-      <div class="col-12 mb-3">
-        <form @submit.prevent="placeOrder">
-          <div class="row mt-4">
-            <div class="col-12">
-              <div class="mb-3">
-                <label class="form-label">Name *</label>
-                <input
-                  type="text"
-                  class="form-control py-2"
-                  placeholder="eg: Jane Doe"
-                  v-model="instruction.name"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="col-12">
-              <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input
-                  type="email"
-                  class="form-control py-2"
-                  placeholder="eg: janedoe@example.org"
-                  v-model="instruction.email"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="col-12">
-              <div class="mb-3">
-                <label class="form-label">Phone Number *</label>
-                <input
-                  type="text"
-                  class="form-control py-2"
-                  required
-                  placeholder="eg: +977 987654321"
-                  v-model = "instruction.phone"
-                />
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-5">
-        <nuxt-link
-          tag="button"
-          class="btn btn-light navigation py-2"
-          to="/customize/topping"
-        >
-          <i class="las la-arrow-left"></i>
-        </nuxt-link>
-        <span>Topping</span>
-      </div>
-      <div class="col-2 d-flex align-items-center">
-        <span>9/9</span>
-      </div>
-      <div class="col-5 text-end">
-        <span>Order</span>
-        <button
-          class="btn btn-dark navigation py-2"
-          @click="$emit('addToCart', instruction)"
-        >
-          <i class="las la-arrow-right"></i>
-        </button>
-      </div>
-    </div>
   </section>
 </template>
 
@@ -180,6 +182,10 @@ export default {
         fileReader.readAsDataURL(files[0]);
         this.instruction.cake_topper_image = files[0];
       }
+    },
+
+    placeOrder() {
+      this.$emit('addToCart', this.instruction);
     }
   }
 };
