@@ -58,7 +58,7 @@
                       <span class="badge badge-success bg-danger">{{cake.variant_selected}}</span>
                       <span class="badge badge-success bg-danger">{{ !cake.hasEgg ? 'Eggless': '' }}</span>
                       <br/>
-                      <span v-for="(a,i) in cake.addons_selected"class="badge badge-success bg-info me-1" :key="i">{{ a.name }}</span>
+                      <span v-for="(a,i) in cake.addons_selected"class="badge badge-success bg-secondary me-1" :key="i">{{ a.name }}</span>
                       </p>
                     </td>
                     <td class="py-5">
