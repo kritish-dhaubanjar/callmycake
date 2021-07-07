@@ -49,6 +49,11 @@
           role="tabpanel"
           aria-labelledby="home-tab"
         >
+          <p>
+            You can customize the centerpiece of any occasion is a thoughtfully
+            created, delicious cake. We take the best ingredients and your ideas
+            to create a sweet masterpiece you’ll remember for years to come.
+          </p>
           <div class="row">
             <div class="col-lg-7">
               <!-- <canvas id="custom-cake" class="w-100" width="674" height="379" /> -->
@@ -67,6 +72,51 @@
                 v-if="component === 'instruction'"
                 @addToCart="addToCart"
               />
+
+              <div class="table-responsive">
+                <table class="table table-warning my-5">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Item</th>
+                      <th scope="col">Units</th>
+                      <th scope="col">Rate</th>
+                      <th scope="col">Estimated&nbsp;Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Pound</td>
+                      <td>{{ this.cake.pound }} Pound</td>
+                      <td>NPR 600/-</td>
+                      <td>{{ this.cake.pound * 600 }}/-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>
+                        <p class="mb-0">{{ this.cake.flavor.value }}</p>
+                      </td>
+                      <td>{{ this.cake.pound }} Pound</td>
+                      <td>NPR {{ this.cake.flavor.rate }}/-</td>
+                      <td>{{ this.cake.pound * this.cake.flavor.rate }}/-</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row"></th>
+                      <td class="fw-bold">Total</td>
+                      <td></td>
+                      <td></td>
+                      <td class="fw-bold">
+                        {{
+                          this.cake.pound * 600 +
+                            this.cake.pound * this.cake.flavor.rate
+                        }}/-
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -106,6 +156,7 @@ const components = [
   "bottomBorder",
   "topping",
   "flower",
+  "design",
   //
   "instruction"
 ];
@@ -298,3 +349,15 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+td {
+  p {
+    max-width: 128px;
+    max-height: 24px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+</style>

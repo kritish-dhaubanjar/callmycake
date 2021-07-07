@@ -54,13 +54,15 @@ export default {
           id: 1,
           image: "/images/customization/flavors/<type>/001.png",
           icon: "/images/customization/flavor_options/001.png",
-          value: "Top: White/Bottom: White"
+          value: "Top: Whiteforest/Bottom: Whiteforest",
+          rate: 0
         },
         {
           id: 2,
           image: "/images/customization/flavors/<type>/002.png",
           icon: "/images/customization/flavor_options/002.png",
-          value: "Top: Chocolate/Bottom: Chocolate"
+          value: "Top: Chocolate/Bottom: Chocolate",
+          rate: 150
         },
         // {
         //   id: 3,
@@ -78,7 +80,8 @@ export default {
           id: 5,
           image: "/images/customization/flavors/<type>/005.png",
           icon: "/images/customization/flavor_options/005.png",
-          value: "Top: Red Velvet/Bottom: Red Velvet"
+          value: "Top: Red Velvet/Bottom: Red Velvet",
+          rate: 400
         }
       ]
     };
