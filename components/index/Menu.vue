@@ -44,7 +44,11 @@
               <div class="row">
                 <div
                   class="col-6 col-sm-6 col-md-4 col-lg-3"
-                  v-for="cake in cakes.filter(el => {return category._id =='all-categories' ? true : el.category._id == category._id})"
+                  v-for="cake in cakes.filter(el => {
+                    return category._id == 'all-categories'
+                      ? true
+                      : el.category._id == category._id;
+                  })"
                   :key="cake._id"
                 >
                   <Card :_cake="cake" />
@@ -65,10 +69,8 @@ import Card from "@/components/UI/Card";
 export default {
   data() {
     return {
-      categories: [
-        {name: 'All', _id: 'all-categories'},
-      ],
-      cakes: [],
+      categories: [{ name: "All", _id: "all-categories" }],
+      cakes: []
     };
   },
 
@@ -79,21 +81,16 @@ export default {
   },
 
   created() {
-    this.$axios
-      .get('api/collections/get/categories')
-      .then(({ data }) => {
-        this.categories = [
-          {name: 'All', _id: 'all-categories'},
-          ...data.entries,
-        ]
-      });
+    this.$axios.get("api/collections/get/categories").then(({ data }) => {
+      this.categories = [
+        { name: "All", _id: "all-categories" },
+        ...data.entries
+      ];
+    });
 
-
-    this.$axios
-      .get('api/collections/get/cakes')
-      .then(({ data }) => {
-        this.cakes = data.entries;
-      });
+    this.$axios.get("api/collections/get/cakes").then(({ data }) => {
+      this.cakes = data.entries;
+    });
   },
 
   components: {
@@ -110,7 +107,7 @@ export default {
 }
 .nav-link.active {
   background-color: #fff !important;
-  border-radius: 0;
+  border-radius: 10px;
   border: 2px solid !important;
   color: $primary !important;
 }

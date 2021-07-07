@@ -1,14 +1,33 @@
 <template>
   <div class="card mb-4 shadow-sm">
-    <img :src="cake.image ? `${$axios.defaults.baseURL}${cake.image.path}`:'/images/modal_cake.jpg'" class="card-img-top" />
+    <img
+      :src="
+        cake.image
+          ? `${$axios.defaults.baseURL}${cake.image.path}`
+          : '/images/modal_cake.jpg'
+      "
+      class="card-img-top"
+    />
     <div class="card-body text-center">
       <p class="sale fw-bold" v-if="cake.discounted_price">SALE</p>
       <h6 class="card-title">{{ cake.title }}</h6>
       <p class="card-text price fw-bold">
-        <span v-if="cake.discounted_price" class="text-decoration-line-through text-muted"
-          >NPR {{ $utils.npr(parseFloat(cake.price) * parseFloat(cake.variants[0])) }}</span
+        <span
+          v-if="cake.discounted_price"
+          class="text-decoration-line-through text-muted"
+          >NPR
+          {{
+            $utils.npr(parseFloat(cake.price) * parseFloat(cake.variants[0]))
+          }}</span
         >
-        NPR {{ cake.discounted_price ? $utils.npr(parseFloat(cake.discounted_price) * parseFloat(cake.variants[0])) : $utils.npr(parseFloat(cake.price) * parseFloat(cake.variants[0])) }}
+        NPR
+        {{
+          cake.discounted_price
+            ? $utils.npr(
+                parseFloat(cake.discounted_price) * parseFloat(cake.variants[0])
+              )
+            : $utils.npr(parseFloat(cake.price) * parseFloat(cake.variants[0]))
+        }}
       </p>
       <div class="options">
         <!-- <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#detail" @click="setDetailCake">
@@ -50,7 +69,7 @@ export default {
 
     return {
       cake: {
-        ...this._cake,
+        ...this._cake
         // id: "6016607b5bd73b00122003b6",
         // title: "Choc-Honeycomb Ice-Cream Cake",
         // price: 2000,
@@ -137,5 +156,9 @@ export default {
   box-shadow: none !important;
   outline: none !important;
   border-radius: 50em;
+}
+
+.card-img-top {
+  border-radius: 10px;
 }
 </style>

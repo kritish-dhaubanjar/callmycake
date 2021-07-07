@@ -43,8 +43,16 @@
           :class="`All ${slug(item.category.display)}`"
           :href="`${$axios.defaults.baseURL}${item.image.path}`"
         >
-          <img :src="`${$axios.defaults.baseURL}${item.image.path}`" class="d-none" />
-          <div class="position-relative" :style="`background-image: url('${$axios.defaults.baseURL}${item.image.path}')`">
+          <img
+            :src="`${$axios.defaults.baseURL}${item.image.path}`"
+            class="d-none"
+          />
+          <div
+            class="position-relative"
+            :style="
+              `background-image: url('${$axios.defaults.baseURL}${item.image.path}')`
+            "
+          >
             <div class="position-absolute text-center w-100 py-3">
               <h6 class="pb-2">{{ item.title }}</h6>
               <em>{{ item.category.display }}</em>
@@ -77,52 +85,49 @@ export default {
       isotope: null,
       activeTag: "All",
       tags: [],
-      items: [],
+      items: []
     };
   },
 
   mounted() {
-    this.$axios
-      .get('api/collections/get/gallery')
-      .then(({ data }) => {
-        this.items = data.entries;
-        this.tags = this.getUniqueTagsFromItems(data.entries);
-          this.$nextTick(() => {
-            this.isotope = new Isotope(".grid");
-          });
-          this.$nextTick(() => {
-            lightGallery(document.getElementById("lightgallery"), {
-              plugins: [lgZoom, lgThumbnail],
-              speed: 500
-            });
-          });
+    this.$axios.get("api/collections/get/gallery").then(({ data }) => {
+      this.items = data.entries;
+      this.tags = this.getUniqueTagsFromItems(data.entries);
+      this.$nextTick(() => {
+        this.isotope = new Isotope(".grid");
       });
-
+      this.$nextTick(() => {
+        lightGallery(document.getElementById("lightgallery"), {
+          plugins: [lgZoom, lgThumbnail],
+          speed: 500
+        });
+      });
+    });
   },
 
   methods: {
     slug(text) {
-      return text.replace(/ /g, '-');
+      return text.replace(/ /g, "-");
     },
 
     getUniqueTagsFromItems(items) {
-      if( !items || items.length == 0 ) return [];
-      let totalTags = items.reduce((current, prev) => {
-        // return [
-        //   ...current,
-        //   ...prev.tag
-        // ];
-        if(prev.category.display) {
-          return [
-            ...current,
-            prev.category.display
-          ];
-        } else {
-          return current;
-        }
-      },['All']);
+      if (!items || items.length == 0) return [];
+      let totalTags = items.reduce(
+        (current, prev) => {
+          // return [
+          //   ...current,
+          //   ...prev.tag
+          // ];
+          if (prev.category.display) {
+            return [...current, prev.category.display];
+          } else {
+            return current;
+          }
+        },
+        ["All"]
+      );
 
-      return [... new Set(totalTags)];
+      return [...new Set(totalTags)];
     },
 
     filter(tag) {
@@ -148,7 +153,7 @@ export default {
 
 .nav-link.active {
   background-color: #fff !important;
-  border-radius: 0;
+  border-radius: 10px;
   border: 2px solid !important;
   color: $primary !important;
 }
