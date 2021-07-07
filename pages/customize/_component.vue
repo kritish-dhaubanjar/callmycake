@@ -305,15 +305,25 @@ export default {
               this.$axios
                 .post('api/collections/save/custom_orders', { data: newData })
                 .then(({ data }) => {
-                  Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text:
-                      "Your order request has been sent successfully ! We will reach out to you shortly."
-                    // footer: "<a href>Why do I have this issue?</a>"
-                  }).then(() => {
-                    this.$router.replace("/");
-                  });
+
+                  // notify
+                  let formData = new FormData();
+                  formData.append('order_id', data._id);
+                  this.$axios
+                    .post('api/public/customorder', formData)
+                    .then(res => {})
+                    .finally(res => {
+                      Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text:
+                          "Your order request has been sent successfully ! We will reach out to you shortly."
+                        // footer: "<a href>Why do I have this issue?</a>"
+                      }).then(() => {
+                        this.$router.replace("/");
+                      });
+                    });
+
                 });
             }
           });
