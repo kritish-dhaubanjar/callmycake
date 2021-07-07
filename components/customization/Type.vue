@@ -94,9 +94,13 @@
           class="form-control"
           v-model="customPound"
           step="0.5"
+          :min="min"
           placeholder='10" / 48 servings / 1.5 pounds'
         />
-        <span class="input-group-text">Pound</span>
+        <span class="input-group-text fw-bold"
+          >Pound&nbsp;
+          <small>(Min: {{ min }} Pound)</small>
+        </span>
       </div>
     </div>
     <br />
@@ -131,6 +135,7 @@ export default {
   data() {
     return {
       customPound: 1,
+      min: 0.5,
       wide: [{ pound: 1 }, { pound: 2 }, { pound: 3 }],
       tall: [
         { pound: 1, size: '3" tall' },
@@ -149,6 +154,8 @@ export default {
   computed: {
     deck() {
       const deck_option = [{ pound: 1 }, { pound: 3 }, { pound: 5 }];
+      this.min = deck_option[this.cake.layer - 1].pound;
+      this.customPound = this.min;
       return [deck_option[this.cake.layer - 1]];
     },
     cake() {
@@ -162,6 +169,10 @@ export default {
     },
 
     setDesign(option) {
+      if (option !== "layer") {
+        this.min = 1;
+        this.customPound = 1;
+      }
       this.$store.commit("customize/set", { component: "design", option });
       this.$store.commit("customize/set", { component: "layer", option: 1 });
     },
@@ -264,6 +275,6 @@ textarea::placeholder {
 }
 
 .input-group {
-  max-width: 128px;
+  max-width: 256px;
 }
 </style>
