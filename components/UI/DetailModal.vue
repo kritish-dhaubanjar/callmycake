@@ -24,7 +24,7 @@
           <!--  -->
           <div class="modal-body px-0">
             <div class="text-center">
-              <img :src="detailcake.image ? `${$axios.defaults.baseURL}${detailcake.image.path}`:'/images/modal_cake.jpg'" class="img-fluid" />
+              <img :src="detailcake.image ? `${$axios.defaults.baseURL}${detailcake.image.path}`:'/images/modal_cake.jpg'" class="img-fluid" style="max-width: 400px; margin: auto;" />
             </div>
 
             <div class="d-flex justify-content-between align-items-center px-4 pt-3">
