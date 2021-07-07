@@ -1,7 +1,11 @@
 export const state = () => ({
   cake: {
     type: "round",
+    design: "wide",
     layer: 1,
+
+    pound: 1,
+
     base: {
       image: "/images/customization/base/round.png"
     },
@@ -22,7 +26,8 @@ export const state = () => ({
       id: 1,
       image: "/images/customization/flavors/round/001.png",
       icon: "/images/customization/flavor_options/001.png",
-      value: "Top: White/Bottom: White"
+      value: "Top: White/Bottom: White",
+      rate: 0
     },
     topBorder: {
       id: 0,
@@ -50,7 +55,13 @@ export const state = () => ({
       value: "None"
     },
 
-    //
+    // Computed Price
+    price: {
+      pound: 600, //cake.pound * 600
+      flavor: 0 //cake.pound * flavor_rate
+    },
+    // Computed Price
+
     instruction: {
       message: "",
       notes: ""

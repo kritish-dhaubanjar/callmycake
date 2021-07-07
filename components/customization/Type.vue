@@ -1,21 +1,9 @@
 <template>
   <section>
     <h5 class="mb-3">Type</h5>
-
     <div>
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder='10" / 48 servings / 1.5 pounds'
-        />
-        <span class="input-group-text">Size / Diameter / Servings</span>
-      </div>
-    </div>
+      <h6>Shape</h6>
 
-    <br />
-
-    <div>
       <button
         class="btn btn-light"
         @click="setType('round')"
@@ -35,6 +23,29 @@
     <br />
 
     <div>
+      <h6>Design</h6>
+
+      <button
+        class="btn btn-light"
+        @click="setDesign('tall')"
+        :class="{ active: cake.design === 'tall' }"
+      >
+        Tall Design
+      </button>
+      <button
+        class="btn btn-light"
+        @click="setDesign('wide')"
+        :class="{ active: cake.design === 'wide' }"
+      >
+        Wide Design
+      </button>
+    </div>
+
+    <br />
+
+    <div>
+      <h6>Layers</h6>
+
       <button
         class="btn btn-light"
         @click="setLayer(1)"
@@ -57,6 +68,38 @@
         3 Layer
       </button>
     </div>
+
+    <br />
+
+    <div>
+      <h6>Available Pounds/Size</h6>
+      <button
+        v-for="option in this[this.cake.design]"
+        :key="option.pound"
+        class="btn btn-light"
+        @click="customPound = option.pound"
+        :class="{ active: cake.pound == option.pound }"
+      >
+        {{ option.pound }} Pound
+        <span v-if="option.size"> / {{ option.size }} </span>
+      </button>
+    </div>
+    <br />
+
+    <div>
+      <h6>Custom Pound</h6>
+      <div class="input-group mb-3">
+        <input
+          type="number"
+          class="form-control"
+          v-model="customPound"
+          step="0.5"
+          placeholder='10" / 48 servings / 1.5 pounds'
+        />
+        <span class="input-group-text">Pound</span>
+      </div>
+    </div>
+    <br />
 
     <hr />
     <div class="row">
@@ -85,7 +128,29 @@
 
 <script>
 export default {
+  data() {
+    return {
+      customPound: 1,
+      wide: [{ pound: 1 }, { pound: 2 }, { pound: 3 }],
+      tall: [
+        { pound: 1, size: '3" tall' },
+        { pound: 1.5, size: '4.5-5" tall' },
+        { pound: 2, size: '7-8" tall' }
+      ]
+    };
+  },
+
+  watch: {
+    customPound(newVal, oldVal) {
+      this.setPound(newVal);
+    }
+  },
+
   computed: {
+    deck() {
+      const deck_option = [{ pound: 1 }, { pound: 3 }, { pound: 5 }];
+      return [deck_option[this.cake.layer - 1]];
+    },
     cake() {
       return this.$store.getters["customize/cake"];
     }
@@ -96,8 +161,28 @@ export default {
       this.$store.commit("customize/setType", option);
     },
 
+    setDesign(option) {
+      this.$store.commit("customize/set", { component: "design", option });
+      this.$store.commit("customize/set", { component: "layer", option: 1 });
+    },
+
     setLayer(option) {
+      this.$store.commit("customize/set", {
+        component: "design",
+        option: "deck"
+      });
       this.$store.commit("customize/set", { component: "layer", option });
+    },
+
+    setPound(option) {
+      this.$store.commit("customize/set", {
+        component: "price",
+        option: {
+          ...this.cake.price,
+          pound: 600 * option
+        }
+      });
+      this.$store.commit("customize/set", { component: "pound", option });
     }
   }
 };
@@ -150,6 +235,18 @@ input {
   }
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 input,
 textarea {
   color: #000;
@@ -164,5 +261,9 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   color: #d1d1d1;
+}
+
+.input-group {
+  max-width: 128px;
 }
 </style>
