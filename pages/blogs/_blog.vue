@@ -8,7 +8,7 @@
       </div>
 
       <div class="row">
-        <div class="col-12 mb-5">
+        <div class="col-12 mb-5 text-center">
           <img :src="(blog.image) ? `${$axios.defaults.baseURL}${blog.image.path}`: 'https://via.placeholder.com/485x325'" height="500" />
         </div>
 
