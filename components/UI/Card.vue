@@ -6,9 +6,9 @@
       <h6 class="card-title">{{ cake.title }}</h6>
       <p class="card-text price fw-bold">
         <span v-if="cake.discounted_price" class="text-decoration-line-through text-muted"
-          >NPR {{ $utils.npr(cake.price) }}</span
+          >NPR {{ $utils.npr(parseFloat(cake.price) * parseFloat(cake.variants[0])) }}</span
         >
-        NPR {{ cake.discounted_price ? $utils.npr(cake.discounted_price) : $utils.npr(cake.price) }}
+        NPR {{ cake.discounted_price ? $utils.npr(parseFloat(cake.discounted_price) * parseFloat(cake.variants[0])) : $utils.npr(parseFloat(cake.price) * parseFloat(cake.variants[0])) }}
       </p>
       <div class="options">
         <!-- <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#detail" @click="setDetailCake">
