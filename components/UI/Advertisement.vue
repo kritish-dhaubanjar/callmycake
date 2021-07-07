@@ -21,10 +21,7 @@
             <div class="row px-3 text-center">
               <div class="col-12 col-lg-8">
                 <div class="text-center">
-                  <img
-                    :src="popupAdImage"
-                    class="img-fluid"
-                  />
+                  <img :src="popupAdImage" class="img-fluid" />
                 </div>
               </div>
               <div class="col-12 col-lg-4">
@@ -47,7 +44,7 @@
                   Your order will be delivered for you at your location.
                 </div>
 
-                <div class="col-12 pb-3">
+                <div class="col-12 pb-3 mb-sm-5">
                   <button
                     data-bs-dismiss="modal"
                     class="btn btn-advertisement"
@@ -56,6 +53,8 @@
                     Customize Cake
                   </button>
                 </div>
+
+                <div class="mb-5 pb-5 d-md-none d-sm-block" />
               </div>
             </div>
           </div>
@@ -67,7 +66,7 @@
 
 <script>
 export default {
-  props: ['popupAdImage'],
+  props: ["popupAdImage"],
   methods: {
     go() {
       this.$router.push("/customize#top");
