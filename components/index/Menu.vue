@@ -92,7 +92,6 @@ export default {
     this.$axios
       .get('api/collections/get/cakes')
       .then(({ data }) => {
-        console.log(data);
         this.cakes = data.entries;
       });
   },

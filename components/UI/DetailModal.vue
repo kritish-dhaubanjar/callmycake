@@ -195,7 +195,6 @@ export default {
     },
     addToCart() {
       let updated_price = this.price();
-      console.log(this.addons_selected)
       this.$store.commit("add", {
         ...this.detailcake,
         variant_selected: this.detailcake.variants[this.variant_selected],

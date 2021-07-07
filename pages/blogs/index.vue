@@ -60,7 +60,6 @@
         })
         .then(({ data }) => {
           this.blogs = data.entries;
-          console.log(data);
         });
     }
   };

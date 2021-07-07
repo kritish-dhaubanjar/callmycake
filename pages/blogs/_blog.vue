@@ -49,7 +49,6 @@
           filter: {_id: this.$route.params.blog }
         })
         .then(({ data }) => {
-          console.log(data);
           this.blog = data.entries[0] ? data.entries[0] : {};
         });
     }
