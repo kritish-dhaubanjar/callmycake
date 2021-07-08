@@ -302,6 +302,8 @@ export default {
                 cake_image,
                 type: 'Custom Shop',
                 custom_shop_cake_spec: this.cake,
+                estimated_price: this.cake.pound * 600 +
+                            this.cake.pound * this.cake.flavor.rate,
               }
               // finally store order with cake_image
               this.$axios
