@@ -52,7 +52,9 @@
           <p>
             You can customize the centerpiece of any occasion is a thoughtfully
             created, delicious cake. We take the best ingredients and your ideas
-            to create a sweet masterpiece you’ll remember for years to come.
+            to create a sweet masterpiece you’ll remember for years to come. <span class="text text-danger"><small>*ALL IMAGES SHOWN ARE FOR ILLUSTRATION PURPOSE ONLY.
+            ACTUAL PRODUCT MAY VARY.</small></span>
+
           </p>
           <div class="row">
             <div class="col-lg-7">
