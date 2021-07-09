@@ -246,6 +246,12 @@ export default {
                 },
                 {
                   "type": "text",
+                  "name": "flavor",
+                  "label": "Flavor",
+                  "display": "$value"
+                },
+                {
+                  "type": "text",
                   "name": "egg_eggless",
                   "label": "Egg or Eggless",
                   "display": "$value"
@@ -276,6 +282,7 @@ export default {
             qty: el.qty,
             variant: el.variant_selected,
             addons: el.addons_selected ? el.addons_selected.map(el => el.name).join(', ') : '',
+            flavor: el.flavor_selected.value,
             egg_eggless: el.hasEgg ? 'Egg' : 'Eggless',
             message: el.message,
             cake: {

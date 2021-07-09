@@ -160,6 +160,9 @@
                       <input
                         class="form-check-input mt-3"
                         type="radio"
+                        name="flavor"
+                        :value="flavor"
+                        v-model="flavor_selected"
                         id="Small-Red-Rose-Buckey"
                       />
                       <!-- checked -->
@@ -235,6 +238,7 @@ export default {
       hasEgg: true,
       addons_selected: [],
       message: "",
+      flavor_selected: {},
       addons: [
         {
           name: "Snow spray",
@@ -433,7 +437,8 @@ export default {
         addons_selected: [...this.addons_selected],
         message: this.message,
         hasEgg: this.hasEgg,
-        price: updated_price // price value gets updated according to hasEgg, discounted_price, etc
+        price: updated_price, // price value gets updated according to hasEgg, discounted_price, etc
+        flavor_selected: { ...this.flavor_selected },
       });
 
       this.variant_selected = 0;
@@ -454,12 +459,13 @@ export default {
         price = price + 200;
       }
       // base price * number of pounds (taking eggless into account before multiplying)
+      let pound = 1;
       if (
         this.variant_selected >= 0 &&
         this.detailcake.variants &&
         this.detailcake.variants[this.variant_selected]
       ) {
-        const pound = parseFloat(
+        pound = parseFloat(
           this.detailcake.variants[this.variant_selected]
         );
         price = price * pound;
@@ -470,6 +476,14 @@ export default {
         this.addons_selected.forEach(el => {
           price = price + el.price;
         });
+      }
+
+      // flavour
+      if( this.flavor_selected.id) {
+        let index = this.flavors.findIndex(el => el.id == this.flavor_selected.id);
+        if(index > -1) {
+          price = price + this.flavor_selected.rate * pound;
+        }
       }
 
       return String(price);
