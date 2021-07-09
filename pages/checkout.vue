@@ -130,7 +130,6 @@
                       type="time"
                       class="form-control py-2"
                       v-model="order.time"
-                      required
                     />
                   </div>
                 </div>
@@ -199,7 +198,7 @@ export default {
         address: "",
         location: "",
         date: new Date().toISOString().slice(0, 10),
-        time: new Date().toISOString().slice(11, ),
+        time: '',
         notes: ""
       }
     };
@@ -263,6 +262,12 @@ export default {
                   "display": "$value"
                 },
                 {
+                  "type": "text",
+                  "name": "price",
+                  "label": "Price",
+                  "display": "$value"
+                },
+                {
                   "type": "collectionlink",
                   "name": "cake",
                   "label": "Cake",
@@ -285,6 +290,7 @@ export default {
             flavor: el.flavor_selected.value,
             egg_eggless: el.hasEgg ? 'Egg' : 'Eggless',
             message: el.message,
+            price: el.price,
             cake: {
               _id: el._id,
               link: 'cakes',
@@ -295,7 +301,7 @@ export default {
       });
 
       let orderData = null;
-      if(this.$store.getters.discountCoupon) {
+      if(this.$store.getters.discountCoupon._id) {
         let discountCoupon = {
           _id: this.$store.getters.discountCoupon._id,
           link: 'coupons',

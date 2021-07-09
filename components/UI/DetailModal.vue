@@ -442,6 +442,7 @@ export default {
       });
 
       this.variant_selected = 0;
+      this.flavor_selected = {};
       this.hasEgg = true;
       this.message = "";
       this.resetAddons();
