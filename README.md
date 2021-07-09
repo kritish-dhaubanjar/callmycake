@@ -1,6 +1,6 @@
-# nuxt-boilerplate
+# Call My Cake
 
-> My exceptional Nuxt.js project
+![image](https://user-images.githubusercontent.com/25634165/125023596-ee283880-e09e-11eb-9c83-efef3fc5133f.png)
 
 ## Build Setup
 
