@@ -1,6 +1,6 @@
 <template>
   <div id="top">
-    <SideNav :show="show" @hide="show = false" />
+    <SideNav :show="show" @hide="show = false" :contactInfo="contactInfo" />
     <!--  -->
     <main>
       <Offers />
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       show: false,
-      contactInfo: {},
+      contactInfo: {}
     };
   },
 
@@ -46,9 +46,9 @@ export default {
     this.$router.afterEach(() => {
       this.show = false;
     });
-      this.$axios
-        .get('api/singletons/get/footer')
-        .then(({ data }) => this.contactInfo = data);
+    this.$axios
+      .get("api/singletons/get/footer")
+      .then(({ data }) => (this.contactInfo = data));
   },
 
   mounted() {

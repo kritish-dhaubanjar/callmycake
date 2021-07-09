@@ -46,7 +46,9 @@
 
       <li class="list-group-item text-krish-light">
         <i class="las la-phone mr-2" />
-        <a href="tel:011-663531">011-663531</a>
+        <a :href="`tel:${contactInfo.phone_primary}`">
+          <i class="las la-phone" /> {{ contactInfo.phone_primary }}
+        </a>
       </li>
 
       <li class="list-group-item text-krish-light">
@@ -74,7 +76,7 @@
 
 <script>
 export default {
-  props: ["show"],
+  props: ["show", "contactInfo"],
   data() {
     return {
       about: false,
