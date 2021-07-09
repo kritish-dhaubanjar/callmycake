@@ -115,8 +115,10 @@
           <button
             type="submit"
             class="btn btn-dark navigation py-2"
+            :disabled="$store.state.isLoading"
           >
-            <i class="las la-arrow-right"></i>
+            <Loader v-if="$store.state.isLoading" />
+            <i v-else class="las la-arrow-right"></i>
           </button>
         </div>
       </div>
@@ -127,6 +129,7 @@
 
 <script>
 const fileReader = new FileReader();
+import Loader from "@/components/UI/Loader";
 
 export default {
   data() {
@@ -187,6 +190,10 @@ export default {
     placeOrder() {
       this.$emit('addToCart', this.instruction);
     }
+  },
+
+  components: {
+    Loader,
   }
 };
 </script>

@@ -115,8 +115,9 @@
                 </div>
 
                 <div class="col-12 pt-4">
-                  <button class="btn btn-dark px-4 py-3" type="submit">
+                  <button class="btn btn-dark px-4 py-3" type="submit" :disabled="$store.state.isLoading">
                     SEND
+                    <Loader v-if="$store.state.isLoading" />
                   </button>
                 </div>
               </div>
@@ -130,6 +131,7 @@
 
 <script>
 import Swal from "sweetalert2";
+import Loader from "@/components/UI/Loader";
 
 export default {
   head() {
@@ -157,6 +159,7 @@ export default {
 
   methods: {
     submitContactForm() {
+      this.$store.commit('setIsLoading', true);
       this.$axios
         .post('api/collections/save/contact', {data: this.contact})
         .then(({data}) => {
@@ -169,8 +172,15 @@ export default {
           }).then(() => {
             this.$router.replace("/");
           });
+        })
+        .finally(() => {
+          this.$store.commit('setIsLoading', false);
         });
     }
+  },
+
+  components: {
+    Loader,
   }
 };
 </script>

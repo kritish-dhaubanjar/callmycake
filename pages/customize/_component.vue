@@ -278,6 +278,7 @@ export default {
           formData.append('files[]', instr.cake_topper_image);
         }
         //
+        this.$store.commit('setIsLoading', true);
         this.$axios
           .post('api/cockpit/addAssets?token=b25b0bb3eb766c53531916bcf5fd6b', formData)
           .then(({ data }) => {
@@ -317,6 +318,7 @@ export default {
                     .post('api/public/customorder', formData)
                     .then(res => {})
                     .finally(res => {
+                      this.$store.commit('setIsLoading', false);
                       Swal.fire({
                         icon: "success",
                         title: "Success",

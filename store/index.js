@@ -1,4 +1,5 @@
 export const state = () => ({
+  isLoading: false,
   cart: [],
   cake: null,
   //DetailModal
@@ -139,5 +140,9 @@ export const mutations = {
     state.cart = [];
     state.cake = null;
     localStorage.setItem("cart", JSON.stringify(state.cart));
+  },
+
+  setIsLoading(state, payload) {
+    state.isLoading = payload ? true : false;
   }
 };

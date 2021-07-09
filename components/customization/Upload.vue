@@ -81,8 +81,10 @@
               <button
                 class="btn btn-dark px-4 py-3"
                 type="submit"
+                :disabled="$store.state.isLoading"
               >
                 REQUEST ORDER
+                <Loader v-if="$store.state.isLoading" />
               </button>
             </div>
           </div>
@@ -103,6 +105,7 @@
 
 <script>
 import Swal from "sweetalert2";
+import Loader from "@/components/UI/Loader";
 
 const fileReader = new FileReader();
 
@@ -147,6 +150,7 @@ export default {
       if(this.cake_image) {
         let formData = new FormData();
         formData.append('files[]', this.cake_image);
+        this.$store.commit('setIsLoading', true);
         this.$axios
           .post('api/cockpit/addAssets?token=b25b0bb3eb766c53531916bcf5fd6b', formData)
           .then(({ data }) => {
@@ -165,6 +169,7 @@ export default {
                     .post('api/public/customorder', formData)
                     .then(res => {})
                     .finally(res => {
+                      this.$store.commit('setIsLoading', false);
                       Swal.fire({
                         icon: "success",
                         title: "Success",
@@ -173,13 +178,17 @@ export default {
                         // footer: "<a href>Why do I have this issue?</a>"
                       }).then(() => {
                         this.$router.replace("/");
-                      }); 
+                      });
                     });
                 });
             }
           });
       }
     }
+  },
+
+  components: {
+    Loader,
   }
 };
 </script>
