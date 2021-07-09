@@ -45,7 +45,6 @@
       >
 
       <li class="list-group-item text-krish-light">
-        <i class="las la-phone mr-2" />
         <a :href="`tel:${contactInfo.phone_primary}`">
           <i class="las la-phone" /> {{ contactInfo.phone_primary }}
         </a>
