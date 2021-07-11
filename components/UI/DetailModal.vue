@@ -153,7 +153,7 @@
                 <div class="row">
                   <div
                     class="col-12 col-lg-4 mb-2"
-                    v-for="flavor in flavors"
+                    v-for="(flavor, i) in flavors"
                     :key="flavor.id"
                   >
                     <div class="form-check form-switch">
@@ -163,12 +163,12 @@
                         name="flavor"
                         :value="flavor"
                         v-model="flavor_selected"
-                        id="Small-Red-Rose-Buckey"
+                        :id="`flavor-${i}`"
                       />
                       <!-- checked -->
                       <label
                         class="form-check-label"
-                        for="Small-Red-Rose-Buckey"
+                        :for="`flavor-${i}`"
                       >
                         <div class="d-flex">
                           <div>
