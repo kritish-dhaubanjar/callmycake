@@ -21,13 +21,7 @@
           }}</span
         >
         NPR
-        {{
-          cake.discounted_price
-            ? $utils.npr(
-                parseFloat(cake.discounted_price) * parseFloat(cake.variants[0])
-              )
-            : $utils.npr(parseFloat(cake.price) * parseFloat(cake.variants[0]))
-        }}
+        {{ updatedPrice }}
       </p>
       <div class="options">
         <!-- <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#detail" @click="setDetailCake">
@@ -69,14 +63,14 @@ export default {
 
     return {
       cake: {
-        ...this._cake
+        ...this._cake,
         // id: "6016607b5bd73b00122003b6",
         // title: "Choc-Honeycomb Ice-Cream Cake",
         // price: 2000,
         // oldPrice: sale ? 1800 : 2000,
         // image: "/images/cake_sample.jpg",
         // sale: sale
-      }
+      },
     };
   },
 
@@ -91,8 +85,30 @@ export default {
 
     setDetailCake() {
       this.$store.commit("setDetailCake", this.cake);
-    }
-  }
+    },
+  },
+
+  computed: {
+    updatedPrice() {
+      let price = this.cake.discounted_price
+        ? parseFloat(this.cake.discounted_price) *
+          parseFloat(this.cake.variants[0])
+        : parseFloat(this.cake.price) * parseFloat(this.cake.variants[0]);
+
+      if (this.cake.default_flavour && this.cake.default_flavour != "") {
+        const index = this.$utils.flavours.findIndex(
+          (el) => el.value == this.cake.default_flavour
+        );
+        if (index > -1) {
+          price =
+            price +
+            parseFloat(this.$utils.flavours[index].rate) *
+              parseFloat(this.cake.variants[0]);
+        }
+      }
+      return this.$utils.npr(price);
+    },
+  },
 };
 </script>
 

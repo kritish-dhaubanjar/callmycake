@@ -30,12 +30,18 @@
                     ? `${$axios.defaults.baseURL}${detailcake.image.path}`
                     : '/images/modal_cake.jpg'
                 "
-                class="img-fluid "
+                class="img-fluid"
               />
             </div>
 
             <div
-              class="d-flex justify-content-between align-items-center px-4 pt-3"
+              class="
+                d-flex
+                justify-content-between
+                align-items-center
+                px-4
+                pt-3
+              "
             >
               <h5 class="cake price fw-bold">
                 {{ detailcake.category ? detailcake.category.display : "" }}
@@ -53,9 +59,7 @@
                   <div
                     class="d-flex justify-content-between align-items-center"
                   >
-                    <h6 class="cake mb-0">
-                      Variants (in pounds)
-                    </h6>
+                    <h6 class="cake mb-0">Variants (in pounds)</h6>
                   </div>
                   <small class="text-muted">Select one</small>
                   <div class="my-3 pounds">
@@ -75,9 +79,7 @@
                   <div
                     class="d-flex justify-content-between align-items-center"
                   >
-                    <h6 class="cake mb-0">
-                      Egg or Egless
-                    </h6>
+                    <h6 class="cake mb-0">Egg or Egless</h6>
                   </div>
                   <small class="text-muted">Select one</small>
                   <div class="my-3 pounds">
@@ -166,10 +168,7 @@
                         :id="`flavor-${i}`"
                       />
                       <!-- checked -->
-                      <label
-                        class="form-check-label"
-                        :for="`flavor-${i}`"
-                      >
+                      <label class="form-check-label" :for="`flavor-${i}`">
                         <div class="d-flex">
                           <div>
                             <img
@@ -244,144 +243,40 @@ export default {
           name: "Snow spray",
           img: "/images/addons/Snow%20Spray.png",
           price: 120,
-          selected: false
+          selected: false,
         },
         {
           name: "Birthday cake topper",
           img: "/images/addons/Birthday%20cake%20topper.png",
           price: 200,
-          selected: false
+          selected: false,
         },
         {
           name: "Red rose boque (10 roses)",
           img: "/images/addons/Red%20Roses%20Boque.png",
           price: 700,
-          selected: false
+          selected: false,
         },
         {
           name: "Party poppers (size M)",
           img: "/images/addons/party%20Popper.png",
           price: 200,
-          selected: false
+          selected: false,
         },
         {
           name: "Sparkling candle",
           img: "/images/addons/Sparkling%20Candle.png",
           price: 50,
-          selected: false
+          selected: false,
         },
         {
           name: "Magic candle",
           img: "/images/addons/Magic%20Candle.png",
           price: 30,
-          selected: false
-        }
+          selected: false,
+        },
       ],
-      flavors: [
-        // {
-        //   id: 1,
-        //   image: "/images/customization/flavors/<type>/001.png",
-        //   icon: "/images/customization/flavor_options/001.png",
-        //   value: "Top: White/Bottom: White",
-        //   rate: 0
-        // },
-        // {
-        //   id: 2,
-        //   image: "/images/customization/flavors/<type>/002.png",
-        //   icon: "/images/customization/flavor_options/002.png",
-        //   value: "Top: Chocolate/Bottom: Chocolate",
-        //   rate: 150
-        // },
-        // {
-        //   id: 3,
-        //   image: "/images/customization/flavors/<type>/003.png",
-        //   icon: "/images/customization/flavor_options/003.png",
-        //   value: "Top: White/Bottom: Chocolate"
-        // },
-        // {
-        //   id: 4,
-        //   image: "/images/customization/flavors/<type>/004.png",
-        //   icon: "/images/customization/flavor_options/004.png",
-        //   value: "Top: Chocolate/Bottom: White"
-        // },
-        {
-          id: 5,
-          image: "/images/customization/flavors/<type>/005.png",
-          icon: "/images/customization/flavor_options/005.png",
-          value: "Red Velvet",
-          rate: 400
-        },
-        {
-          id: 6,
-          image: "/images/customization/flavors/<type>/006.png",
-          icon: "/images/customization/flavor_options/006.png",
-          value: "Black Forest",
-          rate: 0
-        },
-        {
-          id: 7,
-          image: "/images/customization/flavors/<type>/007.png",
-          icon: "/images/customization/flavor_options/007.png",
-          value: "Blueberry",
-          rate: 100
-        },
-        {
-          id: 8,
-          image: "/images/customization/flavors/<type>/008.png",
-          icon: "/images/customization/flavor_options/008.png",
-          value: "Butter Scotch",
-          rate: 100
-        },
-        {
-          id: 9,
-          image: "/images/customization/flavors/<type>/009.png",
-          icon: "/images/customization/flavor_options/009.png",
-          value: "Chocolate",
-          rate: 150
-        },
-        {
-          id: 10,
-          image: "/images/customization/flavors/<type>/010.png",
-          icon: "/images/customization/flavor_options/010.png",
-          value: "Chocolate Truffel",
-          rate: 400
-        },
-        {
-          id: 11,
-          image: "/images/customization/flavors/<type>/011.png",
-          icon: "/images/customization/flavor_options/011.png",
-          value: "Mocha",
-          rate: 200
-        },
-        {
-          id: 12,
-          image: "/images/customization/flavors/<type>/012.png",
-          icon: "/images/customization/flavor_options/012.png",
-          value: "Oreo",
-          rate: 200
-        },
-        {
-          id: 13,
-          image: "/images/customization/flavors/<type>/013.png",
-          icon: "/images/customization/flavor_options/013.png",
-          value: "Vanilla",
-          rate: 0
-        },
-        {
-          id: 14,
-          image: "/images/customization/flavors/<type>/014.png",
-          icon: "/images/customization/flavor_options/014.png",
-          value: "White Chocolate",
-          rate: 300
-        },
-        {
-          id: 15,
-          image: "/images/customization/flavors/<type>/015.png",
-          icon: "/images/customization/flavor_options/015.png",
-          value: "White Forest",
-          rate: 0
-        }
-      ]
+      flavors: this.$utils.flavours,
     };
   },
 
@@ -392,42 +287,42 @@ export default {
           name: "Snow spray",
           img: "/images/addons/Snow%20Spray.png",
           price: 120,
-          selected: false
+          selected: false,
         },
         {
           name: "Birthday cake topper",
           img: "/images/addons/Birthday%20cake%20topper.png",
           price: 200,
-          selected: false
+          selected: false,
         },
         {
           name: "Red rose boque (10 roses)",
           img: "/images/addons/Red%20Roses%20Boque.png",
           price: 700,
-          selected: false
+          selected: false,
         },
         {
           name: "Party poppers (size M)",
           img: "/images/addons/party%20Popper.png",
           price: 200,
-          selected: false
+          selected: false,
         },
         {
           name: "Sparkling candle",
           img: "/images/addons/Sparkling%20Candle.png",
           price: 50,
-          selected: false
+          selected: false,
         },
         {
           name: "Magic candle",
           img: "/images/addons/Magic%20Candle.png",
           price: 30,
-          selected: false
-        }
+          selected: false,
+        },
       ];
     },
     updateSelectedAddons() {
-      this.addons_selected = this.addons.filter(el => el.selected);
+      this.addons_selected = this.addons.filter((el) => el.selected);
     },
     addToCart() {
       let updated_price = this.price();
@@ -466,37 +361,58 @@ export default {
         this.detailcake.variants &&
         this.detailcake.variants[this.variant_selected]
       ) {
-        pound = parseFloat(
-          this.detailcake.variants[this.variant_selected]
-        );
+        pound = parseFloat(this.detailcake.variants[this.variant_selected]);
         price = price * pound;
       }
 
       // addons selected
       if (this.addons_selected.length > 0) {
-        this.addons_selected.forEach(el => {
+        this.addons_selected.forEach((el) => {
           price = price + el.price;
         });
       }
 
       // flavour
-      if( this.flavor_selected.id) {
-        let index = this.flavors.findIndex(el => el.id == this.flavor_selected.id);
-        if(index > -1) {
+      if (this.flavor_selected.id) {
+        let index = this.flavors.findIndex(
+          (el) => el.id == this.flavor_selected.id
+        );
+        if (index > -1) {
           price = price + this.flavor_selected.rate * pound;
         }
       }
 
       return String(price);
-    }
+    },
   },
   computed: {
     detailcake() {
       return this.$store.getters.detailcake
         ? { ...this.$store.getters.detailcake }
         : {};
-    }
-  }
+    },
+  },
+
+  watch: {
+    detailcake(newCake, oldCake) {
+      console.log("DETAIL CAKE CHANGE !!");
+      if (newCake.default_flavour && newCake.default_flavour != "") {
+        const index = this.$utils.flavours.findIndex(
+          (el) => el.value == newCake.default_flavour
+        );
+        this.flavor_selected =
+          index > -1 ? { ...this.$utils.flavours[index] } : {};
+      } else {
+        this.flavor_selected = {};
+      }
+
+      // reset all values set when opening model previously,
+      this.addons_selected = [];
+      this.addons.forEach((el) => {
+        el.selected = false;
+      });
+    },
+  },
 };
 </script>
 
