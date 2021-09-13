@@ -1,5 +1,5 @@
 <template>
-  <div class="card mb-4 shadow-sm">
+  <div class="card shadow-sm h-100">
     <img
       :src="
         cake.image
@@ -63,14 +63,14 @@ export default {
 
     return {
       cake: {
-        ...this._cake,
+        ...this._cake
         // id: "6016607b5bd73b00122003b6",
         // title: "Choc-Honeycomb Ice-Cream Cake",
         // price: 2000,
         // oldPrice: sale ? 1800 : 2000,
         // image: "/images/cake_sample.jpg",
         // sale: sale
-      },
+      }
     };
   },
 
@@ -85,7 +85,7 @@ export default {
 
     setDetailCake() {
       this.$store.commit("setDetailCake", this.cake);
-    },
+    }
   },
 
   computed: {
@@ -97,7 +97,7 @@ export default {
 
       if (this.cake.default_flavour && this.cake.default_flavour != "") {
         const index = this.$utils.flavours.findIndex(
-          (el) => el.value == this.cake.default_flavour
+          el => el.value == this.cake.default_flavour
         );
         if (index > -1) {
           price =
@@ -107,8 +107,8 @@ export default {
         }
       }
       return this.$utils.npr(price);
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -176,5 +176,8 @@ export default {
 
 .card-img-top {
   border-radius: 10px;
+  height: 256px;
+  max-height: 256px;
+  object-fit: cover;
 }
 </style>

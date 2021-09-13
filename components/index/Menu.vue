@@ -71,7 +71,7 @@
               <!--  -->
               <div class="row">
                 <div
-                  class="col-6 col-sm-6 col-md-4 col-lg-3"
+                  class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4"
                   v-for="cake in cakes.filter((el) => {
                     return category._id == 'all-categories'
                       ? true
@@ -89,7 +89,7 @@
           <div class="search-results py-5" v-show="search">
             <div class="row">
               <div
-                class="col-6 col-sm-6 col-md-4 col-lg-3"
+                class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4"
                 v-for="cake in filteredCakes"
                 :key="cake._id"
               >
