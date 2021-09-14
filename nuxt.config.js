@@ -1,5 +1,6 @@
 export default {
   ssr: false,
+  target: "static",
   server: {
     host: "0.0.0.0"
   },
@@ -51,8 +52,14 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    "@nuxtjs/axios"
+    "@nuxtjs/axios",
+    // Doc: https://sentry.nuxtjs.org/guide/setup
+    "@nuxtjs/sentry"
   ],
+  sentry: {
+    dsn:
+      "https://e93d6c36032542828117806f46401c24@o999172.ingest.sentry.io/5958073"
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
