@@ -58,7 +58,18 @@ export default {
   ],
   sentry: {
     dsn:
-      "https://e93d6c36032542828117806f46401c24@o999172.ingest.sentry.io/5958073"
+      "https://e93d6c36032542828117806f46401c24@o999172.ingest.sentry.io/5958073",
+    disabled: false,
+    config: {
+      environment: "development"
+    },
+    tracing: true,
+    clientConfig: {
+      beforeSend(event) {
+        return event;
+      },
+      release: `callmycake@1.0.0`
+    }
   },
   /*
    ** Axios module configuration
