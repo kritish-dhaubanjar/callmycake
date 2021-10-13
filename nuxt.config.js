@@ -61,7 +61,7 @@ export default {
       "https://e93d6c36032542828117806f46401c24@o999172.ingest.sentry.io/5958073",
     disabled: false,
     config: {
-      environment: "development"
+      environment: "production"
     },
     tracing: true,
     clientConfig: {
