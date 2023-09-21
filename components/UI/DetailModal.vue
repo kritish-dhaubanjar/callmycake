@@ -79,7 +79,7 @@
                   <div
                     class="d-flex justify-content-between align-items-center"
                   >
-                    <h6 class="cake mb-0">Egg or Egless</h6>
+                    <h6 class="cake mb-0">Egg or Eggless</h6>
                   </div>
                   <small class="text-muted">Select one</small>
                   <div class="my-3 pounds">
